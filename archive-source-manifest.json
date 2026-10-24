@@ -3741,11 +3741,6 @@
       "sha256": "de60df947b7b7fd87df95bb15b54689a582c2c66e81758981d722a3117801cb6",
       "server_source": "/home/zzj/competitions/lingbot/runs/finetuned-step20000-clean-randomized-50x10-20261023/preparation/model-source.json"
     },
-    "code/tools/clean-quick-baseline-20261016/README.md": {
-      "bytes": 12129,
-      "sha256": "48e79a0624f079a2bb34af30d61eee37a22d05171f461624a5ebcf9a2e70d393",
-      "server_source": "/home/zzj/competitions/lingbot/tools/clean-quick-baseline-20261016/README.md"
-    },
     "code/tools/clean-quick-baseline-20261016/check_session_isolation.py": {
       "bytes": 2714,
       "sha256": "de93317b11ed30cff3449319e337b3ec3ecf525b17862c852ce5a75e6491f491",
@@ -12718,5 +12713,52 @@
     }
   },
   "correction": "Removed superseded randomized+seen current-tree results; retained byte-exact clean data and added real unseen rerun.",
-  "previous_manifest_commit": "47caa7914c901ebbc25280479c31dad5a0824af8"
+  "previous_manifest_commit": "47caa7914c901ebbc25280479c31dad5a0824af8",
+  "editorial_overrides": {
+    "README.md": {
+      "previous_sha256": "fa96e6654754b1219af6242a39919274555f79ff7e86e99cbeeaea81a2ff10a7",
+      "new_sha256": "bffcf2ba1eddf649692fc163e1b30fc3b3bc16ce52c55b1b142b61b6dee3e409"
+    },
+    "docs/REPRODUCTION.md": {
+      "previous_sha256": "4d1d99a38c6cf3ee7e4c613fc43aebab3c3ed2b35c729f18c0ff87d1d16025fd",
+      "new_sha256": "14866106dac2a4879fdad9e990b54bfb47e6fd8e9947033f2b1621ddad6714be"
+    },
+    "docs/20000步更正后评测结果.md": {
+      "previous_sha256": "f35d0417c1c33c02b0b14e77732e7bb43b77f33ea6432aca8216f3ca01949600",
+      "new_sha256": "88eff7872a326a67700fc242c6edda693c2c0c404475193b2ec5f21b1e163c25"
+    },
+    "models/README.md": {
+      "previous_sha256": "b64f662d8646c12b811c13ef4ba5b478aac6fc71b7b97c1aa49fb2b3a40c912b",
+      "new_sha256": "a382bbe917d3d91724001ec68e3ae6412f10c14056ad316b8f1d7b80c18b16ca"
+    },
+    "results/README.md": {
+      "previous_sha256": null,
+      "new_sha256": "7c15271c787dbbf57b1b078fb23eb259d27559d7bac98a95e305a996213f4952"
+    },
+    "code/tools/clean-quick-baseline-20261016/README.md": {
+      "previous_sha256": "48e79a0624f079a2bb34af30d61eee37a22d05171f461624a5ebcf9a2e70d393",
+      "new_sha256": "fdeb2230fc6e076edc822bf36c560b382b003fa0b21e077ebfdbd75ba40c89a0",
+      "original_server_record": {
+        "bytes": 12129,
+        "sha256": "48e79a0624f079a2bb34af30d61eee37a22d05171f461624a5ebcf9a2e70d393",
+        "server_source": "/home/zzj/competitions/lingbot/tools/clean-quick-baseline-20261016/README.md"
+      }
+    },
+    "code/tools/clean-checkpoint-eval-20261017/README.md": {
+      "previous_sha256": null,
+      "new_sha256": "680ebcfcedf848980f5aec54049504af0c0e5c6dda53cb850b114c144132f743"
+    },
+    "code/tools/finetune-clean-v3-gb10/README.md": {
+      "previous_sha256": null,
+      "new_sha256": "0acbe4d0ceb0c356fd80ea71259a8b34808edd4fe0903d58e0fe04538683beef"
+    },
+    "code/tools/finetune-clean-v3-gb10-continue20000-20261018/README.md": {
+      "previous_sha256": null,
+      "new_sha256": "1f6352fe9f905a738c594f14af107499f484f951824732b6e0ce7c3cecc49e9b"
+    },
+    "code/tools/randomized-unseen-rerun-20261024/README.md": {
+      "previous_sha256": "d7353ca67aa3cac8223e5fda8cf8ef4f189ae56c6e7051ea4238fb3cb6c2a804",
+      "new_sha256": "36f5899a22ab9267193520d056d435af5ba6067ed2a701050b57adf4da6eb8b2"
+    }
+  }
 }

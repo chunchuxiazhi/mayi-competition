@@ -1,44 +1,76 @@
-# mayi-competition
-蚂蚁灵波具身智能比赛的相关材料
+# 灵波具身智能比赛：训练与仿真评测
 
-归档比赛指定原始预训练模型`robbyant/lingbot-vla-v2-6b`的GB10适配、50任务clean联合微调，以及预训练、10000步和20000步模型的仿真快速评测。未使用官方RoboTwin后训练模型。
+本项目记录“连仿真都做不到的话”团队在 NVIDIA GB10 单机上完成的模型适配、50任务联合微调与 RoboTwin 仿真评测。模型从比赛指定的 `robbyant/lingbot-vla-v2-6b` 原始预训练权重初始化，使用规定的 clean 数据训练至累计20,000个优化器更新步骤。
 
-## 快速评测结果
+本次提交材料对应 **20,000步模型、clean＋seen 与 randomized＋unseen**。预训练模型和10,000步模型的 clean 结果作为历史对照单独保留。
 
-每组覆盖50任务，每任务10个计划回合。clean使用seen；20000步randomized使用重新实测的unseen。成功率按实际有效策略回合计算；专家阻塞和异常单独记录。
+## 本次模型及评测结果
 
-|模型|场景|计划槽位|有效回合|成功|有效回合成功率|专家阻塞|策略异常栏|
+评测覆盖官方50个任务，每个任务、每种场景计划测试10回合。成功率按实际有效策略回合计算：成功和正常失败均计入分母；专家预检查阻塞、场景初始化异常和中断分别记录。
+
+|场景配置|指令类型|计划回合|有效策略回合|成功次数|有效回合成功率|专家阻塞|场景异常|
 |---|---|---:|---:|---:|---:|---:|---:|
-|原始预训练|clean|500|459|43|9.37%|41|0|
-|10000步|clean|500|458|43|9.39%|42|0|
-|20000步|clean|500|455|65|14.29%|45|0|
-|20000步|randomized + unseen|500|423|43|10.17%|76|1|
+|`demo_clean`|`seen`|500|455|65|14.29%|45|0|
+|`demo_randomized`|`unseen`|500|423|43|10.17%|76|1|
 
-20000步两场景合计878有效回合、108成功。原randomized+seen实验已从当前材料中移除，替换为真实unseen重测，未把旧结果简单改标签。clean结果逐字节保留。唯一记入策略异常栏的情况实际发生于场景初始化时物体不稳定；不能等同于模型推理崩溃。预训练组保留1次历史中断记录，但无未收尾回合。不同组有效回合集合有差别，表格是汇总比较，不冒充严格配对结论。
+两组共处理1,000个计划槽位，形成878个有效策略回合，其中108次成功。另有121个专家预检查阻塞槽位和1次场景初始化异常，未形成有效策略结果。上述成功率描述有效回合集合，并非对全部计划回合或官方复测成绩的估计。
 
-这是每任务10次计划的快速评测，未在天池提交。官方最新Q&A说明受算力或时间限制时可以按实测次数提交，最终以官方复测为准。121个专家阻塞槽位及1个场景异常没有产生有效策略结果，不能把1000个已处理槽位称为1000个有效回合。最新Q&A要求专家采集失败不阻止策略测试，现有元数据依赖仍存在未解决的流程差异，见复现说明。
+randomized 结果来自重新执行的 unseen 评测。配置、客户端传参、官方指令池选择与结果记录均使用 unseen，每个有效回合保存实际指令和候选池校验值。此前使用 seen 的随机场景结果已从当前材料移除；clean 原始记录保持不变。
 
-逐任务对比见[comparison-per-task.csv](results/comparison-per-task.csv)，总表见[summary.csv](results/summary.csv)。合并结果见[results.json](results/results.json)，其源文件SHA见[aggregation-manifest.json](results/aggregation-manifest.json)。clean与unseen原始逐回合、专家检查、实际指令、seed、步数和异常均保存在[results](results)。JSON仍是本项目的quick导出，正式官方字段模板尚待登录取得并转换。
+结果入口：
+
+- [合并结果 JSON](results/results.json)：50任务、两种场景的实际次数、成功次数及逐回合记录。
+- [逐任务对比表](results/comparison-per-task.csv)与[汇总表](results/summary.csv)：包括历史 clean 对照。
+- [结果来源清单](results/aggregation-manifest.json)：合并结果与两份来源文件的 SHA256。
+- [评测说明](docs/20000步更正后评测结果.md)：计数口径、异常分类及验证依据。
+
+## 历史 clean 对照
+
+|模型|指令类型|计划回合|有效策略回合|成功次数|有效回合成功率|
+|---|---|---:|---:|---:|---:|
+|原始预训练模型|seen|500|459|43|9.37%|
+|10,000步模型|seen|500|458|43|9.39%|
+
+各组实际有效回合集合有所不同，因此这些汇总数字不构成严格配对实验，也不单独证明训练步数与性能变化之间的因果关系。
+
+## 训练和推理设置
+
+- **数据**：Aloha-AgileX 的50个任务 clean V3数据，每任务50条演示，共2,500条、548,893帧；randomized 数据未参与训练。
+- **模型**：总规模约6.376B，可训练参数约1.938B。冻结 Qwen 骨干参数，视觉分支仍参与前向计算；模型结构未裁减为2B。
+- **训练**：微批量1、梯度累积8、有效批量8，AdamW，启用梯度检查点。先训练至10,000步，再恢复完整状态续训至20,000步。
+- **评测**：同一份20,000步权重，FP32、eager attention、关闭 compile。两路仿真会话共享一个推理服务，请求串行执行，不自动合批；会话状态、随机数和输出目录隔离。
+- **硬件**：ARM64 Linux、NVIDIA GB10，约119.7GiB统一内存。系统内存与GPU使用同一物理内存池，资源统计不重复相加。
+
+详细配置与保存方式见[实验报告](docs/EXPERIMENT_REPORT.md)和[复现说明](docs/REPRODUCTION.md)。
 
 ## 模型权重
 
-- [10000步Release](https://github.com/chunchuxiazhi/mayi-competition/releases/tag/lingbot-step-10000)：约25.52GB的完整HF推理导出。
-- [20000步Release](https://github.com/chunchuxiazhi/mayi-competition/releases/tag/lingbot-step-20000)：约25.52GB的完整HF推理导出。
+20,000步模型为本次提交模型，完整 HF 推理导出约25.52GB，含六个权重文件、模型配置、tokenizer 和 processor。
 
-每份含完整模型、tokenizer、processor和配置，大张量分片均小于2GiB，附SHA256。Release只有在全部资产完成校验后才发布；如果链接尚不可见，表示模型归档还未发布，不能仅凭仓库清单视为已上传完成。
+- [20,000步权重 Release](https://github.com/chunchuxiazhi/mayi-competition/releases/tag/lingbot-step-20000)：已完成上传与资产校验。
+- [10,000步对照权重 Release](https://github.com/chunchuxiazhi/mayi-competition/releases/tag/lingbot-step-10000)：完整上传并校验后公开；以 Release 页面可见状态为准。
 
-下载与恢复见[models/README.md](models/README.md)。本仓库只归档上述两份推理权重，不含优化器等完整续训状态，不含其他训练步数的权重。
+大权重通过 Release 分片分发，普通 Git 仓库保存清单及小型元数据。下载、合并与 SHA256 校验方法见[模型说明](models/README.md)。两份 HF 导出均不含优化器、数据游标或随机数恢复状态。
 
-## 复现文件
+## 仓库结构
 
-- [code](code)：训练、评测、会话隔离、保存和端口等待代码，及实际安装的上游文本源码快照。20000步评测入口已替换为[randomized-unseen-rerun-20261024](code/tools/randomized-unseen-rerun-20261024)。
-- [training](training)：10000/20000步阶段冻结配置、选择的clean演示索引、恢复和加载验证记录。
-- [environment](environment)：VLA和仿真两个环境的包版本。
-- [docs/REPRODUCTION.md](docs/REPRODUCTION.md)：目录映射、资源需求和复现限制；[docs/server-audits](docs/server-audits)保留适配审查和原始检查报告。
-- [archive-source-manifest.json](archive-source-manifest.json)：从服务器取回的原始文件路径、尺寸和SHA256。归档区禁用Git换行转换，服务器快照字节可直接核验；后续修改应另行记录，不能覆盖历史来源指纹。
+|目录或文件|用途|
+|---|---|
+|[results](results)|实际评测结果、原始事件日志与来源校验|
+|[code/tools](code/tools)|训练适配、评测、保存恢复与会话隔离工具|
+|[code/runtime-source](code/runtime-source)|实际安装的上游文本源码快照|
+|[training](training)|两个训练阶段的冻结配置及恢复、导出核验记录|
+|[environment](environment)|模型与仿真环境的包版本记录|
+|[docs](docs)|实验报告、复现说明与历史适配审查|
+|[models](models)|权重清单、配置与下载说明|
+|[licenses](licenses)|上游组件许可|
 
-原服务器为ARM64 Linux + NVIDIA GB10。模型服务采用FP32/eager、关闭compile；两路worker共享同一模型，推理串行，无自动合批。模型总规模约6.376B，训练冻结Qwen骨干、约1.938B可训练；冻结视觉权重不代表关闭视觉前向。训练数据为50任务clean V3各50条演示，有效batch=8（微批1、梯度累积8）。
+[源文件清单](archive-source-manifest.json)记录服务器原始文件的路径、大小和 SHA256。历史原始记录保留当时内容；本次校订过的说明文档另列编辑记录，不覆盖原实验数据或校验值。
 
-不上传训练数据、仿真大型资产、依赖环境、缓存、帧图片或视频；在新机器上仍需按官方来源取得这些依赖。源记录保留原服务器绝对路径，需要重新部署和验证，不能视为开箱即用的跨平台安装包。
+## 提交状态与已知限制
 
-上游源码来源及许可见[licenses](licenses)。归一化统计方法尚未获官方单独确认；专家采集与策略测试分别计数，未解决的阻塞如实披露，不自行宣布已获赛事逐项确认。
+官方 Q&A 建议尽量完成每任务、每场景100次测试；受时间或算力限制时按实测次数填写，最终以官方复测为准。本项目当前提供每任务10个计划回合的快速评测。
+
+当前仍需关注三项具体问题：官方 JSON 字段模板尚待登录下载并核对；现有专家预检查对场景元数据的依赖导致部分 policy 测试未能执行，与官方“采集失败后仍继续策略测试”的要求存在流程差异；在新机器上还需部署外部资源并验证 HF-only 来源检查入口。clean 归一化统计已有数据来源证据，所用统计方法尚未获得赛事方单独确认。
+
+这些情况均在材料中披露。仓库更新与压缩包生成不代表已完成天池提交，详见[提交材料说明](docs/SUBMISSION_GUIDE.md)。

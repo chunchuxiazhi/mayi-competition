@@ -1,0 +1,30 @@
+{
+  "editorial_date": "2026-10-24",
+  "maintained_markdown_files_checked": 12,
+  "relative_links_checked": 20,
+  "final_model_step": 20000,
+  "clean": {
+    "instruction_type": "seen",
+    "valid": 455,
+    "successes": 65
+  },
+  "randomized": {
+    "instruction_type": "unseen",
+    "valid": 423,
+    "successes": 43
+  },
+  "combined": {
+    "planned": 1000,
+    "valid": 878,
+    "successes": 108
+  },
+  "runtime_code_frozen_configs_raw_results_and_model_metadata_unchanged": true,
+  "original_server_files_sha256_verified": 2542,
+  "historical_records_preserved": true,
+  "official_json_template_verified": false,
+  "simulation_or_training_started": false,
+  "model_release_snapshot": {
+    "step20000": "published_verified",
+    "step10000": "upload_in_progress_at_review"
+  }
+}
