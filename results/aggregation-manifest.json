@@ -1,7 +1,7 @@
 {
   "training_step": 20000,
   "same_policy_weights": true,
-  "official_schema_verified": false,
+  "official_schema_verified": true,
   "sources": {
     "step20000-clean/results.json": {
       "sha256": "0d4d5594d29fa9b0f0ef8d6c8d92a527341685489255b72512b9e0679e05b960"
@@ -10,7 +10,7 @@
       "sha256": "cf5f0277880d07fc4d6afc3a6bbfc11e63d9aba6046c6069f3d46c2ed8c44158"
     }
   },
-  "combined_sha256": "939a5c2bc08016cc29fb9e355fa9bcb9b28c6b6e317769cda707dc5cbd6b6821",
+  "combined_sha256": "de7c0f78c8f7cd46ee03bc30371e45ad36bb6549a2ea9ffc02fcdedb5e6c59fc",
   "clean_instruction_type": "seen",
   "randomized_instruction_type": "unseen",
   "planned": 1000,
@@ -19,5 +19,12 @@
   "expert_blocked": 121,
   "policy_exceptions": 1,
   "old_randomized_experiment_removed_from_current_tree": true,
-  "no_new_simulation_or_training": true
+  "no_new_simulation_or_training": true,
+  "official_template_structure_matched": true,
+  "team_id": "1385264",
+  "detailed_evidence": {
+    "path": "evidence/quick-results-with-rounds.json",
+    "sha256": "939a5c2bc08016cc29fb9e355fa9bcb9b28c6b6e317769cda707dc5cbd6b6821"
+  },
+  "official_template_zip_sha256": "c301f471417b6d37bf9b7b325f72b08bb3f6d108a967ef64cba41d62258b74c0"
 }

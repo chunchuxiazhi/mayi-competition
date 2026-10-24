@@ -1,31 +1,14 @@
-# 评测结果与字段口径
+# 评测结果
 
-本目录将最终模型评测与历史对照分开保存。
+`results.json`使用官方附件结构：schema_version=1、team_id="1385264"；results下clean/randomized各50任务，每任务仅含attempts与successes。attempts为实际完成的有效policy回合，不是计划数或专家采集次数。
 
-|目录或文件|内容|
-|---|---|
-|`step20000-clean/`|本次模型的 clean＋seen原始记录及提取结果|
-|`step20000-randomized-unseen/`|同一模型重新执行的 randomized＋unseen原始记录及导出|
-|`pretrained-clean/`|原始预训练模型 clean＋seen对照|
-|`step10000-clean/`|10,000步模型 clean＋seen对照|
-|`results.json`|最终两种场景的合并结果，100个任务—场景条目|
-|`summary.csv`、`comparison-per-task.csv`|各组汇总及50任务逐项对照|
-|`aggregation-manifest.json`|两份来源结果及合并文件的校验值|
+|场景|指令|计划|attempts|successes|有效回合成功率|专家阻塞|初始化异常|
+|---|---|---:|---:|---:|---:|---:|---:|
+|clean|seen|500|455|65|14.29%|45|0|
+|randomized|unseen|500|423|43|10.17%|76|1|
 
-## 计数规则
+按任务的实际次数均可从evidence/quick-results-with-rounds.json、per_task.csv及raw/两组逐回合日志核对。原自定义JSON移至evidence保留，未改写历史回合或异常。专家阻塞不属于已执行policy，初始化异常也未记为有效回合。最新官方Q&A要求专家失败不应阻止policy；历史差异保留披露，没有因更换结果格式而得到修正。
 
-- 计划回合数：每任务10次，每种场景500次。
-- 有效策略回合：有 `policy_completed`终结记录，成功与正常失败均计数。
-- 成功次数：有效回合中 `success=true`的数量。
-- 成功率：成功次数除以有效策略回合数；有效数为零时记为 null。
-- 专家阻塞、初始化/策略异常、中断和未开始：独立保留，不默认计成成功或正常失败，不进入有效回合分母。
+unseen-original-export是原始证据存档；原始说明中的历史准备文字应结合冻结配置与实际事件解读。最终randomized+unseen确由真实重测获得，旧randomized+seen不计入本次结果。来源映射见aggregation-manifest.json。
 
-最终 clean为65/455，randomized＋unseen为43/423。合计处理1,000计划槽位、878有效回合、108成功，另列121专家阻塞和1初始化异常。这是当前有效回合集合的实测表现，不是全部计划回合的完整评测成绩。
-
-`episodes.jsonl`保存策略事件，`expert.jsonl`保存专家预检查事件；两者分别计数。每回合记录任务、场景、指令类型、实际指令、环境/策略/指令 seed、步数、耗时和异常。unseen有效回合另存指令候选池证据。失败不换 seed覆盖，断点续跑按任务与回合索引去重。
-
-## 格式与追溯
-
-当前 JSON采用 `lingbot_quick_results_v1`，`official_schema_verified=false`。字段可用于核对本项目实验，但仍须取得登录后的官方模板再作提交字段映射。原始证据 ZIP与日志保留运行时字节；当前说明用于解释最终采用的设置。
-
-官方要求专家采集失败后继续 policy测试，而现有元数据依赖仍造成阻塞。该差异已单列说明，未在汇总中省略。官方复测是最终成绩依据。
+受算力限制，每任务每场景仅计划10次。官方Q&A允许不足100次时按实测提交、最终以官方复测为准；本文件不声明官方排名分数。

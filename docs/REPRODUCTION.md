@@ -1,59 +1,75 @@
-# 环境部署与实验复现
+# 复现部署与独立调用
 
-本说明对应最终20,000步模型及其 clean＋seen、randomized＋unseen 评测。原始预训练和10,000步 clean 结果用于对照。实验配置、原始日志与统计文件分别保留，文字校订不改变历史记录。
+以下详细说明中的目录按提交ZIP表述。仓库对应关系：02/src/runtime-source→code/runtime-source，02/src/tools→code/tools，02/src/portable_runtime及portable_*.py→code/submission-entry，02/configs→code/submission-configs（原始配置位于code/configs），03/checkpoint→另行下载的完整HF目录。可直接调用仓库portable_eval.py/portable_train.py，不需要复制成中文目录结构。
 
-## 环境与外部资源
+# 代码运行与依赖
 
-原部署根目录为 `/home/zzj/competitions/lingbot`，运行于 ARM64 Linux 和 NVIDIA GB10，统一内存约119.7GiB。模型与仿真分别使用 `envs/vla`、`envs/sim` 两套 Python 环境；[environment](../environment)记录已安装包版本。这些清单用于环境核对，并非适用于任意平台的依赖锁文件。
+本目录对应团队1385264、累计20,000步模型的50任务clean+seen和randomized+unseen评测。src/tools保留实际历史运行代码；src/portable_eval.py与src/portable_train.py是本次补充的路径适配调用入口；src/portable_runtime复用历史推理服务、会话隔离、任务循环、资源保护和落盘逻辑。src/runtime-source为实际使用的源码快照，现已补齐lingbotvla/models和lingbotvla/data。
 
-另需按官方来源准备指定预训练模型、Qwen 依赖、训练所需公开教师模块、允许的 clean V3数据、RoboTwin 完整物体/机器人资产、纹理和GPU运行环境。训练使用的教师权重与路径见冻结配置；没有使用官方 RoboTwin 后训练模型作为初始化权重。数据、大型资产、环境二进制和缓存不包含在普通 Git 仓库或提交 ZIP 中。
+## 环境安装与资源准备
 
-## 目录映射
+原实验使用ARM64 Linux、NVIDIA GB10、Python3.12、Torch2.9.1+cu130，系统/GPU共享约119.7GiB统一内存；VLA和仿真使用两套环境。精确包版本见src/environment，版本约束和MPLib显式环境记录见configs/original。新入口要求Python>=3.11；运行平台为Linux+NVIDIA。
 
-|仓库路径|原服务器对应位置|说明|
-|---|---|---|
-|`code/tools/`|`tools/`|本项目训练、评测与保存恢复适配|
-|`code/configs/`|`configs/`|机器人映射、归一化与训练配置|
-|`code/runtime-source/`|`repos/`|LingBot与RoboTwin文本源码快照|
-|`training/step_10000`、`training/step_20000`|对应训练运行目录|冻结配置与恢复/导出核验证据|
-|`results/`|对应评测运行目录|原始记录、计划及汇总|
+现有实验服务器可直接通过--vla-python和--sim-python指定已验证环境，不需要重新安装或变更其他项目。新机器需先部署CUDA/Vulkan、PyTorch、Sapien、MPLib及资产；官方LingBot安装脚本为src/runtime-source/lingbot-vla-v2/tools/create_train_env.sh，RoboTwin安装说明参考上游https://github.com/RoboTwin-Platform/RoboTwin。ARM64环境需对照本包实际安装版本适配；官方安装脚本默认尝试FlashAttention，而本实验采用eager，不要求安装FlashAttention。
 
-源程序中的绝对路径指向原服务器。新机器需要重新部署依赖、调整路径并建立新运行目录，重新生成输入计划、来源检查和真实小测证据。旧记录中的路径与指纹用于追溯原实验，不应改写为新机器已经验证的证据。
-
-## 训练与权重恢复
-
-第一阶段工具为 `code/tools/finetune-clean-v3-gb10`，第二阶段为 `code/tools/finetune-clean-v3-gb10-continue20000-20261018`。原部署的配置检查命令为：
+已有对应依赖后，安装本包模型源码的命令是：
 
 ```bash
-ROOT=/home/zzj/competitions/lingbot
-$ROOT/envs/vla/bin/python -B $ROOT/tools/finetune-clean-v3-gb10/launch.py --phase formal10000
-$ROOT/envs/vla/bin/python -B $ROOT/tools/finetune-clean-v3-gb10-continue20000-20261018/launch.py --phase formal20000
+/path/to/vla/bin/python -m pip install --no-deps -e "$BUNDLE/02_代码材料/src/runtime-source/lingbot-vla-v2"
 ```
 
-以上不带 `--start`，只执行相应检查。实际训练还需完整数据、教师资源及恢复证据；已有训练输出不能覆盖重跑。第二阶段从10,000步完整训练状态恢复，新增10,000次更新，累计达到20,000步。
+上述--no-deps只用于保留已经配好的运行栈，不是完整依赖安装命令。包内已安装清单是复现依据；不宣称任意平台照搬pip清单都能一次安装成功。仿真程序实际使用的RoboTwin代码需与本包匹配，并准备官方资产、机器人和unseen纹理；数据、资产、教师权重、环境二进制不随ZIP重复分发。
 
-公开 HF 导出用于推理，不包含 Adam 状态、数据加载器游标或 RNG 状态。10,000步完整续训状态已按保留策略清理；20,000步完整状态保留在原服务器，不在本次发布范围。因此，下载 HF 文件后可部署推理，但不能据此恢复完整训练状态。权重下载方法见[模型说明](../models/README.md)。
+## 权重和辅助模块来源
 
-## 评测入口与结果来源
+- 初始化：https://huggingface.co/robbyant/lingbot-vla-v2-6b，使用原始预训练权重，没有用官方RoboTwin后训练模型。
+- Qwen3-VL骨干与tokenizer依赖：https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct；骨干冻结，视觉仍参与前向。
+- MoGe-2：https://huggingface.co/Ruicheng/moge-2-vitb-normal，model.pt；与LingBot-Depth共同提供冻结深度监督。实际build_depth_model在MoRGBD模式下加载这两份教师。
+- LingBot-Depth：指定预训练仓库的depth/model.pt；冻结深度教师。
+- DINO-Video：指定预训练仓库的dino_video/teacher_step_10000.pth及config.yaml；冻结视频教师。深度、未来深度、未来视频损失权重各0.004。相关上游许可证见资源原仓库与本包licenses，教师权重不另行分发；DINO-Video/DINOv3用于训练监督，推理不额外加载教师。
+- clean数据：https://huggingface.co/datasets/TianxingChen/RoboTwin2.0；仅50任务clean V3、每任务50演示。归一化统计来自该允许数据，详见04报告和冻结配置。
 
-最终 clean 记录位于 `results/step20000-clean`；实际 unseen 重测位于 `results/step20000-randomized-unseen`。两组使用同一份20,000步 HF 权重，合并方式及来源校验值见 `results/aggregation-manifest.json`。
+## 两场景评测调用
 
-unseen 原部署入口默认只检查：
+先设置BUNDLE为解压后的团队目录，RESOURCES为已部署依赖和资产的目录。以下示例中--robotwin-root目录需含本包匹配的RoboTwin源码和官方完整资产。
 
 ```bash
-python3 -B /home/zzj/competitions/lingbot/tools/randomized-unseen-rerun-20261024/rerun.py
+BUNDLE=/path/to/连仿真都做不到的话_初赛提交材料
+RESOURCES=/path/to/existing/resources
+cd "$BUNDLE/02_代码材料"
+PYTHON_BIN="$RESOURCES/envs/vla/bin/python" bash eval.sh \
+  --setting both --workdir /path/to/fresh-evaluation \
+  --vla-python "$RESOURCES/envs/vla/bin/python" \
+  --sim-python "$RESOURCES/envs/sim/bin/python" \
+  --qwen-root "$RESOURCES/models/Qwen3-VL-4B-Instruct" \
+  --robotwin-root "$RESOURCES/repos/RoboTwin" \
+  --mplib-lib "$RESOURCES/envs/mplib-build/lib" --check
 ```
 
-`rerun.py`仅组织 randomized＋unseen。显式开始后，先执行两会话技术小测，通过后等待端口释放，再继续50任务评测；小测回合计入计划500回合。已有 supervisor 标记会阻止重复启动。底层 `driver.py`保留单 worker 选项，但单路复现仍需匹配的新配置、输出与小测证据。
+默认只打印计划；--check只检查文件、任务和路径；--hash-model可额外逐块校验完整权重，均不加载模型、不执行动作。评委实际运行时将--check替换为--execute；使用同一参数把--setting改为clean或randomized可分别运行，--workers 1保留单路入口，默认2。--test-num默认10，可明确改为100；实际次数会写入新配置和结果。默认模型路径是本包03/checkpoint，也可通过--model指定同一完整HF导出。
 
-两路 worker 共享一份常驻模型，服务不自动合批；会话的 reset、动作缓存、计数和随机数状态分开保存。场景 seed、策略 seed、指令 seed和实际指令写入逐回合日志，策略失败不另选 seed覆盖结果。关闭视频、逐帧图片和完整观测保存，结果按回合追加并同步到磁盘。
+两个场景顺序运行，各自启动一份模型服务及最多两个worker；场景结束清理本次进程，再等待端口释放。单份权重、FP32、关闭compile、串行推理、不自动合批；reset、动作缓存、步数和RNG按会话隔离。不集成、不按任务路由、不更新参数。
 
-原来源检查还引用训练 DCP 的恢复与导出证据。独立部署只有 HF 权重时，需单独适配并验证来源检查入口；本项目尚未完成新机器从零安装的一键复现实测。原始评测证据 ZIP保留运行时字节，其中准备阶段说明应结合冻结配置和事件日志解读。
+新输出位于workdir/runs/replay/clean与randomized；配置、seed、指令、逐回合事件和异常均独立保存；results.json和accounting.json位于workdir/runs/replay。完成回合立即追加并同步，断点按任务/回合识别；中断不自动重试、失败不换seed。禁止把新输出写进历史实验或提交目录。
 
-## 统计与规则对应
+专家预检查/元数据处理保留历史行为，包括专家异常时阻塞该槽位。这与最新Q&A“专家失败仍继续policy”的要求存在披露差异，本次用户明确不补跑，调用适配没有暗中修改该评测行为。
 
-有效策略回合指产生 `policy_completed` 终结记录的回合；任务成功或达到官方步数上限后的正常失败均计入分母。专家阻塞、初始化异常和中断另列。最终两组有效878回合、成功108次，尚有121个专家阻塞槽位和1个初始化异常。
+## 训练调用
 
-官方 Q&A 明确：clean2clean 使用 seen，clean2random 使用 unseen；专家五次采集配额按发起次数计算，与 seed无关，采集失败不应影响 policy测试。现有预检查/元数据依赖造成的阻塞仍是流程差异，本项目没有把这些槽位记成已完成策略回合。clean归一化数据来源有技术证据，统计方法尚未得到赛事方单独确认。
+```bash
+PYTHON_BIN="$RESOURCES/envs/vla/bin/python" bash train.sh \
+  --workdir /path/to/fresh-training --stage both \
+  --pretrained "$RESOURCES/models/lingbot-vla-v2-6b" \
+  --data "$RESOURCES/data/RoboTwin_lerobot_v30" \
+  --qwen-root "$RESOURCES/models/Qwen3-VL-4B-Instruct" \
+  --moge-root "$RESOURCES/models/moge-2-vitb-normal" \
+  --vla-python "$RESOURCES/envs/vla/bin/python"
+```
 
-每任务10个计划回合是算力与时间约束下的快速评测。官方允许测不足100次时按实测填写、以官方复测为准。正式 JSON模板仍需登录取得并转换；目前的 `quick_results_evidence.zip`是可校验的实验记录包，不能替代官方格式核对。
+默认只输出计划，显式加--execute才会训练。入口重定位原配置和控制文件，调用原train_entry.py及保存/续训适配，不另写模型或损失。第一阶段10,000步、lr2e-5；第二阶段从第一阶段完整DCP续训至20,000步，lr1e-5到5e-6余弦；每1000步同步保存，跨阶段只保留最新两份。阶段之间单独CPU导出HF，训练与导出不并发。模型/数据通过路径或符号链接复用，120GiB磁盘及90GiB统一内存启动余量保护仍保留。完整HF推理模型不含优化器，不能冒充完整DCP来恢复第二阶段。
+
+## 代码改动与验证边界
+
+原始RoboTwin改动包括script/eval_policy_client_lingbotvla.py中的原生库导入顺序、可配置test_num、输出目录和视频控制；原LingBot/GB10适配及来源记录见04、src/tools和补全源码manifest。任务envs的成功判据、动作含义、步数上限、clean/randomized配置未改变。新调用只改路径、HF来源校验、调度入口和独立落盘，不重新计算历史分数。
+
+新调用入口没有复用或伪造历史smoke证据，也未进行新的真实推理/仿真验证。本次通过CPU语法和模拟调用测试，不能据此宣称新机器环境已端到端实测。运行前应按平台核验外部环境；本次提交准备没有启动上述任何--execute命令。

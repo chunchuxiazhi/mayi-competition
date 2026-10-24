@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "cpu_tests": 8,
+  "python_files_syntax_checked": 1191,
+  "checks": {
+    "shell_syntax": {
+      "exit_code": 0,
+      "stdout_tail": "",
+      "stderr_tail": ""
+    },
+    "cpu_tests": {
+      "exit_code": 0,
+      "stdout_tail": "",
+      "stderr_tail": "test_default_never_spawns_or_writes_output (__main__.Entries.test_default_never_spawns_or_writes_output) ... ok\ntest_episode_plan_rejects_seed_drift (__main__.Entries.test_episode_plan_rejects_seed_drift) ... ok\ntest_global_driver_failure_stops_next_setting (__main__.Entries.test_global_driver_failure_stops_next_setting) ... ok\ntest_reviewer_calls_both_drivers_sequentially (__main__.Entries.test_reviewer_calls_both_drivers_sequentially) ... ok\ntest_submission_HF_hash_verification_without_DCP_or_mtime (__main__.Entries.test_submission_HF_hash_verification_without_DCP_or_mtime) ... ok\ntest_training_recipe_only_relocates_paths_and_explicit_second_stage_fields (__main__.Entries.test_training_recipe_only_relocates_paths_and_explicit_second_stage_fields) ... ok\ntest_two_settings_same_weights_distinct_outputs_and_pools (__main__.Entries.test_two_settings_same_weights_distinct_outputs_and_pools) ... ok\ntest_unseen_only_single_worker_and_actual_count_configurable (__main__.Entries.test_unseen_only_single_worker_and_actual_count_configurable) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.018s\n\nOK\n"
+    },
+    "metadata_check": {
+      "exit_code": 0,
+      "stdout_tail": "{\n  \"team_id\": \"1385264\",\n  \"official_template_structure_matched\": true,\n  \"groups\": {\n    \"clean\": {\n      \"attempts\": 455,\n      \"successes\": 65\n    },\n    \"randomized\": {\n      \"attempts\": 423,\n      \"successes\": 43\n    }\n  },\n  \"model_complete\": false,\n  \"tensor_sha256_checked\": false,\n  \"preview_without_tensors\": true,\n  \"expert_blocked_slots_disclosed\": 121,\n  \"initialization_exceptions_disclosed\": 1,\n  \"historical_runtime_retested\": false,\n  \"new_portable_entry_action_inference_verified\": false,\n  \"runtime_started\": false\n}\n",
+      "stderr_tail": ""
+    },
+    "portable_file_check": {
+      "exit_code": 0,
+      "stdout_tail": "{\n  \"settings\": [\n    {\n      \"setting\": \"demo_clean\",\n      \"instructions\": \"seen\",\n      \"tasks\": 50,\n      \"rounds_per_task\": 10,\n      \"model_path\": \"/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-20000-from10000-20261018/exports/global_step_20000/hf_ckpt\",\n      \"output\": \"/home/zzj/competitions/lingbot/submissions/20261024-final-format/not-started-replay/runs/replay/clean\"\n    },\n    {\n      \"setting\": \"demo_randomized\",\n      \"instructions\": \"unseen\",\n      \"tasks\": 50,\n      \"rounds_per_task\": 10,\n      \"model_path\": \"/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-20000-from10000-20261018/exports/global_step_20000/hf_ckpt\",\n      \"output\": \"/home/zzj/competitions/lingbot/submissions/20261024-final-format/not-started-replay/runs/replay/randomized\"\n    }\n  ],\n  \"commands_for_explicit_execution\": [\n    [\n      \"/home/zzj/competitions/lingbot/envs/vla/bin/python\",\n      \"-B\",\n      \"/home/zzj/competitions/lingbot/submissions/20261024-final-format/stage/连仿真都做不到的话_初赛提交材料/02_代码材料/src/portable_runtime/driver.py\",\n      \"--config\",\n      \"/home/zzj/competitions/lingbot/submissions/20261024-final-format/not-started-replay/runs/replay/clean/portable-config.json\",\n      \"--workers\",\n      \"2\",\n      \"--full-suite\",\n      \"--start-approved\"\n    ],\n    [\n      \"/home/zzj/competitions/lingbot/envs/vla/bin/python\",\n      \"-B\",\n      \"/home/zzj/competitions/lingbot/submissions/20261024-final-format/stage/连仿真都做不到的话_初赛提交材料/02_代码材料/src/portable_runtime/driver.py\",\n      \"--config\",\n      \"/home/zzj/competitions/lingbot/submissions/20261024-final-format/not-started-replay/runs/replay/randomized/portable-config.json\",\n      \"--workers\",\n      \"2\",\n      \"--full-suite\",\n      \"--start-approved\"\n    ]\n  ],\n  \"automatic_batching\": false,\n  \"new_entry_action_inference_verified\": false,\n  \"runtime_started\": false,\n  \"historical_results_unchanged\": true,\n  \"file_check\": {\n    \"passed\": true,\n    \"tensor_hash_requested\": true,\n    \"model_loaded\": false,\n    \"runtime_started\": false\n  }\n}\n",
+      "stderr_tail": ""
+    }
+  },
+  "complete_real_six_shards_hashed_without_loading_model": true,
+  "training_DCP_needed_for_inference": false,
+  "new_model_inference_or_simulation_rounds": 0,
+  "runtime_started": false,
+  "submitted": false
+}

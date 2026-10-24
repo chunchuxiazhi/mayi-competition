@@ -2,7 +2,7 @@
 
 本项目记录“连仿真都做不到的话”团队在 NVIDIA GB10 单机上完成的模型适配、50任务联合微调与 RoboTwin 仿真评测。模型从比赛指定的 `robbyant/lingbot-vla-v2-6b` 原始预训练权重初始化，使用规定的 clean 数据训练至累计20,000个优化器更新步骤。
 
-本次提交材料对应 **20,000步模型、clean＋seen 与 randomized＋unseen**。预训练模型和10,000步模型的 clean 结果作为历史对照单独保留。
+团队ID为 **1385264**。本次提交材料对应 **20,000步模型、clean＋seen 与 randomized＋unseen**。预训练模型和10,000步模型的 clean 结果作为历史对照单独保留。
 
 ## 本次模型及评测结果
 
@@ -19,7 +19,7 @@ randomized 结果来自重新执行的 unseen 评测。配置、客户端传参�
 
 结果入口：
 
-- [合并结果 JSON](results/results.json)：50任务、两种场景的实际次数、成功次数及逐回合记录。
+- [合并结果 JSON](results/results.json)：官方模板结构的50任务、两场景实际次数及成功数；逐回合记录见[详细证据](results/evidence/quick-results-with-rounds.json)。
 - [逐任务对比表](results/comparison-per-task.csv)与[汇总表](results/summary.csv)：包括历史 clean 对照。
 - [结果来源清单](results/aggregation-manifest.json)：合并结果与两份来源文件的 SHA256。
 - [评测说明](docs/20000步更正后评测结果.md)：计数口径、异常分类及验证依据。
@@ -71,6 +71,8 @@ randomized 结果来自重新执行的 unseen 评测。配置、客户端传参�
 
 官方 Q&A 建议尽量完成每任务、每场景100次测试；受时间或算力限制时按实测次数填写，最终以官方复测为准。本项目当前提供每任务10个计划回合的快速评测。
 
-当前仍需关注三项具体问题：官方 JSON 字段模板尚待登录下载并核对；现有专家预检查对场景元数据的依赖导致部分 policy 测试未能执行，与官方“采集失败后仍继续策略测试”的要求存在流程差异；在新机器上还需部署外部资源并验证 HF-only 来源检查入口。clean 归一化统计已有数据来源证据，所用统计方法尚未获得赛事方单独确认。
+官方6KB模板已取得并核对，合并JSON已转换为schema_version/team_id/results结构；attempts按真实有效policy回合填写。源码models和data模块已补齐，新增[独立调用入口](code/submission-entry)支持clean、randomized及顺序运行both，直接校验完整HF，无需原服务器DCP或旧smoke记录。新入口通过8项CPU测试、1191份Python源码语法检查及服务器真实六分片文件哈希检查，没有启动新的模型推理、仿真或训练。
+
+121个专家元数据阻塞槽位和1次初始化异常保留披露；专家阻塞与最新Q&A的policy继续要求仍存在历史流程差异。本次不补跑，不改写有效次数和原始结果。新入口没有完成新的端到端模型/仿真实测，新机器仍需部署所列外部依赖和资产；clean归一化方法有数据来源证据，最终规则认定与成绩以主办方为准。
 
 这些情况均在材料中披露。仓库更新与压缩包生成不代表已完成天池提交，详见[提交材料说明](docs/SUBMISSION_GUIDE.md)。

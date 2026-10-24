@@ -12710,6 +12710,1076 @@
       "bytes": 6785,
       "sha256": "309e9ca6f565e008a08f1ecedc978d17bd0c31afc8ec8265ba10a0ccba7e1690",
       "server_source": "/home/zzj/competitions/lingbot/tools/randomized-unseen-rerun-20261024/validation.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/Makefile": {
+      "bytes": 349,
+      "sha256": "5feb562737b4689c8f4de7e499ccbcbd5c0d6a6a424f1900d61a80e5074f6c66",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/Makefile"
+    },
+    "code/runtime-source/lingbot-vla-v2/README.md": {
+      "bytes": 14068,
+      "sha256": "43e526e942c5c9b0a7302dc2181229ce00b31f06da754d033110c3aafdc72712",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/README.md"
+    },
+    "code/runtime-source/lingbot-vla-v2/assets/norm_stats/robotwin.json": {
+      "bytes": 5460,
+      "sha256": "488ec6569c30dd69419358241efdb2e6c3488117768e7028a1e891be83e10db8",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/assets/norm_stats/robotwin.json"
+    },
+    "code/runtime-source/lingbot-vla-v2/assets/training_data/robotwin.txt": {
+      "bytes": 6334,
+      "sha256": "b5b470fa911f91bd8918befd49ea1cdc5fc31327936ae2b49b4641ab391bb686",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/assets/training_data/robotwin.txt"
+    },
+    "code/runtime-source/lingbot-vla-v2/configs/vla/Training_Config.md": {
+      "bytes": 20028,
+      "sha256": "8f8609f194b0ea6a81ed19713d8b3a447a4b9e66d080cd0673f3365ddb7d1339",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/configs/vla/Training_Config.md"
+    },
+    "code/runtime-source/lingbot-vla-v2/docs/config/lingbotvla_config_doc.md": {
+      "bytes": 24629,
+      "sha256": "83d0caa66929dc563cd38546dd331486674ad4a54afee4e729a4fd5e1a4314d3",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/docs/config/lingbotvla_config_doc.md"
+    },
+    "code/runtime-source/lingbot-vla-v2/experiment/robotwin/README.md": {
+      "bytes": 8135,
+      "sha256": "d8b947331540627c8b08906d11c4cb46064a7c421de209fddf1ed0194fe7f14d",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/experiment/robotwin/README.md"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/batching_strategy.py": {
+      "bytes": 8000,
+      "sha256": "3fae066e32fc83d4df3a15a333bd30d1e4800886c750ade9bd0921a5e569960b",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/batching_strategy.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/chat_template.py": {
+      "bytes": 11215,
+      "sha256": "54fa29e91838dbab619dc33e9c8619948c0778ac7b1037b7674acfd7930c2126",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/chat_template.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/constants.py": {
+      "bytes": 1088,
+      "sha256": "126d4dae9fe60353d4ff3f8a94cb2be0bd1a2ea769771106ce6f73a48c7dd77e",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/constants.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/dataset.py": {
+      "bytes": 8994,
+      "sha256": "120991b363c4c4457546de56913d9fb6d5fbcf433a790dba0bc28ff96df15809",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/dataset.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/data_collator.py": {
+      "bytes": 9618,
+      "sha256": "02505732b0143c39271b38b215d7d72a197f9f95fa9cf9d5e6f18ded51b2cefa",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/data_collator.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/data_loader.py": {
+      "bytes": 8295,
+      "sha256": "3e50b30313a5178295ccc524cbb17cda40fbb0d7c18b85736d2ab1599fabe819",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/data_loader.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/data_transform.py": {
+      "bytes": 3128,
+      "sha256": "6dd6ab7d3a02a243b548b297045500e8310cdfb7f3fffa493be4027232fabb56",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/data_transform.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/dynamic_batching.py": {
+      "bytes": 6975,
+      "sha256": "e5fadeaf804fc78054ca836b3fb21c7f73e1fb9e934519bd06bb88bcbee06416",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/dynamic_batching.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/__init__.py": {
+      "bytes": 1255,
+      "sha256": "db4230123017f1d3f684b402e46b8d94bdd6583f9bc18100c7401855a2b4af2b",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/auto.py": {
+      "bytes": 4903,
+      "sha256": "c7c01d27297eefdca3503fef0b2666662550c933c523a87e07597b5d8d2005f1",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/auto.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/config_registry.py": {
+      "bytes": 2967,
+      "sha256": "3c5e1758e5c3acb0a9e28e1087b19424340cef614af7d99dd33ffd02b35c45ee",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/config_registry.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/loader.py": {
+      "bytes": 9357,
+      "sha256": "dbac5bb3d6a901bd2ff4ef6c362022cc0096eb3561521a8b9eeaa5ddd18c683e",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/loader.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/modeling_layers.py": {
+      "bytes": 2044,
+      "sha256": "9f86f23ced2d9111a5a6a8b6a388fe56554b18650f8dd5168c690e6a846b149b",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/modeling_layers.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/module_utils.py": {
+      "bytes": 17720,
+      "sha256": "95eb1b970829ead088792bf6c6f0e32b349399fc36e6988b6a91e25f2ac2c595",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/module_utils.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/registry.py": {
+      "bytes": 2933,
+      "sha256": "25b2f06ac447fbbda79b04dbcda4260967d9a839ada35b6c721df2ef13a02f38",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/registry.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/__init__.py": {
+      "bytes": 976,
+      "sha256": "e0d0fb7e7ac2f3e5fddbbea68dd4e06a2038dc723ce34a144d98307e61f2ad7e",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/multimodal/data_collator.py": {
+      "bytes": 12416,
+      "sha256": "babb31d85587da9caa79d3e3bcca5b791e8e5e56cb4ad202b8c253a436e7786c",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/multimodal/data_collator.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/multimodal/multimodal_chat_template.py": {
+      "bytes": 22517,
+      "sha256": "4088ff01a8748e7c21024b2966068d98724fd30930f29eb0287be0925561e9d4",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/multimodal/multimodal_chat_template.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/multimodal/multimodal_transform.py": {
+      "bytes": 9020,
+      "sha256": "1dbd3e1fba5a50249b440a3f5aa4f32595726d94419a16ad95b758407a2b1de3",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/multimodal/multimodal_transform.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/multimodal/preprocess.py": {
+      "bytes": 12303,
+      "sha256": "d867f93a9d3b6fde2209bdf85dacea2a3d6ea3bf782b2c1bc096ac1dbbb4c950",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/multimodal/preprocess.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/multimodal/__init__.py": {
+      "bytes": 600,
+      "sha256": "ced14be479d27e864cf3557c37d8abe00d2204ba6c030620bf48ea85e25a5921",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/multimodal/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/vla_data/base_dataset.py": {
+      "bytes": 11511,
+      "sha256": "3d1550e644778ab4ec15c22fae4a9ed799ff5b0f27d7d81b83b218d2c777da65",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/vla_data/base_dataset.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/vla_data/ee_pose_transform.py": {
+      "bytes": 6269,
+      "sha256": "07a54ad75ca3bb0a7f65ab8e726452548679ae272d960c20b742c5222f13ea53",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/vla_data/ee_pose_transform.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/vla_data/multi_vla_dataset.py": {
+      "bytes": 6310,
+      "sha256": "c484c0c10236b35eb133fdc3cb9488fe7c0df0bde4830cdf545b96d3f7de5085",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/vla_data/multi_vla_dataset.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/vla_data/README.md": {
+      "bytes": 11892,
+      "sha256": "8e6cb71b5e74fea590727d4c4deab11a32092a50fc2aae72de5dec9a0c45673b",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/vla_data/README.md"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/vla_data/transform.py": {
+      "bytes": 21379,
+      "sha256": "e8f237c99ebf6cb4b16178b9bca7fba147337071f004aca8a135ac11f8ca2e49",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/vla_data/transform.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/vla_data/utils.py": {
+      "bytes": 30006,
+      "sha256": "cfbd6e08dda8f7a3a462c50f6c230c372189f8148b3ffe6a962e240dccd86a16",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/vla_data/utils.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/vla_data/video_utils.py": {
+      "bytes": 17359,
+      "sha256": "016244862ef3bae740ecd55314028dc64c09893553bea2d639dd7b0273110746",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/vla_data/video_utils.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/vla_data/__init__.py": {
+      "bytes": 83,
+      "sha256": "362282de0f8ac1ab332571a3e52ad29e40430a9cd43c7f1f7de003a0d77abb67",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/data/vla_data/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/__init__.py": {
+      "bytes": 976,
+      "sha256": "8beb7f9e986cf86c79caabd9bf916a72287c7e7f18a2d9aa762740fd89cdb4b4",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/configuration_lingbot_vla.py": {
+      "bytes": 8493,
+      "sha256": "37987af05ca8980debf5bfe81211cc2a9db1b2fb0e14e15076fa6497c5baf023",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/configuration_lingbot_vla.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/flex_attention.py": {
+      "bytes": 8059,
+      "sha256": "c7ea18fc1b122e14b24775b4e0e983dbffc7dd0b02e91b03a5a1c4369eff3da9",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/flex_attention.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/modeling_lingbot_vla.py": {
+      "bytes": 76809,
+      "sha256": "af6a365f05e4ccd7d2585368412be5d186a3afdabfc6e9eaf0c97e71a51037dc",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/modeling_lingbot_vla.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/modeling_lingbot_vla_v2.py": {
+      "bytes": 58782,
+      "sha256": "b009a4a20fb4d345ecbbf4b9727e80f20884e6f468a1dcfefe7b3293d804fc80",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/modeling_lingbot_vla_v2.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/moe_load_balance.py": {
+      "bytes": 5017,
+      "sha256": "15dd33d388d503fc96b891e8ff2cb29415cefa5bb165f1450f847a7f0bbca833",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/moe_load_balance.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/qwen2_action_expert.py": {
+      "bytes": 23294,
+      "sha256": "67c1de355b3bac4d7ff940b9c43135e7897cfeaf1ef88224e1766bc1d1f28db9",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/qwen2_action_expert.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/qwen3vl_in_vla.py": {
+      "bytes": 13729,
+      "sha256": "eb2202bd01916c891b366c90f9bf11a2782f9387031cc24ed08851b3d8f01e96",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/qwen3vl_in_vla.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/qwenvl_in_vla.py": {
+      "bytes": 17764,
+      "sha256": "6320cbc1c71cfd51b98258e92782d601d00f0b33035bf50979a299fbe29ba7c3",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/qwenvl_in_vla.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/utils.py": {
+      "bytes": 11460,
+      "sha256": "aa8d55137c17a1efa78d3a8124a131ddacf8166b56a2d8802f68bc04b434e747",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/utils.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/__init__.py": {
+      "bytes": 598,
+      "sha256": "24a6e4f8507703f4f3ae21f2206bc5ec6a713a6b76d171a43900a0cf932e38d7",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/pi0/flex_attention.py": {
+      "bytes": 5388,
+      "sha256": "f46e0fd09eddf4ccbeac21fbdea58685fb7e821e6850d3c190db11272ffc8d96",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/pi0/flex_attention.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/pi0/modeling_pi0.py": {
+      "bytes": 100333,
+      "sha256": "cb0186a313f124fc0d70c1957e2fbb6981dbe323bde1f305bc099ae68f1bf59d",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/pi0/modeling_pi0.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/pi0/utils.py": {
+      "bytes": 7077,
+      "sha256": "7d5d67dbdeeec9d8038ae1445a952d23749938d2ad3d5da7e4f134183fa79bd1",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/pi0/utils.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/pi0/__init__.py": {
+      "bytes": 598,
+      "sha256": "24a6e4f8507703f4f3ae21f2206bc5ec6a713a6b76d171a43900a0cf932e38d7",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/pi0/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/module_utils.py": {
+      "bytes": 24217,
+      "sha256": "3d7cc8834d949c193f80add5ce2f031ec08e32312c895de07c68144c4bdc77aa",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/module_utils.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/align_heads/depth_head.py": {
+      "bytes": 2148,
+      "sha256": "78d3a617b8b84647ee3811c606f6554d40efadd5ff330d5efc91a64af919fd79",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/align_heads/depth_head.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/align_heads/resampler.py": {
+      "bytes": 11519,
+      "sha256": "21e8444e7af259746c7786ec0064e8325b446305677fffebcc9569d749549ab8",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/align_heads/resampler.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/align_heads/__init_.py": {
+      "bytes": 53,
+      "sha256": "3ee313b0fea665d122e54af056dfa3f8ef21528ffa08f23735aa91296c56b007",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/align_heads/__init_.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/teacher.py": {
+      "bytes": 6046,
+      "sha256": "1aa25aca20347d7dca2d265ab377e6b2f8f3b36485422cfc6d6c4a9d503f63b5",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/teacher.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/__init__.py": {
+      "bytes": 124,
+      "sha256": "83824d4d91b800227e03562bf303d1e3758582efa6af9d9fb3898a971a21e807",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/example.py": {
+      "bytes": 3521,
+      "sha256": "ed5bc3807bba81be71f3b7d978e0e38100acc3c0d94fe254b2dfcabd45210795",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/example.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/LEGAL.md": {
+      "bytes": 572,
+      "sha256": "adba50d9794b9ef3f7ec8cbc680f7f1fa3fbf9df0ac8d1f9b9ccab6d941bc11b",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/LEGAL.md"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/LICENSE": {
+      "bytes": 11356,
+      "sha256": "56ae0eb5ff848e312f8ecc450c806f710821db153b0e8db18a0d69d5a6f60f8b",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/LICENSE"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/pyproject.toml": {
+      "bytes": 469,
+      "sha256": "ead97cc2acc436b7f8dc538c634a1937a85ea89fb2202fa9c1ec8a812a807bfa",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/pyproject.toml"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/pyrightconfig.json": {
+      "bytes": 79,
+      "sha256": "57b08f87f3296e2675929e0202ba868921ab289cb264d417faf1f93ebf88f57b",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/pyrightconfig.json"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/README.md": {
+      "bytes": 10174,
+      "sha256": "b97ef65b53f2d5bb05e4a1cc6389f0c3f19f9f09697f7f0077aa1c0074e39267",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/README.md"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/requirements.txt": {
+      "bytes": 465,
+      "sha256": "08e5c1253755a68475afc63e692510c1bbbcbaaa5d758eef1584bc40a455ccb4",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/requirements.txt"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/CHANGELOG.md": {
+      "bytes": 1635,
+      "sha256": "25dd1fb896e0f0e2cb64a38a40940784667c82f105a53f845831b615fd10ccb5",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/CHANGELOG.md"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/CODE_OF_CONDUCT.md": {
+      "bytes": 444,
+      "sha256": "9daeae709a0bd71bcfd1c96dc5822ecec5210327eff929da64b0ae7f8faf1444",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/CODE_OF_CONDUCT.md"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/LICENSE": {
+      "bytes": 12500,
+      "sha256": "ad7d951c80c5fc2b2bce035f2041bc0a0dbf9028c8ecc4c9a8e1fba8130b6b59",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/LICENSE"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/pyproject.toml": {
+      "bytes": 943,
+      "sha256": "1c1c41fc449cee5e30cb02c36d4c7b208812f48739e7bcfdffc5a22207f1a3c2",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/pyproject.toml"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/pyrightconfig.json": {
+      "bytes": 121,
+      "sha256": "b2b2dc093467b72670b2df73dd4e3263c59d6b8aa131cd327438790a57ec4e45",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/pyrightconfig.json"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/README.md": {
+      "bytes": 12349,
+      "sha256": "a2c691163d7f4ec066c1a20c7b0a1b7cbd2e1406155600a46d5664501e1eba7f",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/README.md"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/requirements.txt": {
+      "bytes": 681,
+      "sha256": "aff0d7e9df26146afdcd0e7a4a30d967fd07a8da25c30be0737607b414a81a17",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/requirements.txt"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/SECURITY.md": {
+      "bytes": 2656,
+      "sha256": "7b6976eec43edfa68b79a459dd089c56b7a395916dbf1a01bd11e6d86e12128f",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/SECURITY.md"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/SUPPORT.md": {
+      "bytes": 1244,
+      "sha256": "149773411caf2c59cb1a6bfb2c6f070d1d054f1f018e7a80be319a8c384eeaf5",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/SUPPORT.md"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/utils.py": {
+      "bytes": 1594,
+      "sha256": "0e9422435fc9fc6a885800527b76476c22709852fb492b4b0f9705a93a4ebe2f",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/utils.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/__init__.py": {
+      "bytes": 163,
+      "sha256": "94df78b000730b9534e7f575731bf4d1668eba5fa6ef693f57dd25dafc3572ce",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/attention.py": {
+      "bytes": 5830,
+      "sha256": "26d9ca3a0a9848dfe0da1221d4d0b902b0f63aa18c6e3bb75cf7bf9b6928d67e",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/attention.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/block.py": {
+      "bytes": 15092,
+      "sha256": "9ad2173e78d4037aebe7e6ef3a8c64e7f3b08fc8f888eda9e6e62ee92805b0d6",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/block.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/dino_head.py": {
+      "bytes": 2089,
+      "sha256": "cd7a83f00ac449f962484bad0f2959be477781e57943508428d32ff88f41fe33",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/dino_head.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/ffn_layers.py": {
+      "bytes": 2643,
+      "sha256": "29d3f20800e9bcf5fa4e056f6b0e81c1375c291c1dbffd5b103ac555fe2cb9ff",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/ffn_layers.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/flash_attention.py": {
+      "bytes": 1102,
+      "sha256": "6f664bc7bc9f9e38e955c7fac07eea5cb236e869b00584ca9b263d11c8f890ad",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/flash_attention.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/flash_attention_packed.py": {
+      "bytes": 1664,
+      "sha256": "2a8776749e7c0d6dd780a67764f8e51cc90b0f417cd53aec7422cf07f8712a6d",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/flash_attention_packed.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/flex_attention_packed.py": {
+      "bytes": 3382,
+      "sha256": "177f4ffdb522e861677e1178abc2cc114d3bf41d62b690c9baa2fd37dd8d2820",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/flex_attention_packed.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/layer_scale.py": {
+      "bytes": 798,
+      "sha256": "f9a10ee763a62136f9e814bfe2f2209c2cb501dfdc5573f858ab01ba9a69c23f",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/layer_scale.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/patch_embed.py": {
+      "bytes": 2386,
+      "sha256": "88ceaac1439a54a6553a5ca8e7d97c40f92747e9edc64f5680afd21af7299475",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/patch_embed.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/rms_norm.py": {
+      "bytes": 721,
+      "sha256": "8509ffc53f0bbe9e353a8b9e57ca2396795640b4ecc85140c27b17127c971869",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/rms_norm.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/rope_position_encoding.py": {
+      "bytes": 12002,
+      "sha256": "5236c6fb9d84252655b1a60a7177db5e6cf4a3c15227e49f4959d32947b4ba2e",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/rope_position_encoding.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/sdpa_attention_packed.py": {
+      "bytes": 2730,
+      "sha256": "e062fe9c9df49330a54bd9922206a8b66fbd8753c61ce2d0ed3d5b3df4580bce",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/sdpa_attention_packed.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/__init__.py": {
+      "bytes": 529,
+      "sha256": "b745baf826d0df619d7eaaf1d6fdd9c04e2cf87a2e74abad1ca37e435757a894",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/navit_eval.py": {
+      "bytes": 6385,
+      "sha256": "1fafad9450f0e5a53328cddc066cc37d71db9bbc2e3222dfabed05b4fb6a774e",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/navit_eval.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/navit_video_vision_transformer.py": {
+      "bytes": 13720,
+      "sha256": "4a3a1bd606c2f639edf418a4ead0864882b152f4c815956baa245c890a5fc503",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/navit_video_vision_transformer.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/unified_video_vision_transformer.py": {
+      "bytes": 19476,
+      "sha256": "d50e23815d713e77eadf796cb1051a3051a5e38be20689b26e9e4927c3c64a2f",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/unified_video_vision_transformer.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/vision_transformer.py": {
+      "bytes": 13258,
+      "sha256": "a04ac7f1393e8992bbfc8e8460c59d24e26c65c410baccbdbe90f605d98c3ba9",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/vision_transformer.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/__init__.py": {
+      "bytes": 2290,
+      "sha256": "1faa23c982cbfcd019e3bbc92021a79123e6ff802c70c618470681068652af5c",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/inference/causal_eval.py": {
+      "bytes": 5443,
+      "sha256": "c754df45a6113d4ddd6aa6d1527ab4587d4efb35b1906eeb6ef7480bd7da04bc",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/inference/causal_eval.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/inference/kv_cache.py": {
+      "bytes": 4142,
+      "sha256": "3d186623252f18d240bf71622127622da5b2ccea15040c92b6109b03ab54e965",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/inference/kv_cache.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/inference/__init__.py": {
+      "bytes": 129,
+      "sha256": "75940a6a6035f3fc4cebcd5a0cb8800e1f5bd82547e0ec7cc9463d9774c149b2",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/inference/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/0/intrinsics.txt": {
+      "bytes": 88,
+      "sha256": "599fd7617e1225e289fdbc4dec835d55ccb6577b83953b02ce89a53f3bf237d5",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/0/intrinsics.txt"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/1/intrinsics.txt": {
+      "bytes": 117,
+      "sha256": "76b62be8b9969ed3787630ce12e6667e0e13811b8484e2b9b69936928d31bd0f",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/1/intrinsics.txt"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/2/intrinsics.txt": {
+      "bytes": 88,
+      "sha256": "599fd7617e1225e289fdbc4dec835d55ccb6577b83953b02ce89a53f3bf237d5",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/2/intrinsics.txt"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/3/intrinsics.txt": {
+      "bytes": 117,
+      "sha256": "76b62be8b9969ed3787630ce12e6667e0e13811b8484e2b9b69936928d31bd0f",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/3/intrinsics.txt"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/4/intrinsics.txt": {
+      "bytes": 88,
+      "sha256": "599fd7617e1225e289fdbc4dec835d55ccb6577b83953b02ce89a53f3bf237d5",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/4/intrinsics.txt"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/5/intrinsics.txt": {
+      "bytes": 88,
+      "sha256": "599fd7617e1225e289fdbc4dec835d55ccb6577b83953b02ce89a53f3bf237d5",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/5/intrinsics.txt"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/6/intrinsics.txt": {
+      "bytes": 117,
+      "sha256": "76b62be8b9969ed3787630ce12e6667e0e13811b8484e2b9b69936928d31bd0f",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/6/intrinsics.txt"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/7/intrinsics.txt": {
+      "bytes": 117,
+      "sha256": "76b62be8b9969ed3787630ce12e6667e0e13811b8484e2b9b69936928d31bd0f",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/7/intrinsics.txt"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/modules_decoder.py": {
+      "bytes": 8805,
+      "sha256": "e809c6f5abb57061b58e43e50a04e20ac2179503abed02cafda3f82dfac7387e",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/modules_decoder.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/modules_rgbd_encoder.py": {
+      "bytes": 6400,
+      "sha256": "72f06b74ba10c39ae20b01154c8b0b108a17e47e0bb978563c80fc51fe5c46cd",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/modules_rgbd_encoder.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/utils.py": {
+      "bytes": 4447,
+      "sha256": "a7108de9525839a7277c6ce0db6d8108156739cb02571ad6a87eb822814204e6",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/utils.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/v2.py": {
+      "bytes": 11467,
+      "sha256": "45f69b4e2c5fab73f883a2790a3c7839d7fd4c11c4d11343ef1d98b31be0351e",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/v2.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/__init__.py": {
+      "bytes": 483,
+      "sha256": "20466a32b5c18e07a2afc9c1793ca48123039ee7e1a46de37461fb153a8d3193",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/utils/geo.py": {
+      "bytes": 3759,
+      "sha256": "b235df79d279a8ba0c1d62004df0a8af9a0c2a0faa4ebb52a0e7140f0541c8eb",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/utils/geo.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/utils/io.py": {
+      "bytes": 9155,
+      "sha256": "b6907a108db83f8e40862c96ad089bc4d05dd88a630430b5c0f8c67ef5e1d20c",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/utils/io.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/utils/tools.py": {
+      "bytes": 8784,
+      "sha256": "ee4893ddbc49da5b24ab43277e9693e86a842dace69452803bab85b531121f60",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/utils/tools.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/utils/vis.py": {
+      "bytes": 2778,
+      "sha256": "564fbb5898b6981c70fb3ce845b4ad1a1594360bd10787773ed194efa497c88a",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/utils/vis.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/utils/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/utils/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/__init__.py": {
+      "bytes": 218,
+      "sha256": "0d2b87b7e71c7f7279ccc4b4f8b541d26071425284a0ea01a5a435fac4511cfe",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/hub/backbones.py": {
+      "bytes": 5352,
+      "sha256": "74b7f24365cfd454326c91f438c77a4d7f0c3fb2a424eb6a5d48d53573bbf54d",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/hub/backbones.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/hub/utils.py": {
+      "bytes": 1260,
+      "sha256": "c0533919016531b320bf9aef7cd7001249bc8ef8957cdb29246c15b67d5abdf8",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/hub/utils.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/hub/__init__.py": {
+      "bytes": 195,
+      "sha256": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/hub/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/attention.py": {
+      "bytes": 3235,
+      "sha256": "cc3f20ec18a07061297bcbeacc842aec43534f8eb5fd62516273c2c3385a6b79",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/attention.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/block.py": {
+      "bytes": 9631,
+      "sha256": "fe8ae374b8b08d634320ca4083cdc5f671926bcf7eb012e8988b83920b99ef58",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/block.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/dino_head.py": {
+      "bytes": 2007,
+      "sha256": "9fdb1fa61c0609dc0876f711f9d0d828c33bf9fd972aab3d9c968d44e16b98d1",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/dino_head.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/drop_path.py": {
+      "bytes": 1157,
+      "sha256": "b9f8236e86054b9d9a71275efcad2a9ecaa1f86b529d4b8d6109ddb5e806f67a",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/drop_path.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/layer_scale.py": {
+      "bytes": 820,
+      "sha256": "abb7bbfae152a9de2e6d0961ab5e75c79428e849281bfe50dd07b66b54b485d1",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/layer_scale.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/mlp.py": {
+      "bytes": 1269,
+      "sha256": "255825c73b60a916dd00eb1e38aacbcdbf316e40d6a005efb46e245b7edb43aa",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/mlp.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/patch_embed.py": {
+      "bytes": 2829,
+      "sha256": "40da6add3d811198ea3e17cb99cdd4e5cda59e369efbbe3d18d89308618cf142",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/patch_embed.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/patch_embed_mlp.py": {
+      "bytes": 5094,
+      "sha256": "0c18967ba6195c7864c5a963b3c128f125daea7198a0a9e0fc2528eb3246f221",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/patch_embed_mlp.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/swiglu_ffn.py": {
+      "bytes": 2188,
+      "sha256": "4c75f68d902cf497cb51e770ab8720057fa9957dd4c93da83aaf4f8893d14538",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/swiglu_ffn.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/__init__.py": {
+      "bytes": 468,
+      "sha256": "29d808e091d40cfdb4d5a4355c3c0fc325353686e6b0b0b3f6a24676ca4afd78",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/models/mask_utils.py": {
+      "bytes": 4877,
+      "sha256": "f7a7db258f0a29cae1077056c95010b14004952ba455ba7915c0f2bbbffe75f3",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/models/mask_utils.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/models/vision_transformer.py": {
+      "bytes": 19839,
+      "sha256": "84e9883def1b61c62e438c4ee152c4425c9e7f8bba30cf655e6361eb684ba137",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/models/vision_transformer.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/models/__init__.py": {
+      "bytes": 1953,
+      "sha256": "ed3430c69b7845b741ac3badc189e901a52a7d45a97d6aaa441b79be29734f8a",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/models/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/cluster.py": {
+      "bytes": 3010,
+      "sha256": "ea195476b1f5316520c07233eb73ff4b0e5fe3f7a2645aacec5b416e7bed157c",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/cluster.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/config.py": {
+      "bytes": 2211,
+      "sha256": "588574a78951ccfe7ffaad9ef7cab53d37e837e3ae98cfc1b6a976189073d87c",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/config.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/dtype.py": {
+      "bytes": 1104,
+      "sha256": "610251537bcf55de8961a17dd625560eae5cfa5082e9382bbd9ded86db92e1c6",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/dtype.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/param_groups.py": {
+      "bytes": 3761,
+      "sha256": "ec1daae9eb7c50492091504f97087e3179d46a080d7b7f131967c07cb15cf6d4",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/param_groups.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/utils.py": {
+      "bytes": 3240,
+      "sha256": "10bfc824fdb00cf0c4afc0a875b5763ad4c5f33ec38c2515b12528307b789305",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/utils.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/__init__.py": {
+      "bytes": 195,
+      "sha256": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/baselines/da_v2.py": {
+      "bytes": 3955,
+      "sha256": "897958984c030b2388c9801aa25053cd1bf1dd3be98bb4c131e8826d38685ae2",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/baselines/da_v2.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/baselines/da_v2_metric.py": {
+      "bytes": 4472,
+      "sha256": "d339b3e229b57601a28491cde80a93968826989a76251cbe4f7eff1ee87a49ee",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/baselines/da_v2_metric.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/baselines/metric3d_v2.py": {
+      "bytes": 5024,
+      "sha256": "7f40a3f200f84947b30003d70f539da6f5e8242413b06d0edeef69977eb97d33",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/baselines/metric3d_v2.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/baselines/moge.py": {
+      "bytes": 3276,
+      "sha256": "c245f279dcfb1abe68b18199c34fe065cbf94c6415b39b6a6601d078ab9a465e",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/baselines/moge.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/docs/eval.md": {
+      "bytes": 3066,
+      "sha256": "2f91fdf81046c26246c2b9200c2f9f9862ab91577add8fe412e44f0f0bd2d68c",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/docs/eval.md"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/docs/normal.md": {
+      "bytes": 1143,
+      "sha256": "2a074d5cc140800e1ffbddbc8c23065f6cedf17b7d7fcc38b2422003d97f5a65",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/docs/normal.md"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/docs/onnx.md": {
+      "bytes": 3077,
+      "sha256": "e670ef794ed1d703dfe464894252f3fb1fa0f07bbeef811da60ad11f4a56f39b",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/docs/onnx.md"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/docs/train.md": {
+      "bytes": 9288,
+      "sha256": "70f46c542fa0367635e4b867b3cb4ef939636ae76301b498852b0a9f88b9d802",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/docs/train.md"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/all_benchmarks.json": {
+      "bytes": 1850,
+      "sha256": "028d405eddf0e5c65cb7ad4f832d11fc9a73992c1acb260b2f1c64437cfa8b54",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/all_benchmarks.json"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/train/v1.json": {
+      "bytes": 3527,
+      "sha256": "87f8f091ac74b45cfc77137e768cbe52c7e13eb989492652b82ac529cf939375",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/train/v1.json"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/train/v2.json": {
+      "bytes": 14104,
+      "sha256": "dccee76a670f09ceafe47d79b6122799af3a35496d18b69539a841794aa8c5bb",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/train/v2.json"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/ddad.json": {
+      "bytes": 171,
+      "sha256": "bd5479209fa7541cbc189c30ba3a91d47ee3dda7d57584773757a1034af42cc2",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/ddad.json"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/diode.json": {
+      "bytes": 173,
+      "sha256": "a223974ab82aff6a2ddad1a7864972b25d67060833a38a7090d3db82bf4257ca",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/diode.json"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/eth3d.json": {
+      "bytes": 199,
+      "sha256": "b6311545d9c7ca5b7581bad694d698b536a93d792390b1f088c49d4014006770",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/eth3d.json"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/gso.json": {
+      "bytes": 130,
+      "sha256": "54e8f7bc4243541c42d79c5fbbf6f5e727b48d6633e73587978ec4ce43d241b9",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/gso.json"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/hammer.json": {
+      "bytes": 198,
+      "sha256": "aaf6ea2c6fc4a82b2c37428539c89d9dc18e77e481b9c78ab0f55826fdabb252",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/hammer.json"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/ibims-1.json": {
+      "bytes": 212,
+      "sha256": "c56f2362c6bc08f5b91d627ce3a30f8cc71056d36707217aab9afbfdad33343b",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/ibims-1.json"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/kitti.json": {
+      "bytes": 163,
+      "sha256": "caf8893ff50bbeb7f8b1e41c524d07508ca88853c3dd6a8d184fe8bee1cd919e",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/kitti.json"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/nyu.json": {
+      "bytes": 133,
+      "sha256": "27764421867a97728a9fe03e543f78a27c372fce51487d72eadcc58ee73f6aa7",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/nyu.json"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/sintel.json": {
+      "bytes": 214,
+      "sha256": "e1db76f5e45a46676371d8dc05f753c5450723b7f240c5e51894312121832881",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/sintel.json"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/spring.json": {
+      "bytes": 177,
+      "sha256": "e8a474ab587994161ec7391f55c667c52d10e8f590bca782f13fabc857eef92a",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/spring.json"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/modules.py": {
+      "bytes": 12150,
+      "sha256": "cb5d7ff75f410be2f8466fc5ca164e04f7b991385c141b3d896c02ead7858fc2",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/modules.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/utils.py": {
+      "bytes": 1747,
+      "sha256": "cb7279c4295afae9278b13d70181128ab2e29027b08a012a1b0f33213c16de22",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/utils.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/v1.py": {
+      "bytes": 18925,
+      "sha256": "a6c030f2e93e3c02268dc6d523a33d74299b6d012c3c2bf34c7e7c4a44646241",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/v1.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/v2.py": {
+      "bytes": 13460,
+      "sha256": "e736ed59fdb8ad89ec0c29ddfeeccd6a4246c387b3f423b922708366b69758fd",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/v2.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/__init__.py": {
+      "bytes": 555,
+      "sha256": "8cf7085951f070021c3e212f35570d924aaa85e98002c285bc7c1df917d36294",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/app.py": {
+      "bytes": 13475,
+      "sha256": "8ea56be9dbcfaec9dd6a0f41f670e140a3a6f71f48f8e85a3e4eb7232be2e0ba",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/app.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/cli.py": {
+      "bytes": 785,
+      "sha256": "86419e34bbfd15d0646b1d3821fa68651cb21f316428be862ed1df0a126395d0",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/cli.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/eval_baseline.py": {
+      "bytes": 8531,
+      "sha256": "17702081385cc1221e7ad04d57fbcabb687d1d9705a63011f20c0626b826f3fe",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/eval_baseline.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/infer.py": {
+      "bytes": 8983,
+      "sha256": "76b59a7edbb63748ee028f5479aa2ee8beecae4b0e8d240b2166e4207d4e1649",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/infer.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/infer_baseline.py": {
+      "bytes": 7553,
+      "sha256": "dfc2ff6b161dceceeeecc31456e9e4ac534de3d0457954cea375ba061e27fbb2",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/infer_baseline.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/infer_panorama.py": {
+      "bytes": 8818,
+      "sha256": "fddd6f0112dbcb91c10c2a3909a6e3c4367dd1b4466c1ed0f283b3a20171251f",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/infer_panorama.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/train.py": {
+      "bytes": 25750,
+      "sha256": "969c12ce3be0a70183da7f6015c3d80ee9cb5c6d92a944b4d662b3e3527f06cd",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/train.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/vis_data.py": {
+      "bytes": 3211,
+      "sha256": "5f19d6ea30bc4b76fe8ccb1a71423b65bd15b262fc9d3356150c98098464483c",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/vis_data.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/test/baseline.py": {
+      "bytes": 1825,
+      "sha256": "8f62da7022ab16f3f00556ac38580f085c68477d9200722646c77a78720a0d75",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/test/baseline.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/test/dataloader.py": {
+      "bytes": 10237,
+      "sha256": "086974ff7f31378e202a187a73e4224db058fe834de34027850f04871672c60e",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/test/dataloader.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/test/metrics.py": {
+      "bytes": 14683,
+      "sha256": "f581a2cf1d625127e644f4648d7e8d6414ba3ae0792dc18e3a076ba1e0a4acbf",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/test/metrics.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/test/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/test/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/train/dataloader.py": {
+      "bytes": 11819,
+      "sha256": "0da45febd0e798de25828ee44ff38a5c9a4bad98c9db07796dce3eb10e45c210",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/train/dataloader.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/train/losses.py": {
+      "bytes": 14832,
+      "sha256": "05c090c901e038be389df4cee04dea05444f5c6f2ff4dce9bfc76fe761c7c325",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/train/losses.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/train/utils.py": {
+      "bytes": 2504,
+      "sha256": "97b645e3789cb4739ef87437313405b6b0b2dc04e745ae99f3bc987a3b22e723",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/train/utils.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/train/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/train/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/alignment.py": {
+      "bytes": 21116,
+      "sha256": "85f65b3648a557fd39e76014503a892b2aceea7cd5e0471a1de1def68f0c31e1",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/alignment.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/data_augmentation.py": {
+      "bytes": 11821,
+      "sha256": "c86762cf72aa07d59a75da42d8d0f2dd45bfd9b1eed14bbed8d05da15f8e8bbd",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/data_augmentation.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/download.py": {
+      "bytes": 1971,
+      "sha256": "929fde9df713247927b93807809ffa9b5a49572d6bd5bd1ae57235d2c8f4fc91",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/download.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/geometry_numpy.py": {
+      "bytes": 10110,
+      "sha256": "f540c5b8ef55bfffcc32b1a62b38be605683e29fbf399ca86dfcbfc458ce4c10",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/geometry_numpy.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/geometry_torch.py": {
+      "bytes": 11844,
+      "sha256": "2f8d5de7d671af16d25fe13c555fd73855d8447bc086bb23aa42e859b303fb05",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/geometry_torch.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/io.py": {
+      "bytes": 9156,
+      "sha256": "36dcbc1fc933dcd19d2c97d3a7a3d556ce3f3a191055bb4cc6f93168c4ef32ba",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/io.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/panorama.py": {
+      "bytes": 9712,
+      "sha256": "861e747f6fa5d9c855cd4e9d7964165a6d3e3e73f81ad78d6dfe98f6b6d70d8d",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/panorama.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/tools.py": {
+      "bytes": 8784,
+      "sha256": "ee4893ddbc49da5b24ab43277e9693e86a842dace69452803bab85b531121f60",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/tools.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/vis.py": {
+      "bytes": 2930,
+      "sha256": "eb4d3d9a77caf923628312ab56e5fc241f39a2d3f2c066a763e76ce49842c1a9",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/vis.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/webfile.py": {
+      "bytes": 2223,
+      "sha256": "3ffcd69e343b9c867cf52c80ec1923f76478a6e8bda712cc677bfefb077b0777",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/webfile.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/webzipfile.py": {
+      "bytes": 5131,
+      "sha256": "5e68057dad8f05ecbd08883f2b960211512c28bdb0243d32700ec5102b735668",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/webzipfile.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/__init__.py": {
+      "bytes": 218,
+      "sha256": "0d2b87b7e71c7f7279ccc4b4f8b541d26071425284a0ea01a5a435fac4511cfe",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/hub/backbones.py": {
+      "bytes": 4991,
+      "sha256": "11c3b7e3da2a843ba5953191e8fc2027b37490313dfb315c0d4ad1a0ea31d27d",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/hub/backbones.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/hub/utils.py": {
+      "bytes": 1260,
+      "sha256": "c0533919016531b320bf9aef7cd7001249bc8ef8957cdb29246c15b67d5abdf8",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/hub/utils.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/hub/__init__.py": {
+      "bytes": 195,
+      "sha256": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/hub/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/attention.py": {
+      "bytes": 3235,
+      "sha256": "cc3f20ec18a07061297bcbeacc842aec43534f8eb5fd62516273c2c3385a6b79",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/attention.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/block.py": {
+      "bytes": 9619,
+      "sha256": "13a024d6b45dd0c63300f0ef0b5135d8551dc563436c4d70fc4ec7c44980023b",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/block.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/dino_head.py": {
+      "bytes": 2007,
+      "sha256": "9fdb1fa61c0609dc0876f711f9d0d828c33bf9fd972aab3d9c968d44e16b98d1",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/dino_head.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/drop_path.py": {
+      "bytes": 1157,
+      "sha256": "b9f8236e86054b9d9a71275efcad2a9ecaa1f86b529d4b8d6109ddb5e806f67a",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/drop_path.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/layer_scale.py": {
+      "bytes": 820,
+      "sha256": "abb7bbfae152a9de2e6d0961ab5e75c79428e849281bfe50dd07b66b54b485d1",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/layer_scale.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/mlp.py": {
+      "bytes": 1269,
+      "sha256": "255825c73b60a916dd00eb1e38aacbcdbf316e40d6a005efb46e245b7edb43aa",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/mlp.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/patch_embed.py": {
+      "bytes": 2829,
+      "sha256": "40da6add3d811198ea3e17cb99cdd4e5cda59e369efbbe3d18d89308618cf142",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/patch_embed.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/swiglu_ffn.py": {
+      "bytes": 2188,
+      "sha256": "4c75f68d902cf497cb51e770ab8720057fa9957dd4c93da83aaf4f8893d14538",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/swiglu_ffn.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/__init__.py": {
+      "bytes": 411,
+      "sha256": "5b5f637b2371089e34e0bec9a49518e2250f915aa9e10cae83a32f8e671ad24f",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/models/vision_transformer.py": {
+      "bytes": 15232,
+      "sha256": "1df8a949cf9e7eb3e1e4721f3a82839a0685b9dc94c52a5f5a9ab6ee9ffb0cd0",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/models/vision_transformer.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/models/__init__.py": {
+      "bytes": 1486,
+      "sha256": "87b360c71997314f41be1c497cc42326fc32617d3a2840f2f19d3795ca8b85ee",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/models/__init__.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/cluster.py": {
+      "bytes": 3010,
+      "sha256": "ea195476b1f5316520c07233eb73ff4b0e5fe3f7a2645aacec5b416e7bed157c",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/cluster.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/config.py": {
+      "bytes": 2211,
+      "sha256": "588574a78951ccfe7ffaad9ef7cab53d37e837e3ae98cfc1b6a976189073d87c",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/config.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/dtype.py": {
+      "bytes": 1104,
+      "sha256": "610251537bcf55de8961a17dd625560eae5cfa5082e9382bbd9ded86db92e1c6",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/dtype.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/param_groups.py": {
+      "bytes": 3761,
+      "sha256": "ec1daae9eb7c50492091504f97087e3179d46a080d7b7f131967c07cb15cf6d4",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/param_groups.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/utils.py": {
+      "bytes": 3240,
+      "sha256": "10bfc824fdb00cf0c4afc0a875b5763ad4c5f33ec38c2515b12528307b789305",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/utils.py"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/__init__.py": {
+      "bytes": 195,
+      "sha256": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f",
+      "server_source": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/__init__.py"
     }
   },
   "correction": "Removed superseded randomized+seen current-tree results; retained byte-exact clean data and added real unseen rerun.",
@@ -12717,15 +13787,15 @@
   "editorial_overrides": {
     "README.md": {
       "previous_sha256": "fa96e6654754b1219af6242a39919274555f79ff7e86e99cbeeaea81a2ff10a7",
-      "new_sha256": "bffcf2ba1eddf649692fc163e1b30fc3b3bc16ce52c55b1b142b61b6dee3e409"
+      "new_sha256": "bbbd1cf7b5811fc464443bc3e45942b3aac5e7bddb6ed2a4ec5e1eb9d523a270"
     },
     "docs/REPRODUCTION.md": {
       "previous_sha256": "4d1d99a38c6cf3ee7e4c613fc43aebab3c3ed2b35c729f18c0ff87d1d16025fd",
-      "new_sha256": "14866106dac2a4879fdad9e990b54bfb47e6fd8e9947033f2b1621ddad6714be"
+      "new_sha256": "30a652e2febeec347288013638b6ff55fed73981469edcd78dc7d4889c3b37b4"
     },
     "docs/20000步更正后评测结果.md": {
       "previous_sha256": "f35d0417c1c33c02b0b14e77732e7bb43b77f33ea6432aca8216f3ca01949600",
-      "new_sha256": "88eff7872a326a67700fc242c6edda693c2c0c404475193b2ec5f21b1e163c25"
+      "new_sha256": "99f2285e2ce6a18abccfd68b26fa8e008f571af14595f9b8e1fa2db944874ad6"
     },
     "models/README.md": {
       "previous_sha256": "b64f662d8646c12b811c13ef4ba5b478aac6fc71b7b97c1aa49fb2b3a40c912b",
@@ -12733,7 +13803,7 @@
     },
     "results/README.md": {
       "previous_sha256": null,
-      "new_sha256": "7c15271c787dbbf57b1b078fb23eb259d27559d7bac98a95e305a996213f4952"
+      "new_sha256": "99f2285e2ce6a18abccfd68b26fa8e008f571af14595f9b8e1fa2db944874ad6"
     },
     "code/tools/clean-quick-baseline-20261016/README.md": {
       "previous_sha256": "48e79a0624f079a2bb34af30d61eee37a22d05171f461624a5ebcf9a2e70d393",
@@ -12760,5 +13830,1008 @@
       "previous_sha256": "d7353ca67aa3cac8223e5fda8cf8ef4f189ae56c6e7051ea4238fb3cb6c2a804",
       "new_sha256": "36f5899a22ab9267193520d056d435af5ba6067ed2a701050b57adf4da6eb8b2"
     }
-  }
+  },
+  "submission_format_overrides": {
+    "results/evidence/quick-results-with-rounds.json": {
+      "previous_sha256": null,
+      "new_sha256": "939a5c2bc08016cc29fb9e355fa9bcb9b28c6b6e317769cda707dc5cbd6b6821"
+    },
+    "results/results.json": {
+      "previous_sha256": "939a5c2bc08016cc29fb9e355fa9bcb9b28c6b6e317769cda707dc5cbd6b6821",
+      "new_sha256": "de7c0f78c8f7cd46ee03bc30371e45ad36bb6549a2ea9ffc02fcdedb5e6c59fc"
+    },
+    "results/README.md": {
+      "previous_sha256": "7c15271c787dbbf57b1b078fb23eb259d27559d7bac98a95e305a996213f4952",
+      "new_sha256": "99f2285e2ce6a18abccfd68b26fa8e008f571af14595f9b8e1fa2db944874ad6"
+    },
+    "results/aggregation-manifest.json": {
+      "previous_sha256": "3be99953db7237980fda7aba48eb59352c43ce5e5113915726b986aa598580ec",
+      "new_sha256": "17d21259658adb992ef83254316b7e58728643facfd7a4849e693079740bd36d"
+    },
+    "code/runtime-source/lingbot-vla-v2/Makefile": {
+      "previous_sha256": null,
+      "new_sha256": "5feb562737b4689c8f4de7e499ccbcbd5c0d6a6a424f1900d61a80e5074f6c66"
+    },
+    "code/runtime-source/lingbot-vla-v2/README.md": {
+      "previous_sha256": null,
+      "new_sha256": "43e526e942c5c9b0a7302dc2181229ce00b31f06da754d033110c3aafdc72712"
+    },
+    "code/runtime-source/lingbot-vla-v2/assets/norm_stats/robotwin.json": {
+      "previous_sha256": null,
+      "new_sha256": "488ec6569c30dd69419358241efdb2e6c3488117768e7028a1e891be83e10db8"
+    },
+    "code/runtime-source/lingbot-vla-v2/assets/training_data/robotwin.txt": {
+      "previous_sha256": null,
+      "new_sha256": "b5b470fa911f91bd8918befd49ea1cdc5fc31327936ae2b49b4641ab391bb686"
+    },
+    "code/runtime-source/lingbot-vla-v2/configs/vla/Training_Config.md": {
+      "previous_sha256": null,
+      "new_sha256": "8f8609f194b0ea6a81ed19713d8b3a447a4b9e66d080cd0673f3365ddb7d1339"
+    },
+    "code/runtime-source/lingbot-vla-v2/docs/config/lingbotvla_config_doc.md": {
+      "previous_sha256": null,
+      "new_sha256": "83d0caa66929dc563cd38546dd331486674ad4a54afee4e729a4fd5e1a4314d3"
+    },
+    "code/runtime-source/lingbot-vla-v2/experiment/robotwin/README.md": {
+      "previous_sha256": null,
+      "new_sha256": "d8b947331540627c8b08906d11c4cb46064a7c421de209fddf1ed0194fe7f14d"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/batching_strategy.py": {
+      "previous_sha256": null,
+      "new_sha256": "3fae066e32fc83d4df3a15a333bd30d1e4800886c750ade9bd0921a5e569960b"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/chat_template.py": {
+      "previous_sha256": null,
+      "new_sha256": "54fa29e91838dbab619dc33e9c8619948c0778ac7b1037b7674acfd7930c2126"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/constants.py": {
+      "previous_sha256": null,
+      "new_sha256": "126d4dae9fe60353d4ff3f8a94cb2be0bd1a2ea769771106ce6f73a48c7dd77e"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/dataset.py": {
+      "previous_sha256": null,
+      "new_sha256": "120991b363c4c4457546de56913d9fb6d5fbcf433a790dba0bc28ff96df15809"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/data_collator.py": {
+      "previous_sha256": null,
+      "new_sha256": "02505732b0143c39271b38b215d7d72a197f9f95fa9cf9d5e6f18ded51b2cefa"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/data_loader.py": {
+      "previous_sha256": null,
+      "new_sha256": "3e50b30313a5178295ccc524cbb17cda40fbb0d7c18b85736d2ab1599fabe819"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/data_transform.py": {
+      "previous_sha256": null,
+      "new_sha256": "6dd6ab7d3a02a243b548b297045500e8310cdfb7f3fffa493be4027232fabb56"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/dynamic_batching.py": {
+      "previous_sha256": null,
+      "new_sha256": "e5fadeaf804fc78054ca836b3fb21c7f73e1fb9e934519bd06bb88bcbee06416"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "db4230123017f1d3f684b402e46b8d94bdd6583f9bc18100c7401855a2b4af2b"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/auto.py": {
+      "previous_sha256": null,
+      "new_sha256": "c7c01d27297eefdca3503fef0b2666662550c933c523a87e07597b5d8d2005f1"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/config_registry.py": {
+      "previous_sha256": null,
+      "new_sha256": "3c5e1758e5c3acb0a9e28e1087b19424340cef614af7d99dd33ffd02b35c45ee"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/loader.py": {
+      "previous_sha256": null,
+      "new_sha256": "dbac5bb3d6a901bd2ff4ef6c362022cc0096eb3561521a8b9eeaa5ddd18c683e"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/modeling_layers.py": {
+      "previous_sha256": null,
+      "new_sha256": "9f86f23ced2d9111a5a6a8b6a388fe56554b18650f8dd5168c690e6a846b149b"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/module_utils.py": {
+      "previous_sha256": null,
+      "new_sha256": "95eb1b970829ead088792bf6c6f0e32b349399fc36e6988b6a91e25f2ac2c595"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/registry.py": {
+      "previous_sha256": null,
+      "new_sha256": "25b2f06ac447fbbda79b04dbcda4260967d9a839ada35b6c721df2ef13a02f38"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "e0d0fb7e7ac2f3e5fddbbea68dd4e06a2038dc723ce34a144d98307e61f2ad7e"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/multimodal/data_collator.py": {
+      "previous_sha256": null,
+      "new_sha256": "babb31d85587da9caa79d3e3bcca5b791e8e5e56cb4ad202b8c253a436e7786c"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/multimodal/multimodal_chat_template.py": {
+      "previous_sha256": null,
+      "new_sha256": "4088ff01a8748e7c21024b2966068d98724fd30930f29eb0287be0925561e9d4"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/multimodal/multimodal_transform.py": {
+      "previous_sha256": null,
+      "new_sha256": "1dbd3e1fba5a50249b440a3f5aa4f32595726d94419a16ad95b758407a2b1de3"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/multimodal/preprocess.py": {
+      "previous_sha256": null,
+      "new_sha256": "d867f93a9d3b6fde2209bdf85dacea2a3d6ea3bf782b2c1bc096ac1dbbb4c950"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/multimodal/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "ced14be479d27e864cf3557c37d8abe00d2204ba6c030620bf48ea85e25a5921"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/vla_data/base_dataset.py": {
+      "previous_sha256": null,
+      "new_sha256": "3d1550e644778ab4ec15c22fae4a9ed799ff5b0f27d7d81b83b218d2c777da65"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/vla_data/ee_pose_transform.py": {
+      "previous_sha256": null,
+      "new_sha256": "07a54ad75ca3bb0a7f65ab8e726452548679ae272d960c20b742c5222f13ea53"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/vla_data/multi_vla_dataset.py": {
+      "previous_sha256": null,
+      "new_sha256": "c484c0c10236b35eb133fdc3cb9488fe7c0df0bde4830cdf545b96d3f7de5085"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/vla_data/README.md": {
+      "previous_sha256": null,
+      "new_sha256": "8e6cb71b5e74fea590727d4c4deab11a32092a50fc2aae72de5dec9a0c45673b"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/vla_data/transform.py": {
+      "previous_sha256": null,
+      "new_sha256": "e8f237c99ebf6cb4b16178b9bca7fba147337071f004aca8a135ac11f8ca2e49"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/vla_data/utils.py": {
+      "previous_sha256": null,
+      "new_sha256": "cfbd6e08dda8f7a3a462c50f6c230c372189f8148b3ffe6a962e240dccd86a16"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/vla_data/video_utils.py": {
+      "previous_sha256": null,
+      "new_sha256": "016244862ef3bae740ecd55314028dc64c09893553bea2d639dd7b0273110746"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/data/vla_data/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "362282de0f8ac1ab332571a3e52ad29e40430a9cd43c7f1f7de003a0d77abb67"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "8beb7f9e986cf86c79caabd9bf916a72287c7e7f18a2d9aa762740fd89cdb4b4"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/configuration_lingbot_vla.py": {
+      "previous_sha256": null,
+      "new_sha256": "37987af05ca8980debf5bfe81211cc2a9db1b2fb0e14e15076fa6497c5baf023"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/flex_attention.py": {
+      "previous_sha256": null,
+      "new_sha256": "c7ea18fc1b122e14b24775b4e0e983dbffc7dd0b02e91b03a5a1c4369eff3da9"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/modeling_lingbot_vla.py": {
+      "previous_sha256": null,
+      "new_sha256": "af6a365f05e4ccd7d2585368412be5d186a3afdabfc6e9eaf0c97e71a51037dc"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/modeling_lingbot_vla_v2.py": {
+      "previous_sha256": null,
+      "new_sha256": "b009a4a20fb4d345ecbbf4b9727e80f20884e6f468a1dcfefe7b3293d804fc80"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/moe_load_balance.py": {
+      "previous_sha256": null,
+      "new_sha256": "15dd33d388d503fc96b891e8ff2cb29415cefa5bb165f1450f847a7f0bbca833"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/qwen2_action_expert.py": {
+      "previous_sha256": null,
+      "new_sha256": "67c1de355b3bac4d7ff940b9c43135e7897cfeaf1ef88224e1766bc1d1f28db9"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/qwen3vl_in_vla.py": {
+      "previous_sha256": null,
+      "new_sha256": "eb2202bd01916c891b366c90f9bf11a2782f9387031cc24ed08851b3d8f01e96"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/qwenvl_in_vla.py": {
+      "previous_sha256": null,
+      "new_sha256": "6320cbc1c71cfd51b98258e92782d601d00f0b33035bf50979a299fbe29ba7c3"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/utils.py": {
+      "previous_sha256": null,
+      "new_sha256": "aa8d55137c17a1efa78d3a8124a131ddacf8166b56a2d8802f68bc04b434e747"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "24a6e4f8507703f4f3ae21f2206bc5ec6a713a6b76d171a43900a0cf932e38d7"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/pi0/flex_attention.py": {
+      "previous_sha256": null,
+      "new_sha256": "f46e0fd09eddf4ccbeac21fbdea58685fb7e821e6850d3c190db11272ffc8d96"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/pi0/modeling_pi0.py": {
+      "previous_sha256": null,
+      "new_sha256": "cb0186a313f124fc0d70c1957e2fbb6981dbe323bde1f305bc099ae68f1bf59d"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/pi0/utils.py": {
+      "previous_sha256": null,
+      "new_sha256": "7d5d67dbdeeec9d8038ae1445a952d23749938d2ad3d5da7e4f134183fa79bd1"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/pi0/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "24a6e4f8507703f4f3ae21f2206bc5ec6a713a6b76d171a43900a0cf932e38d7"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/module_utils.py": {
+      "previous_sha256": null,
+      "new_sha256": "3d7cc8834d949c193f80add5ce2f031ec08e32312c895de07c68144c4bdc77aa"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/align_heads/depth_head.py": {
+      "previous_sha256": null,
+      "new_sha256": "78d3a617b8b84647ee3811c606f6554d40efadd5ff330d5efc91a64af919fd79"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/align_heads/resampler.py": {
+      "previous_sha256": null,
+      "new_sha256": "21e8444e7af259746c7786ec0064e8325b446305677fffebcc9569d749549ab8"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/align_heads/__init_.py": {
+      "previous_sha256": null,
+      "new_sha256": "3ee313b0fea665d122e54af056dfa3f8ef21528ffa08f23735aa91296c56b007"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/teacher.py": {
+      "previous_sha256": null,
+      "new_sha256": "1aa25aca20347d7dca2d265ab377e6b2f8f3b36485422cfc6d6c4a9d503f63b5"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "83824d4d91b800227e03562bf303d1e3758582efa6af9d9fb3898a971a21e807"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/example.py": {
+      "previous_sha256": null,
+      "new_sha256": "ed5bc3807bba81be71f3b7d978e0e38100acc3c0d94fe254b2dfcabd45210795"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/LEGAL.md": {
+      "previous_sha256": null,
+      "new_sha256": "adba50d9794b9ef3f7ec8cbc680f7f1fa3fbf9df0ac8d1f9b9ccab6d941bc11b"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/LICENSE": {
+      "previous_sha256": null,
+      "new_sha256": "56ae0eb5ff848e312f8ecc450c806f710821db153b0e8db18a0d69d5a6f60f8b"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/pyproject.toml": {
+      "previous_sha256": null,
+      "new_sha256": "ead97cc2acc436b7f8dc538c634a1937a85ea89fb2202fa9c1ec8a812a807bfa"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/pyrightconfig.json": {
+      "previous_sha256": null,
+      "new_sha256": "57b08f87f3296e2675929e0202ba868921ab289cb264d417faf1f93ebf88f57b"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/README.md": {
+      "previous_sha256": null,
+      "new_sha256": "b97ef65b53f2d5bb05e4a1cc6389f0c3f19f9f09697f7f0077aa1c0074e39267"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/requirements.txt": {
+      "previous_sha256": null,
+      "new_sha256": "08e5c1253755a68475afc63e692510c1bbbcbaaa5d758eef1584bc40a455ccb4"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/CHANGELOG.md": {
+      "previous_sha256": null,
+      "new_sha256": "25dd1fb896e0f0e2cb64a38a40940784667c82f105a53f845831b615fd10ccb5"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/CODE_OF_CONDUCT.md": {
+      "previous_sha256": null,
+      "new_sha256": "9daeae709a0bd71bcfd1c96dc5822ecec5210327eff929da64b0ae7f8faf1444"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/LICENSE": {
+      "previous_sha256": null,
+      "new_sha256": "ad7d951c80c5fc2b2bce035f2041bc0a0dbf9028c8ecc4c9a8e1fba8130b6b59"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/pyproject.toml": {
+      "previous_sha256": null,
+      "new_sha256": "1c1c41fc449cee5e30cb02c36d4c7b208812f48739e7bcfdffc5a22207f1a3c2"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/pyrightconfig.json": {
+      "previous_sha256": null,
+      "new_sha256": "b2b2dc093467b72670b2df73dd4e3263c59d6b8aa131cd327438790a57ec4e45"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/README.md": {
+      "previous_sha256": null,
+      "new_sha256": "a2c691163d7f4ec066c1a20c7b0a1b7cbd2e1406155600a46d5664501e1eba7f"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/requirements.txt": {
+      "previous_sha256": null,
+      "new_sha256": "aff0d7e9df26146afdcd0e7a4a30d967fd07a8da25c30be0737607b414a81a17"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/SECURITY.md": {
+      "previous_sha256": null,
+      "new_sha256": "7b6976eec43edfa68b79a459dd089c56b7a395916dbf1a01bd11e6d86e12128f"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/SUPPORT.md": {
+      "previous_sha256": null,
+      "new_sha256": "149773411caf2c59cb1a6bfb2c6f070d1d054f1f018e7a80be319a8c384eeaf5"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/utils.py": {
+      "previous_sha256": null,
+      "new_sha256": "0e9422435fc9fc6a885800527b76476c22709852fb492b4b0f9705a93a4ebe2f"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "94df78b000730b9534e7f575731bf4d1668eba5fa6ef693f57dd25dafc3572ce"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/attention.py": {
+      "previous_sha256": null,
+      "new_sha256": "26d9ca3a0a9848dfe0da1221d4d0b902b0f63aa18c6e3bb75cf7bf9b6928d67e"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/block.py": {
+      "previous_sha256": null,
+      "new_sha256": "9ad2173e78d4037aebe7e6ef3a8c64e7f3b08fc8f888eda9e6e62ee92805b0d6"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/dino_head.py": {
+      "previous_sha256": null,
+      "new_sha256": "cd7a83f00ac449f962484bad0f2959be477781e57943508428d32ff88f41fe33"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/ffn_layers.py": {
+      "previous_sha256": null,
+      "new_sha256": "29d3f20800e9bcf5fa4e056f6b0e81c1375c291c1dbffd5b103ac555fe2cb9ff"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/flash_attention.py": {
+      "previous_sha256": null,
+      "new_sha256": "6f664bc7bc9f9e38e955c7fac07eea5cb236e869b00584ca9b263d11c8f890ad"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/flash_attention_packed.py": {
+      "previous_sha256": null,
+      "new_sha256": "2a8776749e7c0d6dd780a67764f8e51cc90b0f417cd53aec7422cf07f8712a6d"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/flex_attention_packed.py": {
+      "previous_sha256": null,
+      "new_sha256": "177f4ffdb522e861677e1178abc2cc114d3bf41d62b690c9baa2fd37dd8d2820"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/layer_scale.py": {
+      "previous_sha256": null,
+      "new_sha256": "f9a10ee763a62136f9e814bfe2f2209c2cb501dfdc5573f858ab01ba9a69c23f"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/patch_embed.py": {
+      "previous_sha256": null,
+      "new_sha256": "88ceaac1439a54a6553a5ca8e7d97c40f92747e9edc64f5680afd21af7299475"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/rms_norm.py": {
+      "previous_sha256": null,
+      "new_sha256": "8509ffc53f0bbe9e353a8b9e57ca2396795640b4ecc85140c27b17127c971869"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/rope_position_encoding.py": {
+      "previous_sha256": null,
+      "new_sha256": "5236c6fb9d84252655b1a60a7177db5e6cf4a3c15227e49f4959d32947b4ba2e"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/sdpa_attention_packed.py": {
+      "previous_sha256": null,
+      "new_sha256": "e062fe9c9df49330a54bd9922206a8b66fbd8753c61ce2d0ed3d5b3df4580bce"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/layers/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "b745baf826d0df619d7eaaf1d6fdd9c04e2cf87a2e74abad1ca37e435757a894"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/navit_eval.py": {
+      "previous_sha256": null,
+      "new_sha256": "1fafad9450f0e5a53328cddc066cc37d71db9bbc2e3222dfabed05b4fb6a774e"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/navit_video_vision_transformer.py": {
+      "previous_sha256": null,
+      "new_sha256": "4a3a1bd606c2f639edf418a4ead0864882b152f4c815956baa245c890a5fc503"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/unified_video_vision_transformer.py": {
+      "previous_sha256": null,
+      "new_sha256": "d50e23815d713e77eadf796cb1051a3051a5e38be20689b26e9e4927c3c64a2f"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/vision_transformer.py": {
+      "previous_sha256": null,
+      "new_sha256": "a04ac7f1393e8992bbfc8e8460c59d24e26c65c410baccbdbe90f605d98c3ba9"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "1faa23c982cbfcd019e3bbc92021a79123e6ff802c70c618470681068652af5c"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/inference/causal_eval.py": {
+      "previous_sha256": null,
+      "new_sha256": "c754df45a6113d4ddd6aa6d1527ab4587d4efb35b1906eeb6ef7480bd7da04bc"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/inference/kv_cache.py": {
+      "previous_sha256": null,
+      "new_sha256": "3d186623252f18d240bf71622127622da5b2ccea15040c92b6109b03ab54e965"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/dino_video/lumos_dinov3/models/inference/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "75940a6a6035f3fc4cebcd5a0cb8800e1f5bd82547e0ec7cc9463d9774c149b2"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/0/intrinsics.txt": {
+      "previous_sha256": null,
+      "new_sha256": "599fd7617e1225e289fdbc4dec835d55ccb6577b83953b02ce89a53f3bf237d5"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/1/intrinsics.txt": {
+      "previous_sha256": null,
+      "new_sha256": "76b62be8b9969ed3787630ce12e6667e0e13811b8484e2b9b69936928d31bd0f"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/2/intrinsics.txt": {
+      "previous_sha256": null,
+      "new_sha256": "599fd7617e1225e289fdbc4dec835d55ccb6577b83953b02ce89a53f3bf237d5"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/3/intrinsics.txt": {
+      "previous_sha256": null,
+      "new_sha256": "76b62be8b9969ed3787630ce12e6667e0e13811b8484e2b9b69936928d31bd0f"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/4/intrinsics.txt": {
+      "previous_sha256": null,
+      "new_sha256": "599fd7617e1225e289fdbc4dec835d55ccb6577b83953b02ce89a53f3bf237d5"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/5/intrinsics.txt": {
+      "previous_sha256": null,
+      "new_sha256": "599fd7617e1225e289fdbc4dec835d55ccb6577b83953b02ce89a53f3bf237d5"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/6/intrinsics.txt": {
+      "previous_sha256": null,
+      "new_sha256": "76b62be8b9969ed3787630ce12e6667e0e13811b8484e2b9b69936928d31bd0f"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/examples/7/intrinsics.txt": {
+      "previous_sha256": null,
+      "new_sha256": "76b62be8b9969ed3787630ce12e6667e0e13811b8484e2b9b69936928d31bd0f"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/modules_decoder.py": {
+      "previous_sha256": null,
+      "new_sha256": "e809c6f5abb57061b58e43e50a04e20ac2179503abed02cafda3f82dfac7387e"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/modules_rgbd_encoder.py": {
+      "previous_sha256": null,
+      "new_sha256": "72f06b74ba10c39ae20b01154c8b0b108a17e47e0bb978563c80fc51fe5c46cd"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/utils.py": {
+      "previous_sha256": null,
+      "new_sha256": "a7108de9525839a7277c6ce0db6d8108156739cb02571ad6a87eb822814204e6"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/v2.py": {
+      "previous_sha256": null,
+      "new_sha256": "45f69b4e2c5fab73f883a2790a3c7839d7fd4c11c4d11343ef1d98b31be0351e"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "20466a32b5c18e07a2afc9c1793ca48123039ee7e1a46de37461fb153a8d3193"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/utils/geo.py": {
+      "previous_sha256": null,
+      "new_sha256": "b235df79d279a8ba0c1d62004df0a8af9a0c2a0faa4ebb52a0e7140f0541c8eb"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/utils/io.py": {
+      "previous_sha256": null,
+      "new_sha256": "b6907a108db83f8e40862c96ad089bc4d05dd88a630430b5c0f8c67ef5e1d20c"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/utils/tools.py": {
+      "previous_sha256": null,
+      "new_sha256": "ee4893ddbc49da5b24ab43277e9693e86a842dace69452803bab85b531121f60"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/utils/vis.py": {
+      "previous_sha256": null,
+      "new_sha256": "564fbb5898b6981c70fb3ce845b4ad1a1594360bd10787773ed194efa497c88a"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/utils/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "0d2b87b7e71c7f7279ccc4b4f8b541d26071425284a0ea01a5a435fac4511cfe"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/hub/backbones.py": {
+      "previous_sha256": null,
+      "new_sha256": "74b7f24365cfd454326c91f438c77a4d7f0c3fb2a424eb6a5d48d53573bbf54d"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/hub/utils.py": {
+      "previous_sha256": null,
+      "new_sha256": "c0533919016531b320bf9aef7cd7001249bc8ef8957cdb29246c15b67d5abdf8"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/hub/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/attention.py": {
+      "previous_sha256": null,
+      "new_sha256": "cc3f20ec18a07061297bcbeacc842aec43534f8eb5fd62516273c2c3385a6b79"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/block.py": {
+      "previous_sha256": null,
+      "new_sha256": "fe8ae374b8b08d634320ca4083cdc5f671926bcf7eb012e8988b83920b99ef58"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/dino_head.py": {
+      "previous_sha256": null,
+      "new_sha256": "9fdb1fa61c0609dc0876f711f9d0d828c33bf9fd972aab3d9c968d44e16b98d1"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/drop_path.py": {
+      "previous_sha256": null,
+      "new_sha256": "b9f8236e86054b9d9a71275efcad2a9ecaa1f86b529d4b8d6109ddb5e806f67a"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/layer_scale.py": {
+      "previous_sha256": null,
+      "new_sha256": "abb7bbfae152a9de2e6d0961ab5e75c79428e849281bfe50dd07b66b54b485d1"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/mlp.py": {
+      "previous_sha256": null,
+      "new_sha256": "255825c73b60a916dd00eb1e38aacbcdbf316e40d6a005efb46e245b7edb43aa"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/patch_embed.py": {
+      "previous_sha256": null,
+      "new_sha256": "40da6add3d811198ea3e17cb99cdd4e5cda59e369efbbe3d18d89308618cf142"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/patch_embed_mlp.py": {
+      "previous_sha256": null,
+      "new_sha256": "0c18967ba6195c7864c5a963b3c128f125daea7198a0a9e0fc2528eb3246f221"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/swiglu_ffn.py": {
+      "previous_sha256": null,
+      "new_sha256": "4c75f68d902cf497cb51e770ab8720057fa9957dd4c93da83aaf4f8893d14538"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/layers/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "29d808e091d40cfdb4d5a4355c3c0fc325353686e6b0b0b3f6a24676ca4afd78"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/models/mask_utils.py": {
+      "previous_sha256": null,
+      "new_sha256": "f7a7db258f0a29cae1077056c95010b14004952ba455ba7915c0f2bbbffe75f3"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/models/vision_transformer.py": {
+      "previous_sha256": null,
+      "new_sha256": "84e9883def1b61c62e438c4ee152c4425c9e7f8bba30cf655e6361eb684ba137"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/models/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "ed3430c69b7845b741ac3badc189e901a52a7d45a97d6aaa441b79be29734f8a"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/cluster.py": {
+      "previous_sha256": null,
+      "new_sha256": "ea195476b1f5316520c07233eb73ff4b0e5fe3f7a2645aacec5b416e7bed157c"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/config.py": {
+      "previous_sha256": null,
+      "new_sha256": "588574a78951ccfe7ffaad9ef7cab53d37e837e3ae98cfc1b6a976189073d87c"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/dtype.py": {
+      "previous_sha256": null,
+      "new_sha256": "610251537bcf55de8961a17dd625560eae5cfa5082e9382bbd9ded86db92e1c6"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/param_groups.py": {
+      "previous_sha256": null,
+      "new_sha256": "ec1daae9eb7c50492091504f97087e3179d46a080d7b7f131967c07cb15cf6d4"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/utils.py": {
+      "previous_sha256": null,
+      "new_sha256": "10bfc824fdb00cf0c4afc0a875b5763ad4c5f33ec38c2515b12528307b789305"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/lingbot-depth/mdm/model/dinov2_rgbd/utils/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/baselines/da_v2.py": {
+      "previous_sha256": null,
+      "new_sha256": "897958984c030b2388c9801aa25053cd1bf1dd3be98bb4c131e8826d38685ae2"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/baselines/da_v2_metric.py": {
+      "previous_sha256": null,
+      "new_sha256": "d339b3e229b57601a28491cde80a93968826989a76251cbe4f7eff1ee87a49ee"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/baselines/metric3d_v2.py": {
+      "previous_sha256": null,
+      "new_sha256": "7f40a3f200f84947b30003d70f539da6f5e8242413b06d0edeef69977eb97d33"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/baselines/moge.py": {
+      "previous_sha256": null,
+      "new_sha256": "c245f279dcfb1abe68b18199c34fe065cbf94c6415b39b6a6601d078ab9a465e"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/docs/eval.md": {
+      "previous_sha256": null,
+      "new_sha256": "2f91fdf81046c26246c2b9200c2f9f9862ab91577add8fe412e44f0f0bd2d68c"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/docs/normal.md": {
+      "previous_sha256": null,
+      "new_sha256": "2a074d5cc140800e1ffbddbc8c23065f6cedf17b7d7fcc38b2422003d97f5a65"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/docs/onnx.md": {
+      "previous_sha256": null,
+      "new_sha256": "e670ef794ed1d703dfe464894252f3fb1fa0f07bbeef811da60ad11f4a56f39b"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/docs/train.md": {
+      "previous_sha256": null,
+      "new_sha256": "70f46c542fa0367635e4b867b3cb4ef939636ae76301b498852b0a9f88b9d802"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/all_benchmarks.json": {
+      "previous_sha256": null,
+      "new_sha256": "028d405eddf0e5c65cb7ad4f832d11fc9a73992c1acb260b2f1c64437cfa8b54"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/train/v1.json": {
+      "previous_sha256": null,
+      "new_sha256": "87f8f091ac74b45cfc77137e768cbe52c7e13eb989492652b82ac529cf939375"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/train/v2.json": {
+      "previous_sha256": null,
+      "new_sha256": "dccee76a670f09ceafe47d79b6122799af3a35496d18b69539a841794aa8c5bb"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/ddad.json": {
+      "previous_sha256": null,
+      "new_sha256": "bd5479209fa7541cbc189c30ba3a91d47ee3dda7d57584773757a1034af42cc2"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/diode.json": {
+      "previous_sha256": null,
+      "new_sha256": "a223974ab82aff6a2ddad1a7864972b25d67060833a38a7090d3db82bf4257ca"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/eth3d.json": {
+      "previous_sha256": null,
+      "new_sha256": "b6311545d9c7ca5b7581bad694d698b536a93d792390b1f088c49d4014006770"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/gso.json": {
+      "previous_sha256": null,
+      "new_sha256": "54e8f7bc4243541c42d79c5fbbf6f5e727b48d6633e73587978ec4ce43d241b9"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/hammer.json": {
+      "previous_sha256": null,
+      "new_sha256": "aaf6ea2c6fc4a82b2c37428539c89d9dc18e77e481b9c78ab0f55826fdabb252"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/ibims-1.json": {
+      "previous_sha256": null,
+      "new_sha256": "c56f2362c6bc08f5b91d627ce3a30f8cc71056d36707217aab9afbfdad33343b"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/kitti.json": {
+      "previous_sha256": null,
+      "new_sha256": "caf8893ff50bbeb7f8b1e41c524d07508ca88853c3dd6a8d184fe8bee1cd919e"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/nyu.json": {
+      "previous_sha256": null,
+      "new_sha256": "27764421867a97728a9fe03e543f78a27c372fce51487d72eadcc58ee73f6aa7"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/sintel.json": {
+      "previous_sha256": null,
+      "new_sha256": "e1db76f5e45a46676371d8dc05f753c5450723b7f240c5e51894312121832881"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/configs/eval/benchmarks/spring.json": {
+      "previous_sha256": null,
+      "new_sha256": "e8a474ab587994161ec7391f55c667c52d10e8f590bca782f13fabc857eef92a"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/modules.py": {
+      "previous_sha256": null,
+      "new_sha256": "cb5d7ff75f410be2f8466fc5ca164e04f7b991385c141b3d896c02ead7858fc2"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/utils.py": {
+      "previous_sha256": null,
+      "new_sha256": "cb7279c4295afae9278b13d70181128ab2e29027b08a012a1b0f33213c16de22"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/v1.py": {
+      "previous_sha256": null,
+      "new_sha256": "a6c030f2e93e3c02268dc6d523a33d74299b6d012c3c2bf34c7e7c4a44646241"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/v2.py": {
+      "previous_sha256": null,
+      "new_sha256": "e736ed59fdb8ad89ec0c29ddfeeccd6a4246c387b3f423b922708366b69758fd"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "8cf7085951f070021c3e212f35570d924aaa85e98002c285bc7c1df917d36294"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/app.py": {
+      "previous_sha256": null,
+      "new_sha256": "8ea56be9dbcfaec9dd6a0f41f670e140a3a6f71f48f8e85a3e4eb7232be2e0ba"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/cli.py": {
+      "previous_sha256": null,
+      "new_sha256": "86419e34bbfd15d0646b1d3821fa68651cb21f316428be862ed1df0a126395d0"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/eval_baseline.py": {
+      "previous_sha256": null,
+      "new_sha256": "17702081385cc1221e7ad04d57fbcabb687d1d9705a63011f20c0626b826f3fe"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/infer.py": {
+      "previous_sha256": null,
+      "new_sha256": "76b59a7edbb63748ee028f5479aa2ee8beecae4b0e8d240b2166e4207d4e1649"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/infer_baseline.py": {
+      "previous_sha256": null,
+      "new_sha256": "dfc2ff6b161dceceeeecc31456e9e4ac534de3d0457954cea375ba061e27fbb2"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/infer_panorama.py": {
+      "previous_sha256": null,
+      "new_sha256": "fddd6f0112dbcb91c10c2a3909a6e3c4367dd1b4466c1ed0f283b3a20171251f"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/train.py": {
+      "previous_sha256": null,
+      "new_sha256": "969c12ce3be0a70183da7f6015c3d80ee9cb5c6d92a944b4d662b3e3527f06cd"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/vis_data.py": {
+      "previous_sha256": null,
+      "new_sha256": "5f19d6ea30bc4b76fe8ccb1a71423b65bd15b262fc9d3356150c98098464483c"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/scripts/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/test/baseline.py": {
+      "previous_sha256": null,
+      "new_sha256": "8f62da7022ab16f3f00556ac38580f085c68477d9200722646c77a78720a0d75"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/test/dataloader.py": {
+      "previous_sha256": null,
+      "new_sha256": "086974ff7f31378e202a187a73e4224db058fe834de34027850f04871672c60e"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/test/metrics.py": {
+      "previous_sha256": null,
+      "new_sha256": "f581a2cf1d625127e644f4648d7e8d6414ba3ae0792dc18e3a076ba1e0a4acbf"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/test/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/train/dataloader.py": {
+      "previous_sha256": null,
+      "new_sha256": "0da45febd0e798de25828ee44ff38a5c9a4bad98c9db07796dce3eb10e45c210"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/train/losses.py": {
+      "previous_sha256": null,
+      "new_sha256": "05c090c901e038be389df4cee04dea05444f5c6f2ff4dce9bfc76fe761c7c325"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/train/utils.py": {
+      "previous_sha256": null,
+      "new_sha256": "97b645e3789cb4739ef87437313405b6b0b2dc04e745ae99f3bc987a3b22e723"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/train/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/alignment.py": {
+      "previous_sha256": null,
+      "new_sha256": "85f65b3648a557fd39e76014503a892b2aceea7cd5e0471a1de1def68f0c31e1"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/data_augmentation.py": {
+      "previous_sha256": null,
+      "new_sha256": "c86762cf72aa07d59a75da42d8d0f2dd45bfd9b1eed14bbed8d05da15f8e8bbd"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/download.py": {
+      "previous_sha256": null,
+      "new_sha256": "929fde9df713247927b93807809ffa9b5a49572d6bd5bd1ae57235d2c8f4fc91"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/geometry_numpy.py": {
+      "previous_sha256": null,
+      "new_sha256": "f540c5b8ef55bfffcc32b1a62b38be605683e29fbf399ca86dfcbfc458ce4c10"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/geometry_torch.py": {
+      "previous_sha256": null,
+      "new_sha256": "2f8d5de7d671af16d25fe13c555fd73855d8447bc086bb23aa42e859b303fb05"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/io.py": {
+      "previous_sha256": null,
+      "new_sha256": "36dcbc1fc933dcd19d2c97d3a7a3d556ce3f3a191055bb4cc6f93168c4ef32ba"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/panorama.py": {
+      "previous_sha256": null,
+      "new_sha256": "861e747f6fa5d9c855cd4e9d7964165a6d3e3e73f81ad78d6dfe98f6b6d70d8d"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/tools.py": {
+      "previous_sha256": null,
+      "new_sha256": "ee4893ddbc49da5b24ab43277e9693e86a842dace69452803bab85b531121f60"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/vis.py": {
+      "previous_sha256": null,
+      "new_sha256": "eb4d3d9a77caf923628312ab56e5fc241f39a2d3f2c066a763e76ce49842c1a9"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/webfile.py": {
+      "previous_sha256": null,
+      "new_sha256": "3ffcd69e343b9c867cf52c80ec1923f76478a6e8bda712cc677bfefb077b0777"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/webzipfile.py": {
+      "previous_sha256": null,
+      "new_sha256": "5e68057dad8f05ecbd08883f2b960211512c28bdb0243d32700ec5102b735668"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/utils/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "0d2b87b7e71c7f7279ccc4b4f8b541d26071425284a0ea01a5a435fac4511cfe"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/hub/backbones.py": {
+      "previous_sha256": null,
+      "new_sha256": "11c3b7e3da2a843ba5953191e8fc2027b37490313dfb315c0d4ad1a0ea31d27d"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/hub/utils.py": {
+      "previous_sha256": null,
+      "new_sha256": "c0533919016531b320bf9aef7cd7001249bc8ef8957cdb29246c15b67d5abdf8"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/hub/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/attention.py": {
+      "previous_sha256": null,
+      "new_sha256": "cc3f20ec18a07061297bcbeacc842aec43534f8eb5fd62516273c2c3385a6b79"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/block.py": {
+      "previous_sha256": null,
+      "new_sha256": "13a024d6b45dd0c63300f0ef0b5135d8551dc563436c4d70fc4ec7c44980023b"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/dino_head.py": {
+      "previous_sha256": null,
+      "new_sha256": "9fdb1fa61c0609dc0876f711f9d0d828c33bf9fd972aab3d9c968d44e16b98d1"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/drop_path.py": {
+      "previous_sha256": null,
+      "new_sha256": "b9f8236e86054b9d9a71275efcad2a9ecaa1f86b529d4b8d6109ddb5e806f67a"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/layer_scale.py": {
+      "previous_sha256": null,
+      "new_sha256": "abb7bbfae152a9de2e6d0961ab5e75c79428e849281bfe50dd07b66b54b485d1"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/mlp.py": {
+      "previous_sha256": null,
+      "new_sha256": "255825c73b60a916dd00eb1e38aacbcdbf316e40d6a005efb46e245b7edb43aa"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/patch_embed.py": {
+      "previous_sha256": null,
+      "new_sha256": "40da6add3d811198ea3e17cb99cdd4e5cda59e369efbbe3d18d89308618cf142"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/swiglu_ffn.py": {
+      "previous_sha256": null,
+      "new_sha256": "4c75f68d902cf497cb51e770ab8720057fa9957dd4c93da83aaf4f8893d14538"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/layers/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "5b5f637b2371089e34e0bec9a49518e2250f915aa9e10cae83a32f8e671ad24f"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/models/vision_transformer.py": {
+      "previous_sha256": null,
+      "new_sha256": "1df8a949cf9e7eb3e1e4721f3a82839a0685b9dc94c52a5f5a9ab6ee9ffb0cd0"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/models/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "87b360c71997314f41be1c497cc42326fc32617d3a2840f2f19d3795ca8b85ee"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/cluster.py": {
+      "previous_sha256": null,
+      "new_sha256": "ea195476b1f5316520c07233eb73ff4b0e5fe3f7a2645aacec5b416e7bed157c"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/config.py": {
+      "previous_sha256": null,
+      "new_sha256": "588574a78951ccfe7ffaad9ef7cab53d37e837e3ae98cfc1b6a976189073d87c"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/dtype.py": {
+      "previous_sha256": null,
+      "new_sha256": "610251537bcf55de8961a17dd625560eae5cfa5082e9382bbd9ded86db92e1c6"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/param_groups.py": {
+      "previous_sha256": null,
+      "new_sha256": "ec1daae9eb7c50492091504f97087e3179d46a080d7b7f131967c07cb15cf6d4"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/utils.py": {
+      "previous_sha256": null,
+      "new_sha256": "10bfc824fdb00cf0c4afc0a875b5763ad4c5f33ec38c2515b12528307b789305"
+    },
+    "code/runtime-source/lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/moge/model/dinov2/utils/__init__.py": {
+      "previous_sha256": null,
+      "new_sha256": "2932e94a2d67be87b717c49468214c1127be7864aedf37f5891d26be7bc1437f"
+    },
+    "code/submission-entry/portable_runtime/bounded_log.py": {
+      "previous_sha256": null,
+      "new_sha256": "6db1f79d5f212f47c284775fca517044ce897df3d7801377de26ccac5ed775fa"
+    },
+    "code/submission-entry/portable_runtime/common.py": {
+      "previous_sha256": null,
+      "new_sha256": "22cf8d8c5870f9a58aad18aad9752fa657b0cbbd6d5bb4edb4fb5942a8b82039"
+    },
+    "code/submission-entry/portable_runtime/driver.py": {
+      "previous_sha256": null,
+      "new_sha256": "14819baa5d4acc49ebfc9e65ed0078de4c7b31c503c26ae367b384b8dd397613"
+    },
+    "code/submission-entry/portable_runtime/evaluate_task.py": {
+      "previous_sha256": null,
+      "new_sha256": "b5b5d8858f43b9b0a0cba1af050911ea0cc4244e8074ab9428705f5116521063"
+    },
+    "code/submission-entry/portable_runtime/model_source.py": {
+      "previous_sha256": null,
+      "new_sha256": "22ed58bb00f863cd461507591a4dfa30bd7ff0fea304d6cdeabdf5a81f97ebc3"
+    },
+    "code/submission-entry/portable_runtime/port_release.py": {
+      "previous_sha256": null,
+      "new_sha256": "858992ca939481499c88ca1c7632a24919e6d9b28a08042fdb6fac12d5fb78e0"
+    },
+    "code/submission-entry/portable_runtime/prepare_model.py": {
+      "previous_sha256": null,
+      "new_sha256": "7dba39318dc32e6e642467848e02d6c0c4ba137448c5afe7df8d353bfd29e1bf"
+    },
+    "code/submission-entry/portable_runtime/recovery.py": {
+      "previous_sha256": null,
+      "new_sha256": "66934a7ca3302d26aef8cfb67945569ff96240cf12e7b2d5f71f4f1081b9986d"
+    },
+    "code/submission-entry/portable_runtime/runtime_resources.py": {
+      "previous_sha256": null,
+      "new_sha256": "4b16c4636baac5e3cb1153ea477e0dd3a39fd18cd97e544ad138c70d148f35d7"
+    },
+    "code/submission-entry/portable_runtime/serve.py": {
+      "previous_sha256": null,
+      "new_sha256": "42a4631c70c3a7c1be36d76d39457815984b5cba96c9c0f1c6e06aedcfa6d075"
+    },
+    "code/submission-entry/portable_runtime/session_policy.py": {
+      "previous_sha256": null,
+      "new_sha256": "3e8d119d66b6c44d9a74fc2f51e8003f10ab91e2f65ab46c20708e8c0196f631"
+    },
+    "code/submission-entry/portable_runtime/validation.py": {
+      "previous_sha256": null,
+      "new_sha256": "b769339be5ebed144920609130decfb8bb4d388044fd2a7da9bde4ddefe94086"
+    },
+    "code/submission-entry/portable_eval.py": {
+      "previous_sha256": null,
+      "new_sha256": "38f7f1144dbfd535ebf577dbe365ffc2939fede4c71aa2c8a81ff05ebd2bf992"
+    },
+    "code/submission-entry/portable_train.py": {
+      "previous_sha256": null,
+      "new_sha256": "9bb1f70ee12f1d6a1036bbf4bb3872c5e09adc49db2ceb39468a90fa4e552572"
+    },
+    "code/submission-entry/tests/test_portable_entries.py": {
+      "previous_sha256": null,
+      "new_sha256": "cbdf1eed94bc3ed47b4ea1c9362759da7699abb5e17046397c9e59a5183e9439"
+    },
+    "code/submission-configs/training_step_10000.json": {
+      "previous_sha256": null,
+      "new_sha256": "ffcebfebe757c20c1ac64015eadeb7142f0398b34e6276ab0d953081cd625f33"
+    },
+    "code/submission-configs/training_step_20000.json": {
+      "previous_sha256": null,
+      "new_sha256": "06da9d1fbed019f2cc9a663f075bd2ae2f99ba96e52b3153548f1fdeb7bbdb73"
+    },
+    "code/submission-configs/eval-clean-seen.json": {
+      "previous_sha256": null,
+      "new_sha256": "13874275b73eabffedaf18368a3d1803da4a52518bec24cbabf9fe26a3fab3d5"
+    },
+    "code/submission-configs/eval-randomized-unseen.json": {
+      "previous_sha256": null,
+      "new_sha256": "0cd51c1e46b5e703aa2fd2f534129803bc080a92cf7a1d3d4fae0fc9bae7aa0a"
+    },
+    "code/submission-configs/clean-episode-task-map.json": {
+      "previous_sha256": null,
+      "new_sha256": "468b674be51140a539d958ac20636ae77f91808ea2a5910880de7881513aa160"
+    },
+    "docs/official-template/代码材料目录要求.md": {
+      "previous_sha256": null,
+      "new_sha256": "73f27ef2dc09d093fc93e66ffda739f2813dc55053e7ddd34bab9ceb06b5f23a"
+    },
+    "docs/official-template/初赛评测结果模板_JSON版.json": {
+      "previous_sha256": null,
+      "new_sha256": "f3c2a028fc2d65001a4157f367de1e887cce3ec6efe863bdcdb7f16641511fa8"
+    },
+    "docs/official-template/复现与调优说明模板.md": {
+      "previous_sha256": null,
+      "new_sha256": "bc9fdb4389302eaa1e3957aa5678f6ce8b283e0acf25e0514e815de658819323"
+    },
+    "docs/official-template/必读_模板和目录要求.zip": {
+      "previous_sha256": null,
+      "new_sha256": "c301f471417b6d37bf9b7b325f72b08bb3f6d108a967ef64cba41d62258b74c0"
+    },
+    "docs/official-template/真机Demo项目说明模板.md": {
+      "previous_sha256": null,
+      "new_sha256": "cc3ef52628f9d9488698079ff26c4e3c0d4714906581e54abf7de5ae1d971a7b"
+    },
+    "docs/final-materials-validation.json": {
+      "previous_sha256": null,
+      "new_sha256": "01ad304f5fc89319eb3cce34bd6801387de626facb7dc96636cc8d621f4f0019"
+    },
+    "README.md": {
+      "previous_sha256": "bffcf2ba1eddf649692fc163e1b30fc3b3bc16ce52c55b1b142b61b6dee3e409",
+      "new_sha256": "bbbd1cf7b5811fc464443bc3e45942b3aac5e7bddb6ed2a4ec5e1eb9d523a270"
+    },
+    "docs/SUBMISSION_GUIDE.md": {
+      "previous_sha256": "6afd8ea44086cc743efeb0410cad296bda98552047566375f0922ef9cd7a6ffb",
+      "new_sha256": "42c5a7c8450138b73472dc5b344bfa1e6bd266754dac982d5101b4d01446703e"
+    },
+    "code/submission-entry/README.md": {
+      "previous_sha256": null,
+      "new_sha256": "bd925e9b8e44573e986bbf2ec3952b65bcd468aa3870b36c2825628e3d796d38"
+    },
+    "docs/REPRODUCTION.md": {
+      "previous_sha256": "14866106dac2a4879fdad9e990b54bfb47e6fd8e9947033f2b1621ddad6714be",
+      "new_sha256": "30a652e2febeec347288013638b6ff55fed73981469edcd78dc7d4889c3b37b4"
+    },
+    "docs/EXPERIMENT_REPORT.md": {
+      "previous_sha256": "657df28147ca811b2dbc4aefb78d3c82f7b121adf4b140f2c7c54d1ab7e0ad30",
+      "new_sha256": "0a157b72c327d6b55db43b4b8e3e5ad6a3a93af4cb963681fd4678e7b8bda0b2"
+    },
+    "docs/20000步更正后评测结果.md": {
+      "previous_sha256": "88eff7872a326a67700fc242c6edda693c2c0c404475193b2ec5f21b1e163c25",
+      "new_sha256": "99f2285e2ce6a18abccfd68b26fa8e008f571af14595f9b8e1fa2db944874ad6"
+    }
+  },
+  "official_template_received": true
 }
