@@ -35,7 +35,7 @@
 - [training](training)：10000/20000步阶段冻结配置、选择的clean演示索引、恢复和加载验证记录。
 - [environment](environment)：VLA和仿真两个环境的包版本。
 - [docs/REPRODUCTION.md](docs/REPRODUCTION.md)：目录映射、资源需求和复现限制；[docs/server-audits](docs/server-audits)保留适配审查和原始检查报告。
-- [archive-source-manifest.json](archive-source-manifest.json)：从服务器取回的原始文件路径、尺寸和SHA256。该清单对应服务器快照字节；Git文本换行规范化或后续文档修订可能改变仓库文本字节。
+- [archive-source-manifest.json](archive-source-manifest.json)：从服务器取回的原始文件路径、尺寸和SHA256。归档区禁用Git换行转换，服务器快照字节可直接核验；后续修改应另行记录，不能覆盖历史来源指纹。
 
 原服务器为ARM64 Linux + NVIDIA GB10。模型服务采用FP32/eager、关闭compile；两路worker共享同一模型，推理串行，无自动合批。模型总规模约6.376B，训练冻结Qwen骨干、约1.938B可训练；冻结视觉权重不代表关闭视觉前向。训练数据为50任务clean V3各50条演示，有效batch=8（微批1、梯度累积8）。
 

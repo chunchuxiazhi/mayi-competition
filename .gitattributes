@@ -7,3 +7,9 @@
 *.md text eol=lf
 *.csv text eol=lf
 *.zip binary
+/code/** -text
+/results/** -text
+/training/** -text
+/models/** -text
+/environment/** -text
+/docs/server-audits/** -text
