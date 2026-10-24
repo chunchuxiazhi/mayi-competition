@@ -1,0 +1,31 @@
+{
+  "official_tasks_checked": 50,
+  "missing_unseen_tasks": [],
+  "min_unseen_templates": 2,
+  "old_scene_metadata_replayed_cpu_only": true,
+  "generated_unseen": 424,
+  "old_slots_without_complete_expert_metadata": 76,
+  "generation_errors": [],
+  "examples": [
+    {
+      "task": "lift_pot",
+      "instruction": "Lift the dark gray cooking kitchenpot with both arms",
+      "pool": "unseen",
+      "candidate_count": 100,
+      "candidate_pool_sha256": "6ecf4e86dc735817f03995c7feaeff8a88c2f102694acc33130b68838a4cd44d",
+      "selected_instruction": "Lift the dark gray cooking kitchenpot with both arms",
+      "generator": "RoboTwin.generate_episode_descriptions"
+    },
+    {
+      "task": "lift_pot",
+      "instruction": "Use both arms for the dark gray cooking kitchenpot",
+      "pool": "unseen",
+      "candidate_count": 100,
+      "candidate_pool_sha256": "4133cf6ce4ef43f7d7da77cdd4d39cf933337f865240503599c8619290c25de9",
+      "selected_instruction": "Use both arms for the dark gray cooking kitchenpot",
+      "generator": "RoboTwin.generate_episode_descriptions"
+    }
+  ],
+  "new_expert_calls": 0,
+  "model_inference_during_audit": false
+}

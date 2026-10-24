@@ -1,0 +1,14 @@
+{
+  "official_submission_ready": false,
+  "official_schema_verified": false,
+  "required_rounds_per_task_setting": 100,
+  "actual_planned_rounds_per_task_setting": 10,
+  "valid_rounds": 423,
+  "planned_rounds": 500,
+  "model_weights_in_this_small_archive": false,
+  "blocking_items": [
+    "Only 10 rounds planned; latest QA permits actual counts with official re-evaluation final.",
+    "Official attachment schema and upload file-size limit have not been verified.",
+    "Final submission must include the matching model weights, code and reproduction report."
+  ]
+}

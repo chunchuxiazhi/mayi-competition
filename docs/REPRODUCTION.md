@@ -6,8 +6,7 @@
 
 - `code/tools/finetune-clean-v3-gb10`：第一阶段训练、导出和检查工具；`finetune-clean-v3-gb10-continue20000-20261018`：10000至20000步续训、完整恢复与保存适配。
 - `code/tools/clean-quick-baseline-20261016`、`clean-checkpoint-eval-20261017`：预训练与10000步clean评测。
-- `code/tools/checkpoint-dual-setting-eval-20261023`：20000步clean/randomized评测、结果保存和导出。
-- `code/tools/dual-setting-dispatch-20261024`：两个setting顺序执行前的端口释放等待，避免TIME_WAIT误报；默认仅检查。
+- `code/tools/randomized-unseen-rerun-20261024`：真实20000步randomized+unseen重测、逐回合保存、候选池证据和端口等待；`rerun.py`默认只检查，需显式参数才运行。原双场景seen工具入口已从当前树移除。
 - `code/runtime-source`：归档时实际安装的Lingbot与RoboTwin文本源码/配置快照，保留原许可；不包含仿真大型资源或训练数据。
 - `code/configs`：实际训练、机器人和clean归一化配置；`training`：两个阶段的冻结配置、输入选择和恢复/加载证据。
 - `environment`：VLA与仿真两个Python环境的安装包版本。它是环境记录，不是可直接运行的通用依赖锁文件。
@@ -28,8 +27,10 @@
 
 ## 结果解释
 
-每组均为每任务10个计划回合，而非100次标准评测。分母采用实际有效策略回合；专家阻塞、异常和历史中断分别记录，失败不换seed重跑。归一化clean来源有技术证据，统计方法与专家配额适用范围仍须官方确认；不自行声明已获官方逐项认可。
+每组均为每任务10个计划回合。分母采用实际有效策略回合；专家阻塞、异常和历史中断分别记录，失败不换seed重跑。最新官方Q&A说明不足100次按实测提交、最终以官方复测为准；clean2clean=seen，clean2random=unseen。20000步clean结果65/455保留，randomized已重新实测为unseen、43/423。两个来源合并为1000计划槽位、878有效回合、108成功，源文件和汇总SHA记录在results/aggregation-manifest.json。
+
+专家五次采集限制按发起次数计算、与seed无关，采集失败不应阻止策略测试。现有预检查/元数据依赖造成121个专家阻塞槽位未进入有效policy，另有1次场景初始化异常。这个流程差异仍未解决；不能因这次修正unseen就宣称已完整满足评测流程。归一化clean来源有技术证据，统计方法尚未获得官方单独确认。
 
 原始结果和SHA256应作为可审计记录保留。新服务器重新评测应新建运行目录。`quick_results_evidence.zip`是快速评测证据包，并不等于已符合官方附件schema的正式提交包。
 
-最终正式提交仍需核对比赛官方次数、模板、匹配权重与复现说明要求。本GitHub归档不代表已在天池完成提交。
+最终正式提交仍需取得需登录下载的官方JSON模板，核对字段、匹配权重和复现说明，并处理上述元数据阻塞差异。HF导出不含DCP优化器，原服务器来源校验引用DCP恢复证据；新机器的HF-only来源入口尚需独立适配和验证。本GitHub归档不代表已在天池完成提交。

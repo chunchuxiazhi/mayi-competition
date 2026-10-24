@@ -1,3 +1,0 @@
-[INFO][lingbotvla.models.module_utils:450] 10/24/2026 00:39:50 >> Model weight splits saved in /home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-20000-from10000-20261018/exports/global_step_20000/hf_ckpt.incomplete.
-{"exported": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-20000-from10000-20261018/exports/global_step_20000/hf_ckpt", "training_process_not_resident": true, "actual_model_reload_verified": false}
-[W1024 00:40:03.710955379 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

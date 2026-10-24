@@ -1,0 +1,13 @@
+{
+  "unified_mem_available_bytes": 82487713792,
+  "disk_free_bytes": 1602483503104,
+  "free_inodes": 246611862,
+  "effective_cpus": 20,
+  "load_average": [
+    1.89599609375,
+    1.95068359375,
+    2.16748046875
+  ],
+  "cache_allocated_bytes": 593186816,
+  "cache_growth_bytes": 11087872
+}

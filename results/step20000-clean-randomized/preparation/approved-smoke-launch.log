@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/home/zzj/competitions/lingbot/tools/checkpoint-dual-setting-eval-20261023/run_suite.py", line 137, in <module>
-    if __name__=='__main__':main()
-                            ^^^^^^
-  File "/home/zzj/competitions/lingbot/tools/checkpoint-dual-setting-eval-20261023/run_suite.py", line 113, in main
-    if rc:raise RuntimeError(cfg['setting_name']+' driver failed; no automatic retry')
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: randomized driver failed; no automatic retry

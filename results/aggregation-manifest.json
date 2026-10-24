@@ -1,0 +1,23 @@
+{
+  "training_step": 20000,
+  "same_policy_weights": true,
+  "official_schema_verified": false,
+  "sources": {
+    "step20000-clean/results.json": {
+      "sha256": "0d4d5594d29fa9b0f0ef8d6c8d92a527341685489255b72512b9e0679e05b960"
+    },
+    "step20000-randomized-unseen/results.json": {
+      "sha256": "cf5f0277880d07fc4d6afc3a6bbfc11e63d9aba6046c6069f3d46c2ed8c44158"
+    }
+  },
+  "combined_sha256": "939a5c2bc08016cc29fb9e355fa9bcb9b28c6b6e317769cda707dc5cbd6b6821",
+  "clean_instruction_type": "seen",
+  "randomized_instruction_type": "unseen",
+  "planned": 1000,
+  "valid": 878,
+  "successes": 108,
+  "expert_blocked": 121,
+  "policy_exceptions": 1,
+  "old_randomized_experiment_removed_from_current_tree": true,
+  "no_new_simulation_or_training": true
+}

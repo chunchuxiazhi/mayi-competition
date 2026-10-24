@@ -1,8 +1,0 @@
-{
-  "state": "stopped_incomplete",
-  "summary": "/home/zzj/competitions/lingbot/runs/finetuned-step20000-clean-randomized-50x10-20261023/randomized/summary.json",
-  "automatic_restart": false,
-  "stop_reason": null,
-  "minimum_available_unified_memory_gib_sampled": 55.587615966796875,
-  "owned_children_exited": true
-}

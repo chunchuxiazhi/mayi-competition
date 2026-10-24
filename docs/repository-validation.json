@@ -1,48 +1,32 @@
 {
-  "groups": [
-    {
-      "group": "pretrained_clean",
-      "planned": 500,
-      "valid": 459,
-      "success": 43,
-      "success_rate_on_valid": 0.09368191721132897,
-      "expert_blocked": 41,
-      "policy_exceptions": 0,
-      "historical_interruptions": 1
-    },
-    {
-      "group": "step10000_clean",
-      "planned": 500,
-      "valid": 458,
-      "success": 43,
-      "success_rate_on_valid": 0.09388646288209607,
-      "expert_blocked": 42,
-      "policy_exceptions": 0,
-      "historical_interruptions": 0
-    },
-    {
-      "group": "step20000_clean",
-      "planned": 500,
+  "groups": {
+    "clean": {
+      "instruction_type": "seen",
       "valid": 455,
-      "success": 65,
-      "success_rate_on_valid": 0.14285714285714285,
-      "expert_blocked": 45,
-      "policy_exceptions": 0,
-      "historical_interruptions": 0
+      "successes": 65,
+      "blocked": 45,
+      "exceptions": 0
     },
-    {
-      "group": "step20000_randomized",
-      "planned": 500,
+    "randomized": {
+      "instruction_type": "unseen",
       "valid": 423,
-      "success": 42,
-      "success_rate_on_valid": 0.09929078014184398,
-      "expert_blocked": 76,
-      "policy_exceptions": 1,
-      "historical_interruptions": 0
+      "successes": 43,
+      "blocked": 76,
+      "exceptions": 1
     }
-  ],
+  },
+  "combined": {
+    "planned": 1000,
+    "valid": 878,
+    "successes": 108
+  },
   "tasks_compared": 50,
+  "server_source_files_sha256_verified": 2543,
+  "wrong_randomized_seen_results_removed": true,
   "ordinary_git_files_over_50mib": [],
   "tensor_bytes_in_git": 0,
-  "upload_optimizer_state": false
+  "upload_optimizer_state": false,
+  "actual_instruction_evidence_verified": true,
+  "official_json_template_verified": false,
+  "simulation_started_during_correction_packaging": false
 }
