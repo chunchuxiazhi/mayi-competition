@@ -1,0 +1,7 @@
+{"utc": "2026-10-23T16:18:50.457491+00:00", "unix": 1792772330.4574265, "invocation_id": "1792772330407808343", "event": "port_released", "port": 19360, "wait_seconds": 0.004598714876919985}
+{"utc": "2026-10-23T16:18:50.461750+00:00", "unix": 1792772330.461719, "invocation_id": "1792772330407808343", "event": "setting_start", "setting": "demo_clean"}
+{"utc": "2026-10-23T19:45:39.055881+00:00", "unix": 1792784739.0558417, "invocation_id": "1792772330407808343", "event": "setting_end", "setting": "demo_clean", "all_owned_children_exited": true}
+{"utc": "2026-10-23T19:45:39.098439+00:00", "unix": 1792784739.0984051, "invocation_id": "1792772330407808343", "event": "waiting_for_port_release", "port": 19360, "states": ["06"], "maximum_wait_seconds": 90}
+{"utc": "2026-10-23T19:46:40.874306+00:00", "unix": 1792784800.874271, "invocation_id": "1792772330407808343", "event": "port_released", "port": 19360, "wait_seconds": 61.78621586970985}
+{"utc": "2026-10-23T19:46:40.878288+00:00", "unix": 1792784800.878255, "invocation_id": "1792772330407808343", "event": "setting_start", "setting": "demo_randomized"}
+{"utc": "2026-10-23T23:15:57.281624+00:00", "unix": 1792797357.2815876, "invocation_id": "1792772330407808343", "event": "setting_end", "setting": "demo_randomized", "all_owned_children_exited": true}

@@ -1,0 +1,4 @@
+{"passed": true, "metadata_intervals_checked": 7500, "actual_samples_decoded": 52, "coverage": "first, middle, and each of 50 task-block final episode tails", "loader_workers": 2, "worker_start_method": "spawn", "model_loaded": false, "training_or_simulation_started": false}
+Overwriting feature type 'VideoFrame' (VideoFrame -> VideoFrame)
+Overwriting feature type 'VideoFrame' (VideoFrame -> VideoFrame)
+Overwriting feature type 'VideoFrame' (VideoFrame -> VideoFrame)

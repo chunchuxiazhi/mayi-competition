@@ -1,0 +1,13 @@
+{
+  "status": "code_reviewed_for_local_pretrained_baseline",
+  "formal_rule_scope_confirmed": false,
+  "evidence_origin": "User-pasted official Q&A item 13 read from thread 01a14078-5adf-7052-ae4e-e9a19c383505",
+  "rule_text_summary": "Expert data collection attempts consume a five-attempt budget independently of seed; policy evaluation is not capped by that collection budget.",
+  "observed_code": "Official precheck executes setup_demo/play_once and checks plan_success/check_success. With save_data=False, no observation/demo/trajectory collection export or training is performed; only small instruction parameters are recorded.",
+  "preserved": "Official precheck, success checks and scene seed are retained. Every precheck initiation is durably counted. Failure or exception stops the run; no scene filtering by seed replacement.",
+  "collection_calls": "No collection script, save_traj_data or observation exporter is invoked by this launcher.",
+  "remaining_uncertainty": "Whether the official expert-collection cap includes feasibility-only play_once checks and the official scope of scene are not fully clarified. Prior test expert counts are not claimed to be reconstructed. The per-task/seed guard is a local retry guard, not a claim that the global official quota has been certified.",
+  "scope": "Only the user-approved local pretrained quick baseline. Do not treat this code review as formal organizer approval or submission-compliance certification.",
+  "old_results_excluded": true,
+  "new_expert_training_data_saved": false
+}

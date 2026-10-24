@@ -1,0 +1,43 @@
+{
+  "repo": "robbyant/lingbot-vla-v2-6b",
+  "revision": "11c703bf6a5c1f45b3b69168482da11fdbba53d7",
+  "files": [
+    {
+      "path": "model-00001-of-00006.safetensors",
+      "bytes": 4987151072,
+      "sha256": "4afb52b06a13df8b738a156ae5c8196d3bfe6b3ca931cecbd701e44cb9674e45",
+      "url": "https://huggingface.co/robbyant/lingbot-vla-v2-6b/resolve/11c703bf6a5c1f45b3b69168482da11fdbba53d7/model-00001-of-00006.safetensors"
+    },
+    {
+      "path": "model-00002-of-00006.safetensors",
+      "bytes": 4985113408,
+      "sha256": "ec131afa26a340db94c0dba8ec00e990be5f3d842ce6532070f0c8e26a067501",
+      "url": "https://huggingface.co/robbyant/lingbot-vla-v2-6b/resolve/11c703bf6a5c1f45b3b69168482da11fdbba53d7/model-00002-of-00006.safetensors"
+    },
+    {
+      "path": "model-00003-of-00006.safetensors",
+      "bytes": 4928593216,
+      "sha256": "7dccb068ca66c11fa514476d64661eeead56e2e80e1c0572c9ea82aa0d9ecf27",
+      "url": "https://huggingface.co/robbyant/lingbot-vla-v2-6b/resolve/11c703bf6a5c1f45b3b69168482da11fdbba53d7/model-00003-of-00006.safetensors"
+    },
+    {
+      "path": "model-00004-of-00006.safetensors",
+      "bytes": 4990740540,
+      "sha256": "1c2cb78066b69ae11255db851df95071e2cd69a3a4bc5020b3fd3b13b17819fb",
+      "url": "https://huggingface.co/robbyant/lingbot-vla-v2-6b/resolve/11c703bf6a5c1f45b3b69168482da11fdbba53d7/model-00004-of-00006.safetensors"
+    },
+    {
+      "path": "model-00005-of-00006.safetensors",
+      "bytes": 4990095864,
+      "sha256": "8fe36bf1f4f617869954bdfa1ad12e16abd8b0235a5fa99c88d571d4cddf4a17",
+      "url": "https://huggingface.co/robbyant/lingbot-vla-v2-6b/resolve/11c703bf6a5c1f45b3b69168482da11fdbba53d7/model-00005-of-00006.safetensors"
+    },
+    {
+      "path": "model-00006-of-00006.safetensors",
+      "bytes": 622195024,
+      "sha256": "3cf613d592dad64b1e2a1b1bb34a6f556a7fa05eacdb9972d73e0ea4882555a0",
+      "url": "https://huggingface.co/robbyant/lingbot-vla-v2-6b/resolve/11c703bf6a5c1f45b3b69168482da11fdbba53d7/model-00006-of-00006.safetensors"
+    }
+  ],
+  "verification": "These resource hashes were verified during the previous download; this preparation does not reread all weight tensors."
+}

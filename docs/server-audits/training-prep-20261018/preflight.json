@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "source_step": 10000,
+  "target_step": 20000,
+  "source_checkpoint": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-10000-fixed1000/checkpoints/global_step_10000",
+  "source_scheduler": {
+    "base_lrs": [
+      2e-05,
+      2e-05
+    ],
+    "last_epoch": 10000,
+    "_step_count": 10001,
+    "_is_initial": false,
+    "_get_lr_called_within_step": false,
+    "_last_lr": [
+      1e-05,
+      1e-05
+    ],
+    "lr_lambdas": [
+      null,
+      null
+    ]
+  },
+  "migrated_scheduler": {
+    "kind": "clean50-continuation-cosine-v1",
+    "origin": 10000,
+    "end": 20000,
+    "lr_start": 1e-05,
+    "lr_end": 5e-06,
+    "last_epoch": 10000,
+    "_last_lr": [
+      1e-05,
+      1e-05
+    ]
+  },
+  "next_scheduler_step_rates": [
+    9.999999876629947e-06,
+    9.999999876629947e-06
+  ],
+  "real_checkpoint_metadata_checked_on_cpu": true,
+  "model_or_optimizer_tensors_loaded": false,
+  "upstream_resume_AST_compatible": true,
+  "available_unified_memory_gib": 108.72602844238281,
+  "disk_free_bytes": 2696500482048,
+  "training_root_allocated_bytes": 174241062912,
+  "checkpoint_size_bytes_estimate": 41017744801,
+  "retained_checkpoint_bytes_estimate": 82035489602,
+  "transient_checkpoint_bytes_estimate": 123053234403,
+  "new_training_started": false
+}

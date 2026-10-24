@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": [
+    "private wrapper/shared VLA",
+    "reset does not reset other session",
+    "Python NumPy Torch CPU/CUDA RNG match isolated sequence",
+    "FeatureTransform restored",
+    "checkpoint change refused"
+  ],
+  "real_model_loaded": false,
+  "simulation_episodes": 0,
+  "scope": "wrapper behavioral check; actual model checked by real first-action session assertions"
+}

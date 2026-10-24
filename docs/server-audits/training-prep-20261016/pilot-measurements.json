@@ -1,0 +1,79 @@
+{
+  "utc": "2026-10-16T04:05:07.611382+00:00",
+  "result": "20_update_training_export_and_reload_passed",
+  "optimizer_steps": 20,
+  "micro_batches": 80,
+  "checkpoint_count": 1,
+  "setting": "joint 50-task V3 clean, designated raw pretraining initialization, FP32, frozen Qwen backbone, eager attention",
+  "configuration_signature": "b690db030b596bb5a38933765b0dea7d52f5879f633f6f3ab376d6a9f2ac658e",
+  "stable_seconds_per_update_median": 4.871111208572984,
+  "stable_seconds_per_update_min": 4.784975691698492,
+  "stable_seconds_per_update_max": 5.383795025758445,
+  "first_update_seconds_including_initialization": 163.54653741931543,
+  "training_loop_elapsed_seconds_approx": 106.33439959479496,
+  "pipeline_elapsed_seconds_approx": 411.49693298339844,
+  "checkpoint_save_seconds_approx": 38.162689208984375,
+  "first_loss": 0.3420928530395031,
+  "last_loss": 0.29512373730540276,
+  "loss_range": [
+    0.24183263257145882,
+    0.46289996802806854
+  ],
+  "cuda_peak_allocated_gib": 54.59385395050049,
+  "cuda_peak_reserved_gib": 54.8046875,
+  "unified_available_min_at_update_gib": 48.99895095825195,
+  "unified_available_observed_during_checkpoint_gib": 25.952960968017578,
+  "whole_system_peak_measured": false,
+  "checkpoint_bytes": 41017739148,
+  "hf_weights_bytes": 25503889812,
+  "export_total_bytes": 25519988108,
+  "export_dtype_elements": {
+    "F32": 6375907511
+  },
+  "export_parameter_elements": 6375907511,
+  "pilot_allocated_bytes": 66554724352,
+  "project_allocated_bytes": 156555857920,
+  "disk": "文件系统              1B的块          已用          可用 已用% 挂载点\n/dev/nvme0n1p2 4031871553536 1022762405888 2804268298240   27% /\n",
+  "current_mem_available": "MemAvailable:   113496020 kB",
+  "trainable_parameters": 1938090551,
+  "strict_reload": {
+    "passed": true,
+    "checkpoint": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/pilot/exports/global_step_20/hf_ckpt",
+    "strict_deployment_load": true,
+    "launch_attempt": "1792122996885779477",
+    "configuration_signature": "b690db030b596bb5a38933765b0dea7d52f5879f633f6f3ab376d6a9f2ac658e",
+    "action_projection_exact_match": true,
+    "max_abs_change_from_pretrained": 0.00025343894958496094,
+    "training_loss_finite": true,
+    "simulation_or_action_inference_executed": false
+  },
+  "actual_optimizer_resume_exercised": false,
+  "simulation_evaluated": false,
+  "stage1_started": false,
+  "active_training_processes": "",
+  "estimates_not_measurements": {
+    "stage1_accumulation": 8,
+    "seconds_per_update_linear_estimate": 9.742222417145967,
+    "2000_update_training_hours": 5.412345787303315,
+    "72h_theoretical_updates": 26605,
+    "excludes": "checkpoint overhead, initialization/export, evaluation, downtime, and unmeasured long-run or batch-profile differences"
+  },
+  "startup_failure_fixed": {
+    "reason": "ModelArguments.vit_attn_implementation default flash_attention_2 despite train.attention_implementation=eager",
+    "fix": "Explicit model.vit_attn_implementation=eager in derived pilot/stage1 configs; validator checks both",
+    "prior_updates": 0,
+    "archived_at": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/pilot/startup-failures/flash-attention-default"
+  },
+  "code_sha256_current": {
+    "safe_video.py": "4ee9b3894c34c974d4e3bc9c7eeab66a2de866333a1ef8f010d12c966f4e8ee1",
+    "storage_policy.py": "112bd826e0b6266847c4cd0b8314bc776861b858e9343158d9d7107f755d7f6f",
+    "validate_data.py": "e14d7af9887c5f2c74dcaca69421aa8e4f7c2771c1d144ea39ae0a400314e134",
+    "validate_native_loader.py": "5922da3a0b4473b4cec421c23e282992a00fb59f45f877afe836fd706644098c",
+    "verify_reload.py": "97ab106331379f4b7905f3b0f32e465995bcaf85137dce3bcb18890ca2333f2d",
+    "gb10_runtime.py": "d68f5fdcc069a8e42aa1673039a4c432e49bc119946bfc5321b42335f2ba8948",
+    "launch.py": "7e0a1bea7a0a8d39494251236187c68e143f8951b0567af894b8cf9dd0ef8f12",
+    "train_entry.py": "a3a9f85f98ca3d488b9264dbcae8ebadb6cf6cea772cc6c72aa946c4d2dd1ac4",
+    "export_cpu.py": "97319921aa60be0add0effd66420f49cb9b6246f89598b1f0bb6d45690966c2b",
+    "test_policies.py": "753a14b07603c8ce22e629196eb1e00ad9c2548fb14444c9336270c2b0ae8c19"
+  }
+}

@@ -1,0 +1,6 @@
+Collecting numpydantic==1.9.0
+  Downloading numpydantic-1.9.0-py3-none-any.whl.metadata (19 kB)
+Downloading numpydantic-1.9.0-py3-none-any.whl (100 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.8/100.8 kB 391.9 kB/s eta 0:00:00
+Installing collected packages: numpydantic
+Successfully installed numpydantic-1.9.0

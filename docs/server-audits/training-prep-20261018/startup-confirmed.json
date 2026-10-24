@@ -1,0 +1,40 @@
+{
+  "confirmed": true,
+  "unix_time": 1792293799.7350023,
+  "supervisor_pid": 567866,
+  "launch_attempt": "1792293508047582678",
+  "source_step": 10000,
+  "target_step": 20000,
+  "completed_new_updates": 8,
+  "last_optimizer_step": 10008,
+  "latest_loss": 0.048842138377949595,
+  "recent_seconds_per_update_median": 9.239660994149745,
+  "unified_mem_available_at_last_update_gib": 48.855140686035156,
+  "cuda_peak_allocated_gib": 54.59385442733765,
+  "actual_learning_rates": [
+    9.999993954869742e-06,
+    9.999993954869742e-06
+  ],
+  "trainable_parameter_set_unchanged": true,
+  "source_configuration_unchanged": true,
+  "full_resume_evidence": {
+    "passed": true,
+    "source_checkpoint": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-10000-fixed1000/checkpoints/global_step_10000",
+    "restored_global_step": 10000,
+    "target_step": 20000,
+    "adam_state_groups": 959,
+    "rng_restored": true,
+    "native_dataloader_restored": true,
+    "scheduler_migrated": true,
+    "next_learning_rates": [
+      1e-05,
+      1e-05
+    ],
+    "launch_attempt": "1792293508047582678"
+  },
+  "save_every_updates": 1000,
+  "keep_formal_checkpoints_across_both_runs": 2,
+  "automatic_export": false,
+  "automatic_evaluation": false,
+  "automatic_restart": false
+}

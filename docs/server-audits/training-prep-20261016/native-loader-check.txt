@@ -1,0 +1,16 @@
+[INFO][lingbotvla.utils.arguments:114] 10/16/2026 12:16:17 >> gradient_accumulation_steps=4, global_batch_size=4
+[WARNING][lingbotvla.models.config_registry:66] 10/16/2026 12:16:17 >> Ignore import error when loading config from lingbotvla.models.vla.pi0.modeling_pi0. No module named 'lerobot.common'
+[INFO][lingbotvla.data.data_loader:114] 10/16/2026 12:16:18 >> train_steps: 137223, max_seq_len: 2048, use_rmpad: False, bsz_warmup_steps: 0, bsz_warmup_init_mbtoken: 200, token_micro_bsz: 2048, num_micro_batch: 4, micro_batch_size: 1, global_batch_size: 4, dp_size: 1, sp_size: 1.
+{"passed": true, "native_micro_batches": 4, "normalized_actions_shape": [1, 50, 55], "serialized_loader_state_bytes": 1517, "layout_stub": "one rank, CPU data-only check; FSDP not executed", "data_workers": 0, "worker_exit_codes": [], "model_weights_loaded": false, "optimizer_updates": 0, "simulation_started": false}
+Overwriting feature type 'VideoFrame' (VideoFrame -> VideoFrame)
+/home/zzj/competitions/lingbot/envs/vla/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2346: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/zzj/competitions/lingbot/envs/vla/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2346: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/zzj/competitions/lingbot/envs/vla/lib/python3.12/site-packages/torch/cuda/__init__.py:283: UserWarning: 
+    Found GPU0 NVIDIA GB10 which is of cuda capability 12.1.
+    Minimum and Maximum cuda capability supported by this version of PyTorch is
+    (8.0) - (12.0)
+    
+  warnings.warn(
+WARNING:root:'torchcodec' is not available in your platform, falling back to 'pyav' as a default decoder

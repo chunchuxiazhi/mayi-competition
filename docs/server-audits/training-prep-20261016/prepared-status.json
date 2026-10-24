@@ -1,0 +1,10 @@
+{
+  "training_started": true,
+  "pilot_completed": true,
+  "optimizer_steps": 20,
+  "stage1_started": false,
+  "checkpoint_count": 1,
+  "export_and_strict_reload_passed": true,
+  "latest_evidence": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/pilot/pilot-measurements.json",
+  "historical_preparation_audit": "final-audit.json predates actual training; use pilot-measurements.json for current state"
+}

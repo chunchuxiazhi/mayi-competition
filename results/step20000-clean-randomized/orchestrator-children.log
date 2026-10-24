@@ -1,0 +1,9 @@
+{"prepared": true, "export_bytes": 25503889812, "gpu_released": true}
+Traceback (most recent call last):
+  File "/home/zzj/competitions/lingbot/tools/checkpoint-dual-setting-eval-20261023/driver.py", line 236, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/zzj/competitions/lingbot/tools/checkpoint-dual-setting-eval-20261023/driver.py", line 117, in main
+    with socket.socket() as s:s.bind(('127.0.0.1',config['port']))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 98] Address already in use

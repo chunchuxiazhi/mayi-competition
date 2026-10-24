@@ -1,0 +1,16 @@
+lerobot 0.4.2 requires cmake, which is not installed.
+lerobot 0.4.2 requires deepdiff, which is not installed.
+lerobot 0.4.2 requires diffusers, which is not installed.
+lerobot 0.4.2 requires draccus, which is not installed.
+lerobot 0.4.2 requires gymnasium, which is not installed.
+lerobot 0.4.2 requires pynput, which is not installed.
+lerobot 0.4.2 requires pyserial, which is not installed.
+lerobot 0.4.2 requires rerun-sdk, which is not installed.
+lerobot 0.4.2 requires termcolor, which is not installed.
+utils3d 1.3 requires moderngl, which is not installed.
+lerobot 0.4.2 has requirement accelerate<2.0.0,>=1.10.0, but you have accelerate 1.7.0.
+lerobot 0.4.2 has requirement datasets<4.2.0,>=4.0.0, but you have datasets 3.6.0.
+lerobot 0.4.2 has requirement setuptools<81.0.0,>=71.0.0, but you have setuptools 84.0.0.
+lerobot 0.4.2 has requirement torch<2.8.0,>=2.2.1, but you have torch 2.9.1+cu130.
+lerobot 0.4.2 has requirement torchvision<0.23.0,>=0.21.0, but you have torchvision 0.24.1.
+numpydantic 1.9.0 has requirement numpy>=2.0.0, but you have numpy 1.26.4.

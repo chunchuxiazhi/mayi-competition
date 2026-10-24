@@ -1,0 +1,131 @@
+{
+  "utc": "2026-10-16T05:11:37.970225+00:00",
+  "engineering_checks_passed": true,
+  "formal_training_started": false,
+  "configuration": {
+    "passed": true,
+    "tasks": 50,
+    "episodes": 2500,
+    "frames": 548893,
+    "world_size": 1,
+    "micro_batch": 1,
+    "gradient_accumulation": 8,
+    "optimizer_updates": 10000,
+    "save_every_updates": 1000,
+    "checkpoint_keep": 2,
+    "save_schedule_mode": "fixed",
+    "configured_save_steps": [
+      1000,
+      2000,
+      3000,
+      4000,
+      5000,
+      6000,
+      7000,
+      8000,
+      9000,
+      10000
+    ],
+    "training_started": false
+  },
+  "configuration_sha256": "377cd610f4c7f16a5ab46041302574c6bb8024bcf61c1932da34a6811c5e1c28",
+  "control_sha256": "1727cd2c22f25a9f6553b205d923601f77a362550ecc5af674adcca305b837e2",
+  "code_sha256": {
+    "verify_training_resume.py": "ad16f9145cee2fde417d2ad839474f20e40db87672873ba8410937ce5b44af0c",
+    "safe_video.py": "4ee9b3894c34c974d4e3bc9c7eeab66a2de866333a1ef8f010d12c966f4e8ee1",
+    "storage_policy.py": "947534d5ca889c115f836a9e7b91af7e9e9e33e74b5690ac2ae8b260164b113f",
+    "validate_data.py": "e14d7af9887c5f2c74dcaca69421aa8e4f7c2771c1d144ea39ae0a400314e134",
+    "validate_native_loader.py": "40b22a11644cb575f83ac17d3e1a7e439fe907f4baba69616d49735450b2c7f2",
+    "test_resume_guard.py": "7c44e62bf415df7c3dfc844fb5dfe05dd0a0262e6f4ea4c73418da49b5c1988c",
+    "verify_reload.py": "97ab106331379f4b7905f3b0f32e465995bcaf85137dce3bcb18890ca2333f2d",
+    "resume_guard.py": "d99a3a9888622473a0ec0b1de1449a510817075dfa90588a54bf9add1d71c97d",
+    "gb10_runtime.py": "508206f72cda377dc6bb1fa73a3e344cbb614ae8ce33cb5a39dc779c96f227ed",
+    "launch.py": "ae6797814b2efcd0f2c3065dce406e6e172a2c67b0cf1ad10c3cd8424515308b",
+    "train_entry.py": "8a39027754916449dcc212f7271dc016599df7bdce5846206f6f50304e86b84e",
+    "export_cpu.py": "97319921aa60be0add0effd66420f49cb9b6246f89598b1f0bb6d45690966c2b",
+    "start_detached.py": "48d050728d2b3b7f8d987fb9c9a05d3d31123172288f5bdc2a3285a85a7e7c6a",
+    "test_policies.py": "2d5b9bd6a9cc4ce533ee430c4d8b0dfa219e3b9191061dcbde20a630e70be826"
+  },
+  "cpu_policy_and_resume_tests_passed": 22,
+  "formal_native_micro_batches_checked": 8,
+  "resume_verification": {
+    "passed": true,
+    "checkpoint_signature": "b690db030b596bb5a38933765b0dea7d52f5879f633f6f3ab376d6a9f2ac658e",
+    "restored_global_step": 20,
+    "optimizer_state_tensors": 959,
+    "adam_moment_groups": 959,
+    "optimizer_step_range": [
+      20,
+      20
+    ],
+    "lr_scheduler_restored": true,
+    "python_numpy_cpu_cuda_rng_restored": true,
+    "model_projection_exact_match": true,
+    "dataloader_next_batch_reproduced": true,
+    "optimizer_steps_executed": 0,
+    "model_forward_backward_executed": false,
+    "source_checkpoint": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/pilot/checkpoints/global_step_20",
+    "resume_guard_sha256": "d99a3a9888622473a0ec0b1de1449a510817075dfa90588a54bf9add1d71c97d"
+  },
+  "optimizer_update_ledger_unchanged": true,
+  "existing_pilot_optimizer_steps": 20,
+  "existing_checkpoint_commits": 1,
+  "zero_lr_internal_optimizer_state_initializations": 1,
+  "formal_output_directory_created": false,
+  "model_source": "robbyant/lingbot-vla-v2-6b",
+  "model_revision": "11c703bf6a5c1f45b3b69168482da11fdbba53d7",
+  "model_file_size_checks": [
+    {
+      "file": "model-00001-of-00006.safetensors",
+      "bytes": 4987151072,
+      "published_sha256": "4afb52b06a13df8b738a156ae5c8196d3bfe6b3ca931cecbd701e44cb9674e45",
+      "fresh_full_hash_read": false
+    },
+    {
+      "file": "model-00002-of-00006.safetensors",
+      "bytes": 4985113408,
+      "published_sha256": "ec131afa26a340db94c0dba8ec00e990be5f3d842ce6532070f0c8e26a067501",
+      "fresh_full_hash_read": false
+    },
+    {
+      "file": "model-00003-of-00006.safetensors",
+      "bytes": 4928593216,
+      "published_sha256": "7dccb068ca66c11fa514476d64661eeead56e2e80e1c0572c9ea82aa0d9ecf27",
+      "fresh_full_hash_read": false
+    },
+    {
+      "file": "model-00004-of-00006.safetensors",
+      "bytes": 4990740540,
+      "published_sha256": "1c2cb78066b69ae11255db851df95071e2cd69a3a4bc5020b3fd3b13b17819fb",
+      "fresh_full_hash_read": false
+    },
+    {
+      "file": "model-00005-of-00006.safetensors",
+      "bytes": 4990095864,
+      "published_sha256": "8fe36bf1f4f617869954bdfa1ad12e16abd8b0235a5fa99c88d571d4cddf4a17",
+      "fresh_full_hash_read": false
+    },
+    {
+      "file": "model-00006-of-00006.safetensors",
+      "bytes": 622195024,
+      "published_sha256": "3cf613d592dad64b1e2a1b1bb34a6f556a7fa05eacdb9972d73e0ea4882555a0",
+      "fresh_full_hash_read": false
+    }
+  ],
+  "clean_normalization_sha256": "0b5ed854065e9c64e1b8934c274c38d0efa062d743bfad071f1a089983125611",
+  "selected_task_count": 50,
+  "startup_without_explicit_start_refused": true,
+  "active_project_training_processes": "",
+  "gpu_compute_processes": "",
+  "mem_available_gib": 109.1459732055664,
+  "disk_free_bytes": 2804267753472,
+  "project_allocated_bytes": 156556247040,
+  "rules_review_status": "Pending teammate/organizer review for previously documented methods; engineering pass is not rules approval",
+  "estimated_training_hours": 27.06,
+  "estimated_schedule_hours": [
+    28,
+    32
+  ],
+  "additional_formal_steady_gb": 107.56,
+  "additional_formal_peak_gb": 123.05
+}

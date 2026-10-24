@@ -1,0 +1,42 @@
+{
+  "original_frozen_config_unchanged": true,
+  "parent_config_sha256": "0e6fe75e8618314444c54d4152cc6c4abf033c0af5356ff968a9cd7c7d42a5f1",
+  "revision_config_sha256": "3ec0a68e0263fa88c8472060681a2ba0ef409238af3db2ad35cad4c9af35d7e3",
+  "code": {
+    "recovery.py": {
+      "before": null,
+      "after": "78eb9d9cf8f39d8acef585e85e523524e68871576240e6c82a9ce1d0bc46c916"
+    },
+    "test_recovery.py": {
+      "before": null,
+      "after": "f5d57a89ce091997841e102133da2fe1298b0fdc497c45bf08aa09d56d3dd418"
+    },
+    "evaluate_task.py": {
+      "before": "986091fe0d377c913a060c030216e2b82b81d81fd3fc8b5bb578cff6fb069d3d",
+      "after": "dac149960e519c3993effafd54b10ed61a9f02cdb8535fa47a75fc22999864dd"
+    },
+    "driver.py": {
+      "before": "7bf34d63e31598ebd2f96ff75cdc9f8a9943b04b53d488916f0662d41bbaf3f0",
+      "after": "6462efe69f8a3ed149e3c64c27b4b1b89e01b370472152350dfad1304b5f1116"
+    },
+    "common.py": {
+      "before": "56ac67609eb79bfff949505edc450e100fcfd39702738cc0f4c916a5e79c00f8",
+      "after": "772cf55ed8f673a28e66c24cdef92c8279f193d15f3a0c5ff75d85dd922b0a40"
+    },
+    "static_check.py": {
+      "before": "db115fe12386b173560c72a083883f76ccbe8ba4485576c33b58bedd9dc8e170",
+      "after": "f721e5c895d8f94372eefeef77610c7f48aa6ec7c02ca723d722b67a9669756e"
+    }
+  },
+  "source_backups": "/home/zzj/competitions/lingbot/runs/pretrained-clean-quick-50x10-20261016/preparation/control-r2-backup",
+  "changes": [
+    "failed expert normal return: validate official metadata/instruction then same seed policy",
+    "preserve completed failures, resume interruptions, no seed replacement",
+    "known task incomplete does not kill other tasks; global faults stop both",
+    "two real planned episodes gate remaining queue; one resident model",
+    "idempotent termination and timely bounded logs"
+  ],
+  "protected_experiment_fields_unchanged": true,
+  "expert_quota_scope_formally_confirmed": false,
+  "baseline_only": true
+}

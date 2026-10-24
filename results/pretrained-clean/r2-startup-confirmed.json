@@ -1,0 +1,130 @@
+{
+  "confirmed_at_utc": "2026-10-15T18:21:25.878395+00:00",
+  "state": "running",
+  "stage": "full_50_tasks",
+  "scope": {
+    "tasks": 50,
+    "episodes_per_task": 10,
+    "planned_episodes": 500,
+    "task_config": "demo_clean",
+    "instruction_type": "seen",
+    "workers": 2
+  },
+  "smoke": {
+    "passed": true,
+    "invocation_id": "1792088254652359161",
+    "cases": [
+      {
+        "task": "lift_pot",
+        "episode_index": 1,
+        "seed": 100001,
+        "success": false,
+        "execution_steps": 400,
+        "elapsed_seconds": 77.44378245668486,
+        "attempt_id": "ca90149aeade42369703227218687fed",
+        "session_id": "21027c04e8b04a7f8d242d04850d2a32",
+        "first_action_utc": "2026-10-15T18:18:35.672457+00:00",
+        "completed_utc": "2026-10-15T18:19:34.200190+00:00",
+        "verified_action_chunks": 8,
+        "counted_in_baseline": true,
+        "expert_repeated": false
+      },
+      {
+        "task": "hanging_mug",
+        "episode_index": 0,
+        "seed": 100000,
+        "success": false,
+        "execution_steps": 900,
+        "elapsed_seconds": 128.3862742651254,
+        "attempt_id": "f2e0e1394dea400393595af896790836",
+        "session_id": "24a6e1c512f04a6c818213cab0c65077",
+        "first_action_utc": "2026-10-15T18:18:34.921849+00:00",
+        "completed_utc": "2026-10-15T18:20:25.145727+00:00",
+        "verified_action_chunks": 18,
+        "counted_in_baseline": true,
+        "expert_repeated": false
+      }
+    ],
+    "interpretation": "Technical completion and isolation; a policy failure remains a valid failed baseline round",
+    "same_persistent_model_used_for_full_run": true
+  },
+  "full_phase_verified_actions": [
+    {
+      "utc": "2026-10-15T18:20:48.566302+00:00",
+      "task": "lift_pot",
+      "setting": "demo_clean",
+      "instruction_type": "seen",
+      "instruction": "Use arms to lift the round kitchenpot with handles upward",
+      "episode_index": 2,
+      "worker_id": 0,
+      "seed": 100002,
+      "policy_seed": 1000002,
+      "instruction_seed": 2000002,
+      "execution_steps": 0,
+      "elapsed_seconds": 6.014472968876362,
+      "exception": null,
+      "success": null,
+      "attempt_id": "e6b8cee6931b4e8aa7c12c9909810c29",
+      "event": "policy_first_action_verified",
+      "session_id": "675dd2b117b04507a21a36c2fc370df3",
+      "action_shape": [
+        50,
+        14
+      ],
+      "session_state": {
+        "global_step": 1,
+        "episode_seed": 1000002
+      }
+    },
+    {
+      "utc": "2026-10-15T18:20:53.681041+00:00",
+      "task": "hanging_mug",
+      "setting": "demo_clean",
+      "instruction_type": "seen",
+      "instruction": "Pick the drinking mug using your left arm, turn it, set it on the table, and hang it on the dark gray angled rack with the right arm.",
+      "episode_index": 1,
+      "worker_id": 1,
+      "seed": 100001,
+      "policy_seed": 1001001,
+      "instruction_seed": 2001001,
+      "execution_steps": 0,
+      "elapsed_seconds": 5.736243123188615,
+      "exception": null,
+      "success": null,
+      "attempt_id": "0dfa0d6bd51544c99e989d3ecf6b0b71",
+      "event": "policy_first_action_verified",
+      "session_id": "8101f968d54f4097a7be8317ad325fd7",
+      "action_shape": [
+        50,
+        14
+      ],
+      "session_state": {
+        "global_step": 1,
+        "episode_seed": 1001001
+      }
+    }
+  ],
+  "valid_completed_at_confirmation": 3,
+  "successes_at_confirmation": 0,
+  "static_checks_passed": 38,
+  "regression_tests_passed": 8,
+  "owned_processes": [
+    "4065239 4065238 23784     231 python3 -B -u /home/zzj/competitions/lingbot/tools/clean-quick-baseline-20261016/driver.py --config /home/zzj/competitions/lingbot/runs/pretrained-clean-quick-50x10-20261016/config.approved-r2-prelaunch.json --workers 2 --start-approved --retry-interrupted --smoke-then-run",
+    "4065250 4065239 5623764   231 /home/zzj/competitions/lingbot/envs/vla/bin/python -B -u /home/zzj/competitions/lingbot/tools/clean-quick-baseline-20261016/serve.py --config /home/zzj/competitions/lingbot/runs/pretrained-clean-quick-50x10-20261016/approved-config-r2.json --start-approved",
+    "4066660 4065239 4447456    59 /home/zzj/competitions/lingbot/envs/sim/bin/python -B -u /home/zzj/competitions/lingbot/tools/clean-quick-baseline-20261016/evaluate_task.py --config /home/zzj/competitions/lingbot/runs/pretrained-clean-quick-50x10-20261016/approved-config-r2.json --task lift_pot --worker-id 0 --start-approved --retry-interrupted",
+    "4066661 4065239 4413680    59 /home/zzj/competitions/lingbot/envs/sim/bin/python -B -u /home/zzj/competitions/lingbot/tools/clean-quick-baseline-20261016/evaluate_task.py --config /home/zzj/competitions/lingbot/runs/pretrained-clean-quick-50x10-20261016/approved-config-r2.json --task hanging_mug --worker-id 1 --start-approved --retry-interrupted"
+  ],
+  "memory": {
+    "MemTotal": "125489508 kB",
+    "MemAvailable": "68719508 kB"
+  },
+  "server_own_run_without_assistant_monitoring": true,
+  "automatic_restart": false,
+  "run_directory": "/home/zzj/competitions/lingbot/runs/pretrained-clean-quick-50x10-20261016",
+  "config_sha256": "97900a816dfafebdf2d58ff09ef9173fd3acb18cf2c947953e87c9c424b16cdd",
+  "rule_uncertainties_retained": [
+    "expert quota scope and feasibility checks",
+    "normalization method formal interpretation"
+  ],
+  "label": "每任务10回合的预训练模型 clean 快速基线"
+}

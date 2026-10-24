@@ -1,0 +1,16 @@
+Collecting lxml==5.4.0
+  Using cached lxml-5.4.0-cp312-cp312-manylinux_2_28_aarch64.whl.metadata (3.5 kB)
+Collecting pycryptodomex==3.23.0
+  Using cached pycryptodomex-3.23.0-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (3.4 kB)
+Collecting optree==0.14.1
+  Downloading optree-0.14.1-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (49 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 49.1/49.1 kB 301.1 kB/s eta 0:00:00
+Requirement already satisfied: typing-extensions>=4.5.0 in ./competitions/lingbot/envs/vla/lib/python3.12/site-packages (from optree==0.14.1) (4.16.0)
+Downloading lxml-5.4.0-cp312-cp312-manylinux_2_28_aarch64.whl (4.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 1.8 MB/s eta 0:00:00
+Downloading pycryptodomex-3.23.0-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 340.8 kB/s eta 0:00:00
+Downloading optree-0.14.1-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (367 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 368.0/368.0 kB 324.3 kB/s eta 0:00:00
+Installing collected packages: pycryptodomex, optree, lxml
+Successfully installed lxml-5.4.0 optree-0.14.1 pycryptodomex-3.23.0

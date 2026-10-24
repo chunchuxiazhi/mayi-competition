@@ -1,0 +1,26 @@
+{
+  "pid": 2126856,
+  "argv": [
+    "/usr/bin/python3",
+    "-B",
+    "/home/zzj/competitions/lingbot/tools/checkpoint-dual-setting-eval-20261023/run_suite.py",
+    "--mode",
+    "prepare-model",
+    "--prepare-approved"
+  ],
+  "log": "/home/zzj/competitions/lingbot/runs/finetuned-step20000-clean-randomized-50x10-20261023/preparation/approved-model-prepare-launch.log",
+  "scope": "model export and strict reload only; no simulation",
+  "started_unix": 1792769945.368383,
+  "exit_code_after_2s": null,
+  "resources_at_launch": {
+    "unified_mem_available_bytes": 116746199040,
+    "disk_free_bytes": 1654348922880,
+    "free_inodes": 246625177,
+    "effective_cpus": 20,
+    "load_average": [
+      1.0,
+      1.025390625,
+      1.01904296875
+    ]
+  }
+}

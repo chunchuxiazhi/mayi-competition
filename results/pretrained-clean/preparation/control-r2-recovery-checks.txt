@@ -1,0 +1,20 @@
+lift_pot completed 1/2; successes 0/1
+lift_pot completed 1/2; successes 0/1
+lift_pot completed 2/2; successes 0/2
+lift_pot completed 1/2; successes 0/1
+lift_pot completed 2/2; successes 0/2
+lift_pot completed 1/2; successes 0/1
+lift_pot completed 2/2; successes 0/2
+test_bad_arm_parameter_rejected (__main__.RecoveryTests.test_bad_arm_parameter_rejected) ... ok
+test_existing_failed_expert_and_historical_block_are_reused (__main__.RecoveryTests.test_existing_failed_expert_and_historical_block_are_reused) ... ok
+test_expert_failure_runs_same_seeds_and_preserves_failed_policy_on_resume (__main__.RecoveryTests.test_expert_failure_runs_same_seeds_and_preserves_failed_policy_on_resume) ... ok
+test_global_resource_failure_not_classified_as_scene_problem (__main__.RecoveryTests.test_global_resource_failure_not_classified_as_scene_problem) ... ok
+test_interrupted_slot_resume_same_instruction_and_count_once (__main__.RecoveryTests.test_interrupted_slot_resume_same_instruction_and_count_once) ... ok
+test_invalid_metadata_leaves_slots_incomplete_without_policy (__main__.RecoveryTests.test_invalid_metadata_leaves_slots_incomplete_without_policy) ... ok
+test_provenance_mismatch_and_protected_revision_rejected (__main__.RecoveryTests.test_provenance_mismatch_and_protected_revision_rejected) ... ok
+test_session_mismatch_is_global (__main__.RecoveryTests.test_session_mismatch_is_global) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.877s
+
+OK

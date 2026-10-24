@@ -1,0 +1,22 @@
+Overwriting feature type 'VideoFrame' (VideoFrame -> VideoFrame)
+test_corrupted_component_refuses_load_and_retention (__main__.CheckpointTests.test_corrupted_component_refuses_load_and_retention) ... ok
+test_external_target_rejected (__main__.CheckpointTests.test_external_target_rejected) ... ok
+test_incomplete_checkpoint_not_committed (__main__.CheckpointTests.test_incomplete_checkpoint_not_committed) ... ok
+test_keep_two_and_never_remove_incomplete (__main__.CheckpointTests.test_keep_two_and_never_remove_incomplete) ... ok
+test_other_config_refused (__main__.CheckpointTests.test_other_config_refused) ... ok
+test_fixed_1000_has_ten_points_and_does_not_calibrate (__main__.ScheduleTests.test_fixed_1000_has_ten_points_and_does_not_calibrate) ... ok
+test_fixed_5000_has_two_points (__main__.ScheduleTests.test_fixed_5000_has_two_points) ... ok
+test_invalid_save_interval_is_rejected (__main__.ScheduleTests.test_invalid_save_interval_is_rejected) ... ok
+test_last_step_is_saved_when_not_divisible (__main__.ScheduleTests.test_last_step_is_saved_when_not_divisible) ... ok
+test_missing_timing_cannot_silently_start_large_run (__main__.ScheduleTests.test_missing_timing_cannot_silently_start_large_run) ... ok
+test_scales_four_sample_pilot_to_eight_sample_training_and_excludes_startup (__main__.ScheduleTests.test_scales_four_sample_pilot_to_eight_sample_training_and_excludes_startup) ... ok
+test_actual_decode_never_uses_next_episode (__main__.VideoPolicyTests.test_actual_decode_never_uses_next_episode) ... ok
+test_cross_episode_request_fails (__main__.VideoPolicyTests.test_cross_episode_request_fails) ... ok
+test_one_missing_tail_frame_repeats_last_and_keeps_both_queries (__main__.VideoPolicyTests.test_one_missing_tail_frame_repeats_last_and_keeps_both_queries) ... ok
+test_two_missing_tail_frames (__main__.VideoPolicyTests.test_two_missing_tail_frames) ... ok
+test_unreviewed_missing_frames_fail (__main__.VideoPolicyTests.test_unreviewed_missing_frames_fail) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.054s
+
+OK

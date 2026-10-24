@@ -1,0 +1,13 @@
+test_incomplete_or_corrupt_save_never_deletes_recovery_points (test_continuation.RetentionTests.test_incomplete_or_corrupt_save_never_deletes_recovery_points) ... ok
+test_retains_latest_two_across_source_and_continuation (test_continuation.RetentionTests.test_retains_latest_two_across_source_and_continuation) ... ok
+test_unexpected_source_checkpoint_prevents_deletion (test_continuation.RetentionTests.test_unexpected_source_checkpoint_prevents_deletion) ... ok
+test_all_10000_updates_decay_to_exact_endpoint (test_continuation.ScheduleTests.test_all_10000_updates_decay_to_exact_endpoint) ... ok
+test_checkpoint_resume_has_same_next_lr_as_uninterrupted (test_continuation.ScheduleTests.test_checkpoint_resume_has_same_next_lr_as_uninterrupted) ... ok
+test_first_stage_migration_is_continuous (test_continuation.ScheduleTests.test_first_stage_migration_is_continuous) ... ok
+test_reject_unknown_or_changed_recipe (test_continuation.ScheduleTests.test_reject_unknown_or_changed_recipe) ... ok
+test_reject_wrong_initial_step_or_optimizer_rate (test_continuation.ScheduleTests.test_reject_wrong_initial_step_or_optimizer_rate) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.041s
+
+OK

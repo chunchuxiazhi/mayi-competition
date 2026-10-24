@@ -1,0 +1,15 @@
+{
+  "signature": "5314fb99ee602e1a9e7ffdc8e407d1f3bc5762e8e0fce0ff78a2d9b35620b481",
+  "files": {
+    "extra_state/extra_state_rank_0.pt": 15549,
+    "model/.metadata": 775801,
+    "model/__0_0.distcp": 25506323532,
+    "optimizer/.metadata": 1253896,
+    "optimizer/__0_0.distcp": 15509376023
+  },
+  "metadata_sha256": {
+    "model/.metadata": "7b2d61ab35dfcfbf8c56fad5e2271745ce86f354df38a7894129c9780d91b7cc",
+    "optimizer/.metadata": "ae0c02aa0d0134973cd6e61a8842932fbcf2b008eb5367c694c42b6b9d3cdd9a",
+    "extra_state/extra_state_rank_0.pt": "bfda6b146713cbd56ad80bdfa38ae3b7b2fad7fbd88ea82113c49c3eadf46b87"
+  }
+}

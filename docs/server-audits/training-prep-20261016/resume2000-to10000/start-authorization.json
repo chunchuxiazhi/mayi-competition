@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-16T13:28:05.689669+00:00",
+  "source_checkpoint": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-10000-fixed1000/checkpoints/global_step_2000",
+  "expected_resume_step": 2000,
+  "authorized_stop_at_step": 10000,
+  "additional_updates": 8000,
+  "original_max_steps": 10000,
+  "save_every_updates": 1000,
+  "keep_complete_checkpoints": 2,
+  "original_lr_schedule_preserved": true,
+  "automatic_evaluation": false,
+  "automatic_hf_export": false,
+  "automatic_restart": false,
+  "authorization": "User explicitly requested continuing from cumulative step 2000 to 10000 and retaining only the latest two formal checkpoints."
+}

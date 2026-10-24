@@ -1,0 +1,19 @@
+{
+  "status": "plan_only_not_executed",
+  "unverified_file": "repos/lingbot-vla-v2/assets/norm_stats/robotwin.json",
+  "evidence": [
+    "Official README describes the RoboTwin example as clean + randomized training.",
+    "Official assets/training_data/robotwin.txt includes both randomized and clean entries.",
+    "The exact construction history, input hashes and dataset revision of robotwin.json have not been established."
+  ],
+  "proposal": {
+    "input": "/home/zzj/competitions/lingbot/data/RoboTwin_lerobot_v30",
+    "input_validation_required": "Confirm all 2500 allowed Aloha-AgileX clean episodes map to the official 50 tasks, 50 episodes per task; do not infer this from 2411 language labels.",
+    "method": "Use official scripts/compute_norm_stats.py with data.data_name=robotwin, data_ratio_for_norm_compute=1.0, disabled_image_features=True; same robot mapping, action chunks, absolute/delta interpretation and padding as evaluation.",
+    "official_config": "configs/vla/norm_compute/post_data.yaml",
+    "output": "/home/zzj/competitions/lingbot/configs/normalization/robotwin_clean_v3.json",
+    "provenance_record": "Record input archive SHA256 and dataset revision, episode list and task mapping, feature mapping SHA256, code revision, statistics parameters and output SHA256.",
+    "warning": "Do not use the stock mixed training-data list or its inconsistent embodiment entry as the approved clean input manifest."
+  },
+  "not_executed": ["No statistics computed", "No trajectories decoded", "No model loaded", "No claim of compliance or violation"]
+}

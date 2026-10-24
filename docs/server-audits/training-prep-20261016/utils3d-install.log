@@ -1,0 +1,11 @@
+Processing ./competitions/lingbot/repos/utils3d-3fab839f0be9931dac7c8488eb0e1600c236e183
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: utils3d
+  Building wheel for utils3d (pyproject.toml): started
+  Building wheel for utils3d (pyproject.toml): finished with status 'done'
+  Created wheel for utils3d: filename=utils3d-1.3-py3-none-any.whl size=130372 sha256=b66f7b9fb650c9a0052870d4c99219ceef7b096b713113bb84835530fcf03949
+  Stored in directory: /home/zzj/competitions/lingbot/cache/pip-vla/wheels/4b/27/4d/956c4666269adfc684c89c914d7e0571b5ec76da54c784d839
+Successfully built utils3d
+Installing collected packages: utils3d
+Successfully installed utils3d-1.3

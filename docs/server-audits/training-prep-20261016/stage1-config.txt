@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "tasks": 50,
+  "episodes": 2500,
+  "frames": 548893,
+  "world_size": 1,
+  "micro_batch": 1,
+  "gradient_accumulation": 8,
+  "optimizer_updates": 2000,
+  "save_every_updates": 250,
+  "checkpoint_keep": 2,
+  "training_started": false
+}

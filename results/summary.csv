@@ -1,0 +1,5 @@
+﻿group,planned,valid,success,success_rate_on_valid,expert_blocked,policy_exceptions,historical_interruptions
+pretrained_clean,500,459,43,0.09368191721132897,41,0,1
+step10000_clean,500,458,43,0.09388646288209607,42,0,0
+step20000_clean,500,455,65,0.14285714285714285,45,0,0
+step20000_randomized,500,423,42,0.09929078014184398,76,1,0

@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "tasks": 50,
+  "episodes": 2500,
+  "frames": 548893,
+  "world_size": 1,
+  "micro_batch": 1,
+  "gradient_accumulation": 8,
+  "optimizer_updates": 20000,
+  "save_every_updates": 1000,
+  "checkpoint_keep": 2,
+  "save_schedule_mode": "fixed",
+  "configured_save_steps": [
+    1000,
+    2000,
+    3000,
+    4000,
+    5000,
+    6000,
+    7000,
+    8000,
+    9000,
+    10000,
+    11000,
+    12000,
+    13000,
+    14000,
+    15000,
+    16000,
+    17000,
+    18000,
+    19000,
+    20000
+  ],
+  "training_started": false
+}
+{
+  "passed": true,
+  "source_step": 10000,
+  "target_step": 20000,
+  "additional_updates": 10000,
+  "changed_train_fields": [
+    "output_dir",
+    "max_steps",
+    "lr",
+    "lr_min",
+    "lr_warmup_ratio"
+  ],
+  "lr_stage": "1e-5 to 5e-6 cosine, no new warmup",
+  "source_config_immutable": true,
+  "tensor_files_copied": false,
+  "complete_checkpoints_across_both_runs": 2,
+  "new_save_steps": [
+    11000,
+    12000,
+    13000,
+    14000,
+    15000,
+    16000,
+    17000,
+    18000,
+    19000,
+    20000
+  ]
+}
+{"checkpoint_schedule": {"mode": "fixed", "save_every_updates": 1000, "planned_saves": [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000, 16000, 17000, 18000, 19000, 20000]}}

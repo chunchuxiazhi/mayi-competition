@@ -1,0 +1,19 @@
+{
+  "matched_valid_episodes": 456,
+  "baseline_successes_on_matched": 42,
+  "trained_successes_on_matched": 41,
+  "newly_valid_slots_without_baseline": [
+    [
+      "open_microwave",
+      5
+    ],
+    [
+      "open_microwave",
+      8
+    ]
+  ],
+  "input_mismatches": [],
+  "baseline_valid_episodes": 459,
+  "missing_valid_trained_slots": 42,
+  "note": "Compare only identical scene/policy/instruction seeds and actual instructions; expert exceptions are separate."
+}

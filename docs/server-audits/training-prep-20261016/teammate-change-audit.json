@@ -1,0 +1,1708 @@
+{
+  "utc": "2026-10-16T04:17:19.654363+00:00",
+  "project_root": "/home/zzj/competitions/lingbot",
+  "patches": {
+    "docs/setup-baseline-20261015/eval-client-unused-act-import.patch": {
+      "bytes": 461,
+      "sha256": "ec452787c80ac8acbfe43e93e13463f430fe5e9d72a54b542ae646e5168e4b70",
+      "text": "--- upstream/eval_policy_client_lingbotvla.py\n+++ local/eval_policy_client_lingbotvla.py\n@@ -74,7 +74,7 @@\n     video_size = None\n     video_fps = str(usr_args.get(\"video_fps\", 10))\n \n-    get_model = eval_function_decorator(policy_name, \"get_model\")\n+    # The policy is served by the remote LingBot websocket server.\n \n     with open(f\"./task_config/{task_config}.yml\", \"r\", encoding=\"utf-8\") as f:\n         args = yaml.load(f.read(), Loader=yaml.FullLoader)\n"
+    },
+    "docs/setup-baseline-20261015/sapien-oidn-upgrade.patch": {
+      "bytes": 668,
+      "sha256": "a85380242f49678ea96e38560e086d96067c0c839e87c586fed7db1eb63ccae0",
+      "text": "--- sapien/_oidn_tricks.py\n+++ sapien/_oidn_tricks.py\n@@ -23,14 +23,14 @@\n         oidn_dll = ctypes.CDLL(\n             os.path.join(\n                 os.path.dirname(__file__),\n-                \"oidn_library/libOpenImageDenoise_core.so.2.0.1\",\n+                \"oidn_library/libOpenImageDenoise_core.so.2.5.1\",\n             ),\n             ctypes.RTLD_LOCAL,\n         )\n \n         oidn_dll = ctypes.CDLL(\n             os.path.join(\n-                os.path.dirname(__file__), \"oidn_library/libOpenImageDenoise.so.2.0.1\"\n+                os.path.dirname(__file__), \"oidn_library/libOpenImageDenoise.so.2.5.1\"\n             ),\n             ctypes.RTLD_LOCAL,\n         )\n"
+    },
+    "docs/setup-baseline-20261015/configured-attention.patch": {
+      "bytes": 1204,
+      "sha256": "3100beee6624bcce93922439774bda05f9cb812375b9ed802cfbd2a00cb31b4a",
+      "text": "--- upstream/modeling_lingbot_vla_v2.py\n+++ local/modeling_lingbot_vla_v2.py\n@@ -127,14 +127,14 @@\n         vlm_config = AutoConfig.from_pretrained(self.config.tokenizer_path)\n         if self.config.vocab_size not in (0, 257152):\n             vlm_config.text_config.vocab_size = self.config.vocab_size\n-        vlm_config._attn_implementation = \"flash_attention_2\"\n-        vlm_config.text_config._attn_implementation = \"flash_attention_2\"\n+        vlm_config._attn_implementation = self.config.vit_attn_implementation\n+        vlm_config.text_config._attn_implementation = self.config.vit_attn_implementation\n         vlm_config.vision_config._attn_implementation = self.config.vit_attn_implementation\n         self.qwenvl = Qwen3VLForConditionalGeneration._from_config(vlm_config)\n         if self.config.use_lm_head:\n             self.qwenvl.tie_weights()\n \n-        self.config.qwen_expert_config._attn_implementation = \"flash_attention_2\"\n+        self.config.qwen_expert_config._attn_implementation = self.config.vit_attn_implementation\n         self.qwen_expert = Qwen2ForCausalLM._from_config(self.config.qwen_expert_config, eval=eval)\n \n         if getattr(self.config, \"adanorm_time\", False):\n"
+    },
+    "docs/setup-baseline-20261015/rgb-optional-open3d.patch": {
+      "bytes": 594,
+      "sha256": "2a4335a0573079d8377dbbc3a2178d00914fa2c2f38a26da811bd859340f7a96",
+      "text": "--- upstream/envs/camera/camera.py\n+++ local/envs/camera/camera.py\n@@ -2,7 +2,6 @@\n import numpy as np\n import pdb\n from PIL import Image, ImageColor\n-import open3d as o3d\n import json\n import transforms3d as t3d\n import cv2\n--- upstream/envs/utils/save_file.py\n+++ local/envs/utils/save_file.py\n@@ -5,7 +5,6 @@\n \n import os\n import pickle\n-import open3d as o3d\n \n \n def ensure_dir(file_path):\n@@ -33,6 +32,7 @@\n \n \n def save_pcd(save_path, pcd_arr, color=False):\n+    import open3d as o3d\n     ensure_dir(save_path)\n     point_cloud = o3d.geometry.PointCloud()\n     point_arr = pcd_arr[:, :3]\n"
+    },
+    "docs/setup-baseline-20261015/sim-native-import-order.patch": {
+      "bytes": 227,
+      "sha256": "eab3ddb35cadb9f8939fe05c112171161f56ff5c18f441d4a66bbf868c4e8a99",
+      "text": "--- local/eval_policy_client_lingbotvla.py\n+++ local/eval_policy_client_lingbotvla.py\n@@ -1,3 +1,4 @@\n+import torch, sapien, mplib  # Load native runtime libraries before task imports.\n import sys\n import os\n import subprocess\n"
+    },
+    "docs/setup-baseline-20261015/moe-fallback-logger.patch": {
+      "bytes": 400,
+      "sha256": "e9eefd5ca3eee5396398bafbe84b4aff0f9b02e88cfc733bf0c88a46617927b4",
+      "text": "--- upstream/qwen2_action_expert.py\n+++ local/qwen2_action_expert.py\n@@ -77,6 +77,8 @@\n     Qwen2ForCausalLM as _Qwen2ForCausalLM,\n )\n from lingbotvla.ops.robby_moe import robby_moe_forward\n+\n+logger = logging.get_logger(__name__)\n # from transformers.models.mistral.modeling_mistral import MistralMLP\n \n # Modified from transformers.models.mistral.modeling_mistral.MistralMLP with Mistral->Qwen2Moe\n"
+    },
+    "runs/pretrained-clean-quick-50x10-20261016/preparation/control-r2.patch": {
+      "bytes": 37571,
+      "sha256": "d7368dc416a533215a25ad351ada28a46c7dca450761ad69083c74d397712c41",
+      "text": "--- before/recovery.py\n+++ after/recovery.py\n@@ -0,0 +1,76 @@\n+\"\"\"Reviewed recovery decisions; no simulator or model imports.\"\"\"\n+import re\n+from pathlib import Path\n+from common import fingerprint\n+\n+class TaskIncomplete(RuntimeError):\n+    \"\"\"Known scene/metadata failure: retain slot and continue other tasks.\"\"\"\n+\n+class TaskSliceCompleted(Exception):\n+    \"\"\"Intentional smoke slice; prevent the legacy full-task score export.\"\"\"\n+\n+def global_resource_fault(exc):\n+    text=str(exc).lower()\n+    return isinstance(exc,(MemoryError,ImportError,SystemExit)) or any(s in text for s in\n+        ('out of memory','cuda error','cuda runtime','device lost','device-side assert','no space left on device'))\n+\n+def validate_revision(original, current):\n+    if current == original:\n+        return\n+    allowed={'expert_failure_policy','execution_approval','control_revision'}\n+    if {k:v for k,v in original.items() if k not in allowed} != {k:v for k,v in current.items() if k not in allowed}:\n+        raise RuntimeError('Revision changed protected experimental configuration')\n+    revision=current.get('control_revision',{})\n+    if (revision.get('parent_config_sha256')!=fingerprint(original)\n+        or revision.get('version')!=2\n+        or current.get('expert_failure_policy')!='validate_metadata_then_policy_same_seed'):\n+        raise RuntimeError('Unrecognized control revision')\n+\n+def recorded_expert(events, base):\n+    rows=[e for e in events if e['event'] in ('expert_passed','expert_failed')]\n+    if not rows:return None\n+    if len(rows)!=1:raise RuntimeError('Ambiguous completed expert prechecks; review ledger')\n+    row=rows[0]\n+    for k in ('task','episode_index','seed','setting','instruction_type'):\n+        if row.get(k)!=base[k]:raise RuntimeError('Expert provenance mismatch: '+k)\n+    if type(row.get('expert_success')) is not bool:raise RuntimeError('Expert outcome missing')\n+    return row\n+\n+def validate_metadata(info, repo):\n+    if not isinstance(info,dict):raise TaskIncomplete('Expert returned no parameter dictionary')\n+    objects=(Path(repo)/'description/objects_description').resolve()\n+    for key,value in info.items():\n+        if not isinstance(key,str) or not re.fullmatch(r'\\{[^{}]+\\}',key):\n+            raise TaskIncomplete('Invalid parameter key: '+repr(key))\n+        if not isinstance(value,str) or not value.strip():raise TaskIncomplete('Missing parameter: '+key)\n+        name=key[1:-1]\n+        if len(name)==1 and name.islower() and value not in ('left','right','both','dual'):\n+            raise TaskIncomplete('Invalid arm parameter: '+key)\n+        if '/' in value or '\\\\' in value:\n+            target=(objects/(value+'.json')).resolve()\n+            if not target.is_relative_to(objects) or not target.is_file():\n+                raise TaskIncomplete('Missing object description: '+value)\n+            import json\n+            descriptions=json.loads(target.read_text())\n+            if not descriptions.get('seen') or not all(isinstance(s,str) and s.strip() for s in descriptions['seen']):\n+                raise TaskIncomplete('Invalid seen object descriptions: '+value)\n+\n+def generate_seen(task,info,seed,candidates,repo):\n+    # The official generator and ordering are preserved. No fallback text is invented.\n+    import random\n+    import numpy as np\n+    from generate_episode_instructions import generate_episode_descriptions\n+    validate_metadata(info,repo)\n+    py_state=random.getstate();np_state=np.random.get_state()\n+    try:\n+        random.seed(seed);np.random.seed(seed)\n+        try:descriptions=generate_episode_descriptions(task,[info],candidates)\n+        except (Exception,SystemExit) as exc:raise TaskIncomplete('Official instruction generation failed: '+str(exc)) from exc\n+        if len(descriptions)!=1 or not descriptions[0].get('seen'):\n+            raise TaskIncomplete('No official seen instructions for returned parameters')\n+        choices=descriptions[0]['seen']\n+        if any(not isinstance(s,str) or not s.strip() or re.search(r'\\{[^{}]+\\}',s) for s in choices):\n+            raise TaskIncomplete('Official seen instructions contain missing parameters')\n+        return str(np.random.choice(choices))\n+    finally:\n+        random.setstate(py_state);np.random.set_state(np_state)\n--- before/test_recovery.py\n+++ after/test_recovery.py\n@@ -0,0 +1,108 @@\n+\"\"\"Control-flow regression tests with fake environment/model, not simulation.\"\"\"\n+import copy\n+import json\n+from pathlib import Path\n+import tempfile\n+import types\n+import unittest\n+import sys\n+import numpy as np\n+import evaluate_task as client\n+from common import load_config,read_events,append_event,summarize,seeds,fingerprint\n+from recovery import TaskIncomplete,TaskSliceCompleted,validate_revision,recorded_expert,validate_metadata,global_resource_fault\n+\n+class FakeEnvironment:\n+    def __init__(self,info=None,setup_error=False):\n+        self.info={'{A}':'060_kitchenpot/base1'} if info is None else info\n+        self.plan_success=False;self.calls=[];self.setup_error=setup_error\n+        self.step_lim=2;self.take_action_cnt=0;self.eval_success=False\n+    def setup_demo(self,now_ep_num,seed,**args):\n+        self.calls.append(('setup',now_ep_num,seed));self.take_action_cnt=0\n+        if self.setup_error:raise ValueError('invalid scene')\n+    def play_once(self):self.calls.append(('expert',));return {'info':self.info}\n+    def close_env(self,**kw):pass\n+    def check_success(self):return False\n+    def set_instruction(self,instruction):self.instruction=instruction\n+    def get_instruction(self):return self.instruction\n+    def get_obs(self):return {'observation':{k:{'rgb':np.zeros((2,2,3),dtype=np.uint8)} for k in ('head_camera','left_camera','right_camera')},'joint_action':{'vector':np.zeros(14)}}\n+    def take_action(self,act):self.take_action_cnt+=1\n+\n+class FakeModel:\n+    def __init__(self,mismatch=False):\n+        self._ws=types.SimpleNamespace(close=lambda:None);self.calls=[];self.mismatch=mismatch\n+    def get_server_metadata(self):return {'session_id':'fake-session'}\n+    def infer(self,obs):\n+        self.calls.append(obs)\n+        if obs.get('reset'):self.step=0;self.seed=obs['episode_seed']\n+        else:self.step+=1\n+        return {'session_id':'wrong' if self.mismatch else 'fake-session',\n+            '_session_state':{'global_step':self.step,'episode_seed':self.seed},'action':np.zeros((1,14))}\n+\n+class RecoveryTests(unittest.TestCase):\n+    def setUp(self):\n+        self.temp=tempfile.TemporaryDirectory();self.config=load_config()\n+        sys.path.insert(0,str(Path(self.config['project_root'])/'repos/RoboTwin/description/utils'))\n+        self.config['run_relative']=self.temp.name;self.config['tasks']=['lift_pot'];self.config['test_num']=2\n+        client.CONFIG=self.config;client.WORKER_ID=0;client.RETRY_INTERRUPTED=True;client.EPISODE_INDICES=None\n+        self.ledger=Path(self.temp.name)/'tasks/lift_pot/episodes.jsonl'\n+        self.expert=self.ledger.with_name('expert.jsonl')\n+    def tearDown(self):self.temp.cleanup()\n+    def run_client(self,env=None,model=None):\n+        return client.eval_policy('lift_pot',env or FakeEnvironment(),{'render_freq':0,'clear_cache_freq':10},\n+            model or FakeModel(),100000,test_num=2,instruction_type='seen')\n+    def test_expert_failure_runs_same_seeds_and_preserves_failed_policy_on_resume(self):\n+        env=FakeEnvironment();self.run_client(env)\n+        self.assertEqual([c for c in env.calls if c[0]=='setup'],[('setup',0,100000),('setup',0,100000),('setup',1,100001),('setup',1,100001)])\n+        before=self.ledger.read_bytes();second=FakeEnvironment();self.run_client(second)\n+        self.assertEqual(second.calls,[]);self.assertEqual(self.ledger.read_bytes(),before)\n+        row=summarize(self.config,'lift_pot');self.assertEqual(row['completed_valid_policy_episodes'],2)\n+        self.assertEqual(row['success_rate'],0);self.assertEqual(row['expert_failed_or_exception'],2)\n+    def test_existing_failed_expert_and_historical_block_are_reused(self):\n+        base={'task':'lift_pot','episode_index':1,'setting':'demo_clean','instruction_type':'seen',**seeds(self.config,0,1),'attempt_id':'old-expert'}\n+        append_event(self.expert,{**base,'event':'expert_started'})\n+        append_event(self.expert,{**base,'event':'expert_failed','expert_success':False,'episode_info':{'{A}':'060_kitchenpot/base1'}})\n+        append_event(self.ledger,{**base,'event':'episode_blocked'})\n+        client.EPISODE_INDICES=[1];env=FakeEnvironment()\n+        with self.assertRaises(TaskSliceCompleted):self.run_client(env)\n+        self.assertFalse(any(c[0]=='expert' for c in env.calls))\n+        self.assertEqual(len(read_events(self.expert)),2)\n+        self.assertEqual(summarize(self.config,'lift_pot')['expert_blocked_episode_slots'],0)\n+    def test_invalid_metadata_leaves_slots_incomplete_without_policy(self):\n+        model=FakeModel()\n+        with self.assertRaises(TaskIncomplete):self.run_client(FakeEnvironment({'{A}':'missing/object'}),model)\n+        self.assertEqual(model.calls,[])\n+        self.assertEqual(summarize(self.config,'lift_pot')['completed_valid_policy_episodes'],0)\n+        self.assertEqual(len([e for e in read_events(self.expert) if e['event']=='expert_started']),2)\n+    def test_session_mismatch_is_global(self):\n+        with self.assertRaisesRegex(RuntimeError,'session mismatch'):self.run_client(model=FakeModel(mismatch=True))\n+        self.assertEqual(read_events(self.ledger)[-1]['failure_scope'],'global')\n+    def test_interrupted_slot_resume_same_instruction_and_count_once(self):\n+        self.run_client();events=read_events(self.ledger)\n+        # Separate fixture preserving one interrupted attempt, rather than editing a real ledger.\n+        second=Path(self.temp.name)/'interrupted';self.config['run_relative']=str(second)\n+        directory=second/'tasks/lift_pot'\n+        for e in read_events(self.expert):append_event(directory/'expert.jsonl',e)\n+        for e in events:\n+            if e['episode_index']!=0:continue\n+            if e['event']=='policy_completed':e={**e,'event':'policy_interrupted','success':None}\n+            append_event(directory/'episodes.jsonl',e)\n+        self.run_client()\n+        row=summarize(self.config,'lift_pot')\n+        self.assertEqual(row['interrupted_attempts'],1);self.assertEqual(row['completed_valid_policy_episodes'],2)\n+    def test_provenance_mismatch_and_protected_revision_rejected(self):\n+        base={'task':'lift_pot','episode_index':1,'setting':'demo_clean','instruction_type':'seen','seed':100001}\n+        with self.assertRaisesRegex(RuntimeError,'provenance'):recorded_expert([{**base,'task':'other','event':'expert_failed','expert_success':False}],base)\n+        original=load_config();current=copy.deepcopy(original)\n+        current['control_revision']={'version':2,'parent_config_sha256':fingerprint(original)}\n+        current['expert_failure_policy']='validate_metadata_then_policy_same_seed';validate_revision(original,current)\n+        current['test_num']=100\n+        with self.assertRaisesRegex(RuntimeError,'protected'):validate_revision(original,current)\n+    def test_bad_arm_parameter_rejected(self):\n+        with self.assertRaises(TaskIncomplete):validate_metadata({'{a}':None},Path(self.config['project_root'])/'repos/RoboTwin')\n+    def test_global_resource_failure_not_classified_as_scene_problem(self):\n+        self.assertTrue(global_resource_fault(RuntimeError('CUDA out of memory')))\n+        self.assertTrue(global_resource_fault(MemoryError()))\n+        self.assertTrue(global_resource_fault(ImportError('missing native module')))\n+        self.assertFalse(global_resource_fault(ValueError('invalid scene')))\n+\n+if __name__=='__main__':unittest.main(verbosity=2)\n--- before/evaluate_task.py\n+++ after/evaluate_task.py\n@@ -10,12 +10,18 @@\n import traceback\n import uuid\n from common import load_config,require_ready,run_path,seeds,append_event,read_events,summarize\n+from recovery import TaskIncomplete,TaskSliceCompleted,recorded_expert,generate_seen,global_resource_fault\n \n CONFIG=None\n WORKER_ID=None\n RETRY_INTERRUPTED=False\n+EPISODE_INDICES=None\n+STOPPING=False\n \n def stop_requested(signum,frame):\n+    global STOPPING\n+    if STOPPING:return\n+    STOPPING=True\n     raise KeyboardInterrupt(f'Stop requested by signal {signum}')\n \n def eval_policy(task_name,TASK_ENV,args,model,st_seed,test_num=None,video_size=None,\n@@ -45,7 +51,8 @@\n                 ready=[e for e in events if e.get('attempt_id')==attempt and e['event']=='policy_instruction_ready']\n                 append_event(policy_file,{**(ready[-1] if ready else event),'event':'policy_interrupted','success':None,\n                     'exception':'Prior process ended without terminal event; steps unknown','execution_steps':None})\n-        for index in range(test_num):\n+        incomplete=[]\n+        for index in (EPISODE_INDICES if EPISODE_INDICES is not None else range(test_num)):\n             scene_seeds=seeds(config,task_index,index)\n             base={'task':task_name,'setting':'demo_clean','instruction_type':'seen','instruction':None,\n                   'episode_index':index,'worker_id':WORKER_ID,**scene_seeds,\n@@ -55,17 +62,21 @@\n             terminals=[e for e in prior if e['event'] in ('policy_completed','policy_exception')]\n             if len(terminals)>1:raise RuntimeError('Duplicate episode terminal')\n             if terminals:\n-                if terminals[0]['event']=='policy_exception':raise RuntimeError(f'Prior exception at {task_name}/{index}; no silent replacement')\n+                if terminals[0]['event']=='policy_exception':\n+                    if terminals[0].get('failure_scope')!='task':raise RuntimeError('Prior global policy fault requires review')\n+                    incomplete.append(index)\n                 continue\n-            if any(e['event']=='episode_blocked' for e in prior):raise RuntimeError('Expert-blocked episode requires review; not substituting seed')\n             if any(e['event']=='policy_interrupted' for e in prior) and not RETRY_INTERRUPTED:\n                 raise RuntimeError('Interrupted episode preserved; use explicit --retry-interrupted for same seed only')\n             expert_events=[e for e in read_events(expert_file) if e['seed']==scene_seeds['seed']]\n-            expert_pass=[e for e in expert_events if e['event']=='expert_passed']\n-            if expert_pass:\n-                info=expert_pass[-1]['episode_info']\n+            expert=recorded_expert(expert_events,base)\n+            if expert:\n+                info=expert.get('episode_info')\n             else:\n                 attempts=sum(e['event']=='expert_started' for e in expert_events)\n+                if any(e['event']=='expert_exception' for e in expert_events):\n+                    if any(e.get('failure_scope')=='global' for e in expert_events):raise RuntimeError('Prior global expert fault requires review')\n+                    incomplete.append(index);continue\n                 if attempts and not RETRY_INTERRUPTED:raise RuntimeError('Unfinished expert attempt requires explicit review/retry')\n                 if attempts>=config['expert_attempt_limit_per_scene']:raise RuntimeError('Expert local attempt guard reached; review global quota scope')\n                 expert_id=uuid.uuid4().hex;start=time.monotonic();expert_ok=False;info=None\n@@ -85,33 +96,41 @@\n                         'expert_success':expert_ok})\n                 except BaseException as exc:\n                     append_event(expert_file,{**expert_base,'event':'expert_interrupted' if isinstance(exc,KeyboardInterrupt) else 'expert_exception',\n+                        'failure_scope':'global' if global_resource_fault(exc) else 'task',\n                         'elapsed_seconds':time.monotonic()-start,'exception':traceback.format_exc()[-16000:]})\n                     if not isinstance(exc,KeyboardInterrupt):\n                         append_event(policy_file,{**base,'event':'episode_blocked','attempt_id':expert_id,\n                             'exception':'Expert precheck raised; policy round not executed and seed not substituted: '+str(exc)[:4000]})\n                     try:TASK_ENV.close_env()\n                     except Exception:pass\n-                    raise\n+                    if isinstance(exc,KeyboardInterrupt):raise\n+                    if global_resource_fault(exc):raise\n+                    incomplete.append(index)\n+                    continue\n                 finally:args['render_freq']=render_freq\n-                if not expert_ok:\n-                    append_event(policy_file,{**base,'event':'episode_blocked','attempt_id':expert_id,\n-                        'exception':'Official expert precheck failed; no strategy round executed, no seed substitution'})\n-                    raise RuntimeError('Expert precheck failed; retained blocked seed and stopped task')\n-            attempt=uuid.uuid4().hex;episode={**base,'attempt_id':attempt};started=time.monotonic()\n+                expert={'attempt_id':expert_id,'expert_success':expert_ok}\n+            try:\n+                instruction=generate_seen(task_name,info,scene_seeds['instruction_seed'],config['instruction_candidates'],\n+                    Path(config['project_root'])/'repos/RoboTwin')\n+            except TaskIncomplete as exc:\n+                append_event(policy_file,{**base,'event':'episode_blocked','attempt_id':uuid.uuid4().hex,\n+                    'block_reason':'metadata_invalid','exception':str(exc)})\n+                incomplete.append(index);continue\n+            prior_instructions=[e['instruction'] for e in prior if e.get('instruction')]\n+            if prior_instructions and any(s!=instruction for s in prior_instructions):raise RuntimeError('Resume instruction drift; do not run')\n+            append_event(policy_file,{**base,'event':'expert_metadata_validated','attempt_id':uuid.uuid4().hex,\n+                'expert_attempt_id':expert['attempt_id'],'expert_success':expert['expert_success'],\n+                'instruction':instruction,'historical_block_released':any(e['event']=='episode_blocked' for e in prior)})\n+            attempt=uuid.uuid4().hex;episode={**base,'attempt_id':attempt,'instruction':instruction};started=time.monotonic()\n             append_event(policy_file,{**episode,'event':'policy_started'})\n             outcome=None\n             try:\n                 random.seed(scene_seeds['seed'])\n-                TASK_ENV.setup_demo(now_ep_num=index,seed=scene_seeds['seed'],is_test=True,**args)\n-                # Independent, reproducible instruction RNG; preserve simulator RNG state.\n-                py_state=random.getstate();np_state=np.random.get_state()\n                 try:\n-                    random.seed(scene_seeds['instruction_seed']);np.random.seed(scene_seeds['instruction_seed'])\n-                    descriptions=generate_episode_descriptions(task_name,[info],config['instruction_candidates'])\n-                    instruction=str(np.random.choice(descriptions[0]['seen']))\n-                finally:random.setstate(py_state);np.random.set_state(np_state)\n-                prior_instructions=[e['instruction'] for e in prior if e.get('instruction')]\n-                if prior_instructions and any(s!=instruction for s in prior_instructions):raise RuntimeError('Resume instruction drift; do not run')\n+                    TASK_ENV.setup_demo(now_ep_num=index,seed=scene_seeds['seed'],is_test=True,**args)\n+                except Exception as exc:\n+                    if global_resource_fault(exc):raise\n+                    raise TaskIncomplete('Scene setup failed: '+str(exc)) from exc\n                 episode['instruction']=instruction\n                 append_event(policy_file,{**episode,'event':'policy_instruction_ready'})\n                 TASK_ENV.set_instruction(instruction=instruction)\n@@ -143,15 +162,18 @@\n                         TASK_ENV.take_action(act)\n                         if TASK_ENV.eval_success:success=True;break\n                 outcome={**episode,'event':'policy_completed','success':bool(success),\n+                         'session_id':session_id,'verified_action_chunks':expected_chunk,\n                          'execution_steps':TASK_ENV.take_action_cnt,'step_limit':TASK_ENV.step_lim,\n                          'elapsed_seconds':time.monotonic()-started,'exception':None}\n             except BaseException as exc:\n                 outcome={**episode,'event':'policy_interrupted' if isinstance(exc,KeyboardInterrupt) else 'policy_exception',\n+                    'failure_scope':'task' if isinstance(exc,TaskIncomplete) else 'global',\n                     'success':None,'execution_steps':getattr(TASK_ENV,'take_action_cnt',None),\n                     'step_limit':getattr(TASK_ENV,'step_lim',None),'elapsed_seconds':time.monotonic()-started,\n                     'exception':traceback.format_exc()[-16000:]}\n                 append_event(policy_file,outcome);summarize(config,task_name)\n-                raise\n+                if isinstance(exc,TaskIncomplete):incomplete.append(index)\n+                else:raise\n             else:\n                 # Durably record the outcome before environment cleanup or starting another round.\n                 append_event(policy_file,outcome)\n@@ -164,6 +186,8 @@\n             TASK_ENV.suc=row['successes'];TASK_ENV.test_num=row['completed_valid_policy_episodes']\n             print(f\"{task_name} completed {TASK_ENV.test_num}/{test_num}; successes {TASK_ENV.suc}/{TASK_ENV.test_num}\",flush=True)\n         row=summarize(config,task_name)\n+        if incomplete:raise TaskIncomplete(f'{task_name}: unresolved slots {incomplete}; no seed substitution')\n+        if EPISODE_INDICES is not None:raise TaskSliceCompleted()\n         return st_seed+test_num,row['successes']\n     finally:\n         summarize(config,task_name)\n@@ -171,13 +195,17 @@\n         fcntl.flock(lock_file.fileno(),fcntl.LOCK_UN);lock_file.close()\n \n def main():\n-    global CONFIG,WORKER_ID,RETRY_INTERRUPTED\n+    global CONFIG,WORKER_ID,RETRY_INTERRUPTED,EPISODE_INDICES\n     parser=argparse.ArgumentParser();parser.add_argument('--config',required=True);parser.add_argument('--task',required=True)\n     parser.add_argument('--worker-id',type=int,required=True);parser.add_argument('--start-approved',action='store_true')\n     parser.add_argument('--retry-interrupted',action='store_true')\n+    parser.add_argument('--episode-indices',type=int,nargs='+')\n     cli=parser.parse_args();CONFIG=load_config(cli.config);require_ready(CONFIG,cli.start_approved)\n     if cli.task not in CONFIG['tasks'] or cli.worker_id not in (0,1):raise ValueError('Unexpected task or worker')\n     WORKER_ID=cli.worker_id;RETRY_INTERRUPTED=cli.retry_interrupted\n+    EPISODE_INDICES=cli.episode_indices\n+    if EPISODE_INDICES is not None and (len(set(EPISODE_INDICES))!=len(EPISODE_INDICES) or any(i not in range(CONFIG['test_num']) for i in EPISODE_INDICES)):\n+        raise ValueError('Invalid smoke slice')\n     root=Path(CONFIG['project_root']);repo=root/'repos/RoboTwin'\n     os.chdir(repo);sys.path[:0]=[str(repo),str(repo/'script'),str(repo/'description/utils')]\n     signal.signal(signal.SIGTERM,stop_requested);signal.signal(signal.SIGINT,stop_requested)\n@@ -189,6 +217,10 @@\n          'ckpt_setting':'pretrained-clean-quick-10','seed':0,'instruction_type':'seen','test_num':CONFIG['test_num'],\n          'train_config_name':'0','port':CONFIG['port'],'host':'127.0.0.1','robo_name':'robotwin',\n          'eval_video_log':False,'output_dir':str(run_path(CONFIG)/'tasks')}\n-    official.main(usr)\n+    try:official.main(usr)\n+    except TaskSliceCompleted:raise SystemExit(11)\n+    except TaskIncomplete as exc:\n+        print('TASK_INCOMPLETE: '+str(exc),flush=True)\n+        raise SystemExit(10)\n \n if __name__=='__main__':main()\n--- before/driver.py\n+++ after/driver.py\n@@ -13,20 +13,26 @@\n import time\n import urllib.request\n from common import HERE,load_config,require_ready,run_path,atomic_json,fingerprint,overall\n+from recovery import validate_revision\n \n def main():\n     parser=argparse.ArgumentParser();parser.add_argument('--config',default=str(HERE/'config.json'))\n     parser.add_argument('--workers',type=int,choices=[1,2],default=2)\n     parser.add_argument('--start-approved',action='store_true');parser.add_argument('--retry-interrupted',action='store_true')\n+    parser.add_argument('--smoke-then-run',action='store_true')\n     cli=parser.parse_args();config=load_config(cli.config)\n     require_ready(config,cli.start_approved)\n     # The authoritative config records the chosen concurrency, which may be reduced to one.\n     if cli.workers>config['workers']:raise RuntimeError('Requested more workers than reviewed configuration')\n     root=Path(config['project_root']);run=run_path(config);run.mkdir(parents=True,exist_ok=True)\n     lock=(run/'run.lock').open('a');fcntl.flock(lock.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)\n-    config_hash=fingerprint(config);frozen=run/'approved-config.json'\n-    if frozen.exists() and fingerprint(load_config(frozen))!=config_hash:raise RuntimeError('Configuration differs from existing run; use a new directory')\n-    atomic_json(frozen,config)\n+    config_hash=fingerprint(config);original=run/'approved-config.json'\n+    if original.exists():validate_revision(load_config(original),config)\n+    else:atomic_json(original,config)\n+    frozen=run/'approved-config-r2.json' if config.get('control_revision') else original\n+    if frozen.exists() and fingerprint(load_config(frozen))!=config_hash:raise RuntimeError('Frozen revision differs')\n+    if not frozen.exists():atomic_json(frozen,config)\n+    if cli.smoke_then_run and cli.workers!=2:raise ValueError('Reviewed smoke requires exactly two workers')\n     manifest=run/'launch-manifest.json'\n     if not manifest.exists():\n         atomic_json(manifest,{'label':config['label'],'config_sha256':config_hash,'actual_workers':cli.workers,\n@@ -35,7 +41,11 @@\n             'preparation_manifest':str(run/'preparation-manifest.json'),'automatic_batching':False})\n     previous_invocations=run/'invocations.jsonl'\n     from common import append_event\n-    append_event(previous_invocations,{'event':'approved_launch','actual_workers':cli.workers,'retry_interrupted':cli.retry_interrupted,'config_sha256':config_hash})\n+    invocation_id=str(time.time_ns())\n+    append_event(previous_invocations,{'event':'approved_launch','invocation_id':invocation_id,\n+        'actual_workers':cli.workers,'retry_interrupted':cli.retry_interrupted,'config_sha256':config_hash,\n+        'smoke_then_run':cli.smoke_then_run,\n+        'code_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in HERE.glob('*.py')}})\n     stop=threading.Event();children={};children_lock=threading.RLock();drainers=[];summary_lock=threading.Lock();stop_reason={'reason':None}\n \n     def spawn(argv,name,cwd,env,limit):\n@@ -46,7 +56,7 @@\n             kept=path.stat().st_size if path.exists() else 0;truncated=kept>=limit\n             with path.open('ab') as out:\n                 while True:\n-                    chunk=p.stdout.read(8192)\n+                    chunk=p.stdout.read1(8192)\n                     if not chunk:break\n                     room=max(0,limit-kept)\n                     if room:out.write(chunk[:room]);out.flush();kept+=min(room,len(chunk))\n@@ -62,6 +72,7 @@\n             except ProcessLookupError:pass\n \n     def request_stop(signum=None,frame=None):\n+        if stop.is_set():return\n         if signum is not None:stop_reason['reason']=f'Received signal {signum}'\n         stop.set()\n         with children_lock:\n@@ -78,6 +89,8 @@\n         'CUDA_CACHE_PATH':'cache/cuda','MPLCONFIGDIR':'cache/matplotlib','TMPDIR':'cache/tmp'}.items():\n         path=root/relative;path.mkdir(parents=True,exist_ok=True);env[key]=str(path)\n     try:\n+        atomic_json(run/'execution-status.json',{'state':'starting','invocation_id':invocation_id,\n+            'summary':str(run/'summary.json'),'automatic_restart':False})\n         # Do not contact or reuse a potentially unrelated resident service.\n         with socket.socket() as s:s.bind(('127.0.0.1',config['port']))\n         service=spawn([str(root/'envs/vla/bin/python'),'-B','-u',str(HERE/'serve.py'),'--config',str(frozen),'--start-approved'],\n@@ -92,28 +105,83 @@\n             if time.monotonic()>deadline:raise TimeoutError('Inference service startup timed out')\n             stop.wait(1)\n         simenv=env.copy();simenv['LD_LIBRARY_PATH']=str(root/'envs/mplib-build/lib')\n+        def run_task(worker_id,task,indices=None):\n+            if stop.is_set():return\n+            argv=[str(root/'envs/sim/bin/python'),'-B','-u',str(HERE/'evaluate_task.py'),\n+                  '--config',str(frozen),'--task',task,'--worker-id',str(worker_id),'--start-approved']\n+            if cli.retry_interrupted:argv.append('--retry-interrupted')\n+            if indices is not None:argv+=['--episode-indices',*[str(i) for i in indices]]\n+            p=spawn(argv,f'eval-{task}',root/'repos/RoboTwin',simenv,2*1024*1024)\n+            while p.poll() is None:\n+                if stop.wait(1):break\n+                if service.poll() is not None:\n+                    stop_reason['reason']='Inference service exited; no restart'\n+                    request_stop();raise RuntimeError(stop_reason['reason'])\n+            if stop.is_set():return\n+            expected=(11,) if indices is not None else (0,10)\n+            if p.returncode not in expected:\n+                stop_reason['reason']=f'{task} exited {p.returncode}; global fault or smoke failure'\n+                request_stop();raise RuntimeError(stop_reason['reason'])\n+            with summary_lock:overall(config)\n+            if p.returncode==10:\n+                append_event(previous_invocations,{'event':'task_incomplete_continue_others','task':task,\n+                    'invocation_id':invocation_id,'exception':'See per-task structured ledgers; no replacement seed'})\n+\n+        if cli.smoke_then_run:\n+            from common import read_events\n+            atomic_json(run/'execution-status.json',{'state':'smoke_running','invocation_id':invocation_id,\n+                'summary':str(run/'summary.json'),'automatic_restart':False})\n+            cases=[('lift_pot',1),('hanging_mug',0)]\n+            before={t:{e['attempt_id'] for e in read_events(run/'tasks'/t/'episodes.jsonl')\n+                       if e['event']=='policy_started'} for t,i in cases}\n+            expert_before={t:len(read_events(run/'tasks'/t/'expert.jsonl')) for t,i in cases}\n+            # These are real planned baseline rounds, with unchanged official step limits.\n+            with ThreadPoolExecutor(max_workers=2) as pool:\n+                futures=[pool.submit(run_task,w,t,[i]) for w,(t,i) in enumerate(cases)]\n+                for future in futures:future.result()\n+            evidence=[]\n+            for t,i in cases:\n+                events=read_events(run/'tasks'/t/'episodes.jsonl')\n+                completed=[e for e in events if e['event']=='policy_completed' and e['episode_index']==i\n+                           and e['attempt_id'] not in before[t]]\n+                if len(completed)!=1:raise RuntimeError('Smoke did not complete exact planned round: '+t)\n+                outcome=completed[0]\n+                first=[e for e in events if e['event']=='policy_first_action_verified' and e['attempt_id']==outcome['attempt_id']]\n+                if len(first)!=1:raise RuntimeError('Missing smoke session evidence')\n+                if len(read_events(run/'tasks'/t/'expert.jsonl'))!=expert_before[t]:\n+                    raise RuntimeError('Smoke unexpectedly repeated existing expert precheck')\n+                if t=='lift_pot' and not any(e['event']=='expert_metadata_validated' and e['episode_index']==i\n+                    and e['expert_success'] is False for e in events):raise RuntimeError('Failed-expert recovery not exercised')\n+                evidence.append({'task':t,'episode_index':i,'seed':outcome['seed'],'success':outcome['success'],\n+                    'execution_steps':outcome['execution_steps'],'elapsed_seconds':outcome['elapsed_seconds'],\n+                    'attempt_id':outcome['attempt_id'],'session_id':first[0]['session_id'],\n+                    'first_action_utc':first[0]['utc'],'completed_utc':outcome['utc'],\n+                    'verified_action_chunks':outcome['verified_action_chunks'],\n+                    'counted_in_baseline':True,'expert_repeated':False})\n+            if len({e['session_id'] for e in evidence})!=2:raise RuntimeError('Smoke sessions were not distinct')\n+            if max(e['first_action_utc'] for e in evidence)>=min(e['completed_utc'] for e in evidence):\n+                raise RuntimeError('Smoke policy execution did not overlap; isolation evidence insufficient')\n+            atomic_json(run/'smoke-r2.json',{'passed':True,'invocation_id':invocation_id,'cases':evidence,\n+                'interpretation':'Technical completion and isolation; a policy failure remains a valid failed baseline round',\n+                'same_persistent_model_used_for_full_run':True})\n+        atomic_json(run/'execution-status.json',{'state':'running','stage':'full_50_tasks',\n+            'invocation_id':invocation_id,'summary':str(run/'summary.json'),'automatic_restart':False})\n         queues=[config['tasks'][i::cli.workers] for i in range(cli.workers)]\n         def worker(worker_id):\n-            for task in queues[worker_id]:\n-                if stop.is_set():return\n-                argv=[str(root/'envs/sim/bin/python'),'-B','-u',str(HERE/'evaluate_task.py'),\n-                      '--config',str(frozen),'--task',task,'--worker-id',str(worker_id),'--start-approved']\n-                if cli.retry_interrupted:argv.append('--retry-interrupted')\n-                p=spawn(argv,f'eval-{task}',root/'repos/RoboTwin',simenv,2*1024*1024)\n-                while p.poll() is None:\n-                    if stop.wait(1):\n-                        request_stop();break\n-                    if service.poll() is not None:\n-                        stop_reason['reason']='Inference service exited; no restart'\n-                        request_stop();raise RuntimeError(stop_reason['reason'])\n-                if stop.is_set():return\n-                if p.returncode!=0:\n-                    stop_reason['reason']=f'{task} exited {p.returncode}; no retry or seed substitution'\n-                    request_stop();raise RuntimeError(f'{task} exited {p.returncode}; no retry or seed substitution')\n-                with summary_lock:overall(config)\n+            try:\n+                for task in queues[worker_id]:\n+                    if stop.is_set():return\n+                    run_task(worker_id,task)\n+            except BaseException as exc:\n+                if not stop_reason['reason']:stop_reason['reason']=type(exc).__name__+': '+str(exc)\n+                request_stop()\n+                raise\n         with ThreadPoolExecutor(max_workers=cli.workers) as pool:\n             futures=[pool.submit(worker,i) for i in range(cli.workers)]\n             for future in futures:future.result()\n+    except BaseException as exc:\n+        if not stop_reason['reason']:stop_reason['reason']=type(exc).__name__+': '+str(exc)\n+        raise\n     finally:\n         request_stop()\n         with children_lock:owned=list(children.values())\n--- before/common.py\n+++ after/common.py\n@@ -73,7 +73,10 @@\n             'successes':successes,'success_rate':successes/len(valid) if valid else None,\n             'policy_exceptions':len(exceptions),'interrupted_attempts':len(interruptions),\n             'cleanup_exceptions':sum(e['event']=='cleanup_exception' for e in events),\n-            'expert_blocked_episode_slots':len({e['episode_index'] for e in events if e['event']=='episode_blocked'}),\n+            'historically_blocked_episode_slots':len({e['episode_index'] for e in events if e['event']=='episode_blocked'}),\n+            'expert_blocked_episode_slots':len({e['episode_index'] for e in events if e['event']=='episode_blocked'}-{e['episode_index'] for e in valid}),\n+            'policy_attempts_initiated':sum(e['event']=='policy_started' for e in events),\n+            'not_started_policy_slots':config['test_num']-len({e['episode_index'] for e in events if e['event']=='policy_started'}),\n             'open_policy_attempts':len(started),'terminal_episode_slots':len(terminals),\n             'not_validly_completed_slots':config['test_num']-len(valid),\n             'expert_attempts_initiated':sum(e['event']=='expert_started' for e in experts),\n--- before/static_check.py\n+++ after/static_check.py\n@@ -55,7 +55,7 @@\n     construction=yaml.safe_load((run_path(config)/'lingbotvla_cli.yaml').read_text())\n     check('wrapper_has_no_unverified_normalization_fallback',construction['data']['norm_stats_file']==str(root/'configs/normalization/robotwin_clean_v3.json'))\n     check('model_construction_preserved_fp32_fused',construction['model']['post_training'] is False and construction['model']['moe_implementation']=='fused')\n-    check('official_expert_check_not_disabled',config['expert_check'] is True and config['expert_failure_policy']=='stop_without_substituting_seed')\n+    check('official_expert_check_not_disabled',config['expert_check'] is True and config['expert_failure_policy']=='validate_metadata_then_policy_same_seed')\n     client=sim/'script/eval_policy_client_lingbotvla.py'\n     text=client.read_text();tree=ast.parse(text)\n     main_node=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='main')\n"
+    },
+    "runs/pretrained-clean-quick-50x10-20261016/preparation/configurable-count.patch": {
+      "bytes": 1291,
+      "sha256": "55f3c404f5ac33af894ef8da128a20d571059894254433360acb13ddd3f2209d",
+      "text": "--- before/eval_policy_client_lingbotvla.py\n+++ after/eval_policy_client_lingbotvla.py\n@@ -168,13 +168,15 @@\n \n     st_seed = 100000 * (1 + seed)\n     suc_nums = []\n-    test_num = 100\n+    test_num = int(usr_args.get(\"test_num\", 100))\n+    if test_num <= 0:\n+        raise ValueError(\"test_num must be positive\")\n     topk = 1\n \n     # model = get_model(usr_args)\n     # from IPython import embed;embed()\n     from script.deploy.websocket_client_policy import WebsocketClientPolicy\n-    model = WebsocketClientPolicy(port=usr_args['port'])\n+    model = WebsocketClientPolicy(host=usr_args.get('host', '127.0.0.1'), port=usr_args['port'])\n \n     st_seed, suc_num = eval_policy(task_name,\n                                    TASK_ENV,\n@@ -206,7 +208,7 @@\n                 args,\n                 model,\n                 st_seed,\n-                test_num=100,\n+                test_num=None,\n                 video_size=None,\n                 video_fps=\"10\",\n                 instruction_type=None,\n@@ -214,6 +216,8 @@\n     print(f\"\\033[34mTask Name: {args['task_name']}\\033[0m\")\n     print(f\"\\033[34mPolicy Name: {args['policy_name']}\\033[0m\")\n \n+    if test_num is None:\n+        test_num = int(usr_args[\"test_num\"])\n     expert_check = True\n     TASK_ENV.suc = 0\n     TASK_ENV.test_num = 0\n"
+    }
+  },
+  "setup_records": {
+    "sapien-librt-fix.json": {
+      "scope": "project venv only",
+      "reason": "Official ARM wheel bundles an old librt which requests GLIBC_PRIVATE from newer Ubuntu pthread",
+      "original": "/home/zzj/competitions/lingbot/envs/sim/lib/python3.12/site-packages/sapien.libs/librt-2-4cc790af.28.so.original",
+      "original_sha256": "52fa4282ce51b06571d4751ce90015a7423cdc23b75a383ff1911bf13001b1cc",
+      "replacement": "/usr/lib/aarch64-linux-gnu/librt.so.1",
+      "system_libraries_modified": false
+    },
+    "sapien-oidn-upgrade.json": {
+      "version": "2.5.1",
+      "source_sha256": "e71fd043a70f1cc80e301d1b90df6c1f536098c4dd94baa612742f6db3369c36",
+      "cuda_device_check_passed": true,
+      "scope": "competition project only",
+      "old_libraries_retained": true,
+      "loader_backup": "/home/zzj/competitions/lingbot/docs/setup-baseline-20261015/sapien_oidn_tricks.py.original",
+      "new_libraries": [
+        {
+          "link": "/home/zzj/competitions/lingbot/envs/sim/lib/python3.12/site-packages/sapien/oidn_library/libOpenImageDenoise_core.so.2.5.1",
+          "target": "/home/zzj/competitions/lingbot/envs/oidn-cuda/lib/libOpenImageDenoise_core.so.2.5.1",
+          "sha256": "89116ef7eaf21e61e532ff689563ec33f3a5a396db4fb63aaa5f9b20aa1af918"
+        },
+        {
+          "link": "/home/zzj/competitions/lingbot/envs/sim/lib/python3.12/site-packages/sapien/oidn_library/libOpenImageDenoise.so.2.5.1",
+          "target": "/home/zzj/competitions/lingbot/envs/oidn-cuda/lib/libOpenImageDenoise.so.2.5.1",
+          "sha256": "302371d8b39916c897bb8a32dd357eb1abae949444d3497f6b822d6a8b2e7a51"
+        },
+        {
+          "link": "/home/zzj/competitions/lingbot/envs/sim/lib/python3.12/site-packages/sapien/oidn_library/libOpenImageDenoise_device_cuda.so.2.5.1",
+          "target": "/home/zzj/competitions/lingbot/envs/oidn-cuda/lib/libOpenImageDenoise_device_cuda.so.2.5.1",
+          "sha256": "752675254b7bf9e8281f29b59e0f207631adb7920a4e2a8b016df8e9b4735cea"
+        }
+      ],
+      "scene_recheck_required": true
+    },
+    "triton-runtime-adaptation.json": {
+      "TRITON_PTXAS_PATH": "/usr/local/cuda/bin/ptxas",
+      "cuda_toolkit": "13.0.88",
+      "test": "actual Triton kernel passed on GB10 sm121",
+      "TRITON_CACHE_DIR": "/home/zzj/competitions/lingbot/cache/triton",
+      "weights_modified": false
+    },
+    "render-quality-status.json": {
+      "ready": true,
+      "denoiser": "oidn",
+      "oidn_version": "2.5.1",
+      "source_build": "ARM CUDA; project-local library replacement",
+      "scene": "lift_pot demo_clean seed100000",
+      "no_oidn_errors_in_actual_scene_log": true,
+      "three_rgb_frames_finite_and_nonconstant": true,
+      "head_camera_image_visually_checked": true,
+      "version_differs_from_original_benchmark": true,
+      "checked_at_utc": "2026-10-15T16:32:22.035588+00:00"
+    },
+    "sim-full-install-status.json": {
+      "phase": "full_sim_import_passed",
+      "time": 1792080867.1926568,
+      "full_score_available": false
+    },
+    "mplib-build-status.json": {
+      "phase": "mplib_import_passed",
+      "time": 1792080146.9469786,
+      "version": "0.2.0",
+      "full_score_available": false,
+      "source_tag": "v0.2.1",
+      "source_commit": "86376ca87d2c055b792d8cea4d15a38e861d866f",
+      "metadata_note": "Official v0.2.1 tag snapshot contains VERSION 0.2.0; archive build uses that fallback metadata. Native code comes from the v0.2.1 tag."
+    },
+    "oidn-build-status.json": {
+      "phase": "arm_cuda_denoiser_device_passed",
+      "time": 1792081730.3530169,
+      "library": "/home/zzj/competitions/lingbot/envs/oidn-cuda/lib/libOpenImageDenoise.so.2.5.1",
+      "installed_into_sapien": false
+    },
+    "vla-install-status.json": {
+      "phase": "policy_import_passed",
+      "weight_updates": false,
+      "returncode": 0,
+      "error": "Overwriting feature type 'VideoFrame' (VideoFrame -> VideoFrame)\n/home/zzj/competitions/lingbot/envs/vla/lib/python3.12/site-packages/torch/cuda/__init__.py:283: UserWarning: \n    Found GPU0 NVIDIA GB10 which is of cuda capability 12.1.\n    Minimum and Maximum cuda capability supported by this version of PyTorch is\n    (8.0) - (12.0)\n    \n  warnings.warn(\n"
+    },
+    "model-skeleton-check.json": {
+      "status": "meta_architecture_constructed",
+      "weights_loaded": false,
+      "weight_updates": false,
+      "missing_keys": [],
+      "unexpected_keys": [],
+      "expected_parameters": 6375906359,
+      "config": "/home/zzj/competitions/lingbot/runs/pretrained-zero-shot-20261015/lingbotvla_cli.yaml"
+    }
+  },
+  "installed_packages": {
+    "vla": [
+      {
+        "name": "absl-py",
+        "version": "2.5.1"
+      },
+      {
+        "name": "accelerate",
+        "version": "1.7.0"
+      },
+      {
+        "name": "aiohappyeyeballs",
+        "version": "2.7.1"
+      },
+      {
+        "name": "aiohttp",
+        "version": "3.14.5"
+      },
+      {
+        "name": "aiosignal",
+        "version": "1.4.0"
+      },
+      {
+        "name": "annotated-types",
+        "version": "0.8.0"
+      },
+      {
+        "name": "antlr4-python3-runtime",
+        "version": "4.9.3"
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0"
+      },
+      {
+        "name": "av",
+        "version": "15.0.0"
+      },
+      {
+        "name": "blobfile",
+        "version": "3.2.0"
+      },
+      {
+        "name": "certifi",
+        "version": "2026.7.22"
+      },
+      {
+        "name": "charset-normalizer",
+        "version": "3.5.2"
+      },
+      {
+        "name": "click",
+        "version": "8.5.0"
+      },
+      {
+        "name": "contourpy",
+        "version": "1.3.3"
+      },
+      {
+        "name": "cycler",
+        "version": "0.12.1"
+      },
+      {
+        "name": "datasets",
+        "version": "3.6.0"
+      },
+      {
+        "name": "dill",
+        "version": "0.3.8"
+      },
+      {
+        "name": "einops",
+        "version": "0.8.1"
+      },
+      {
+        "name": "filelock",
+        "version": "4.2.0"
+      },
+      {
+        "name": "fonttools",
+        "version": "4.67.0"
+      },
+      {
+        "name": "frozenlist",
+        "version": "1.8.0"
+      },
+      {
+        "name": "fsspec",
+        "version": "2025.3.0"
+      },
+      {
+        "name": "gitdb",
+        "version": "4.0.12"
+      },
+      {
+        "name": "GitPython",
+        "version": "3.2.1"
+      },
+      {
+        "name": "grpcio",
+        "version": "1.84.0"
+      },
+      {
+        "name": "h5py",
+        "version": "3.14.0"
+      },
+      {
+        "name": "hf-xet",
+        "version": "1.7.0"
+      },
+      {
+        "name": "huggingface-hub",
+        "version": "0.34.3"
+      },
+      {
+        "name": "idna",
+        "version": "3.20"
+      },
+      {
+        "name": "imageio",
+        "version": "2.34.2"
+      },
+      {
+        "name": "Jinja2",
+        "version": "3.1.6"
+      },
+      {
+        "name": "jsonlines",
+        "version": "4.0.0"
+      },
+      {
+        "name": "kiwisolver",
+        "version": "1.5.1"
+      },
+      {
+        "name": "lerobot",
+        "version": "0.4.2"
+      },
+      {
+        "name": "lxml",
+        "version": "5.4.0"
+      },
+      {
+        "name": "Markdown",
+        "version": "3.11.1"
+      },
+      {
+        "name": "markdown-it-py",
+        "version": "4.2.0"
+      },
+      {
+        "name": "MarkupSafe",
+        "version": "3.0.4"
+      },
+      {
+        "name": "matplotlib",
+        "version": "3.10.3"
+      },
+      {
+        "name": "mdurl",
+        "version": "0.1.2"
+      },
+      {
+        "name": "mpmath",
+        "version": "1.3.0"
+      },
+      {
+        "name": "msgpack",
+        "version": "1.1.1"
+      },
+      {
+        "name": "msgpack-numpy",
+        "version": "0.4.8"
+      },
+      {
+        "name": "multidict",
+        "version": "7.1.0"
+      },
+      {
+        "name": "multiprocess",
+        "version": "0.70.16"
+      },
+      {
+        "name": "networkx",
+        "version": "3.7"
+      },
+      {
+        "name": "numpy",
+        "version": "1.26.4"
+      },
+      {
+        "name": "numpydantic",
+        "version": "1.9.0"
+      },
+      {
+        "name": "nvidia-cublas",
+        "version": "13.0.0.19"
+      },
+      {
+        "name": "nvidia-cuda-cupti",
+        "version": "13.0.48"
+      },
+      {
+        "name": "nvidia-cuda-nvrtc",
+        "version": "13.0.48"
+      },
+      {
+        "name": "nvidia-cuda-runtime",
+        "version": "13.0.48"
+      },
+      {
+        "name": "nvidia-cudnn-cu13",
+        "version": "9.13.0.50"
+      },
+      {
+        "name": "nvidia-cufft",
+        "version": "12.0.0.15"
+      },
+      {
+        "name": "nvidia-cufile",
+        "version": "1.15.0.42"
+      },
+      {
+        "name": "nvidia-curand",
+        "version": "10.4.0.35"
+      },
+      {
+        "name": "nvidia-cusolver",
+        "version": "12.0.3.29"
+      },
+      {
+        "name": "nvidia-cusparse",
+        "version": "12.6.2.49"
+      },
+      {
+        "name": "nvidia-cusparselt-cu13",
+        "version": "0.8.0"
+      },
+      {
+        "name": "nvidia-nccl-cu13",
+        "version": "2.27.7"
+      },
+      {
+        "name": "nvidia-nvjitlink",
+        "version": "13.0.39"
+      },
+      {
+        "name": "nvidia-nvshmem-cu13",
+        "version": "3.3.24"
+      },
+      {
+        "name": "nvidia-nvtx",
+        "version": "13.0.39"
+      },
+      {
+        "name": "omegaconf",
+        "version": "2.3.0"
+      },
+      {
+        "name": "opencv-python-headless",
+        "version": "4.11.0.86"
+      },
+      {
+        "name": "optree",
+        "version": "0.14.1"
+      },
+      {
+        "name": "packaging",
+        "version": "25.0"
+      },
+      {
+        "name": "pandas",
+        "version": "2.3.1"
+      },
+      {
+        "name": "peft",
+        "version": "0.15.2"
+      },
+      {
+        "name": "pillow",
+        "version": "11.3.0"
+      },
+      {
+        "name": "pip",
+        "version": "24.0"
+      },
+      {
+        "name": "platformdirs",
+        "version": "4.13.0"
+      },
+      {
+        "name": "propcache",
+        "version": "0.5.4"
+      },
+      {
+        "name": "protobuf",
+        "version": "3.20.3"
+      },
+      {
+        "name": "psutil",
+        "version": "7.2.2"
+      },
+      {
+        "name": "pyarrow",
+        "version": "21.0.0"
+      },
+      {
+        "name": "pycryptodomex",
+        "version": "3.23.0"
+      },
+      {
+        "name": "pydantic",
+        "version": "2.14.1"
+      },
+      {
+        "name": "pydantic_core",
+        "version": "2.50.1"
+      },
+      {
+        "name": "Pygments",
+        "version": "2.21.0"
+      },
+      {
+        "name": "pyparsing",
+        "version": "3.3.3"
+      },
+      {
+        "name": "python-dateutil",
+        "version": "2.9.0.post0"
+      },
+      {
+        "name": "pytz",
+        "version": "2026.5"
+      },
+      {
+        "name": "PyYAML",
+        "version": "6.0.2"
+      },
+      {
+        "name": "qwen-vl-utils",
+        "version": "0.0.11"
+      },
+      {
+        "name": "regex",
+        "version": "2026.9.29"
+      },
+      {
+        "name": "requests",
+        "version": "2.34.2"
+      },
+      {
+        "name": "rich",
+        "version": "14.1.0"
+      },
+      {
+        "name": "safetensors",
+        "version": "0.5.3"
+      },
+      {
+        "name": "scipy",
+        "version": "1.13.1"
+      },
+      {
+        "name": "sentencepiece",
+        "version": "0.2.0"
+      },
+      {
+        "name": "sentry-sdk",
+        "version": "2.72.0"
+      },
+      {
+        "name": "setuptools",
+        "version": "84.0.0"
+      },
+      {
+        "name": "six",
+        "version": "1.17.0"
+      },
+      {
+        "name": "smmap",
+        "version": "5.0.3"
+      },
+      {
+        "name": "sympy",
+        "version": "1.13.3"
+      },
+      {
+        "name": "tensorboard",
+        "version": "2.16.2"
+      },
+      {
+        "name": "tensorboard-data-server",
+        "version": "0.7.2"
+      },
+      {
+        "name": "timm",
+        "version": "1.0.20"
+      },
+      {
+        "name": "tokenizers",
+        "version": "0.22.2"
+      },
+      {
+        "name": "torch",
+        "version": "2.9.1+cu130"
+      },
+      {
+        "name": "torchdata",
+        "version": "0.11.0"
+      },
+      {
+        "name": "torchvision",
+        "version": "0.24.1"
+      },
+      {
+        "name": "tqdm",
+        "version": "4.67.1"
+      },
+      {
+        "name": "transformers",
+        "version": "4.57.3"
+      },
+      {
+        "name": "trimesh",
+        "version": "4.5.1"
+      },
+      {
+        "name": "triton",
+        "version": "3.5.1"
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0"
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.4"
+      },
+      {
+        "name": "tzdata",
+        "version": "2026.5"
+      },
+      {
+        "name": "urllib3",
+        "version": "2.8.0"
+      },
+      {
+        "name": "utils3d",
+        "version": "1.3"
+      },
+      {
+        "name": "wandb",
+        "version": "0.21.0"
+      },
+      {
+        "name": "websockets",
+        "version": "15.0.1"
+      },
+      {
+        "name": "Werkzeug",
+        "version": "3.1.9"
+      },
+      {
+        "name": "xxhash",
+        "version": "4.0.1"
+      },
+      {
+        "name": "yarl",
+        "version": "1.25.1"
+      },
+      {
+        "name": "zstandard",
+        "version": "0.23.0"
+      }
+    ],
+    "sim": [
+      {
+        "name": "annotated-types",
+        "version": "0.8.0"
+      },
+      {
+        "name": "anyio",
+        "version": "4.15.1"
+      },
+      {
+        "name": "attrs",
+        "version": "26.1.0"
+      },
+      {
+        "name": "certifi",
+        "version": "2026.7.22"
+      },
+      {
+        "name": "chardet",
+        "version": "7.6.0"
+      },
+      {
+        "name": "charset-normalizer",
+        "version": "3.5.2"
+      },
+      {
+        "name": "cloudpickle",
+        "version": "3.1.2"
+      },
+      {
+        "name": "colorlog",
+        "version": "6.12.0"
+      },
+      {
+        "name": "contourpy",
+        "version": "1.3.3"
+      },
+      {
+        "name": "cycler",
+        "version": "0.12.1"
+      },
+      {
+        "name": "einops",
+        "version": "0.8.2"
+      },
+      {
+        "name": "Farama-Notifications",
+        "version": "0.0.6"
+      },
+      {
+        "name": "filelock",
+        "version": "4.2.0"
+      },
+      {
+        "name": "fonttools",
+        "version": "4.67.0"
+      },
+      {
+        "name": "fsspec",
+        "version": "2026.9.0"
+      },
+      {
+        "name": "gymnasium",
+        "version": "0.29.1"
+      },
+      {
+        "name": "h11",
+        "version": "0.16.0"
+      },
+      {
+        "name": "h5py",
+        "version": "3.16.0"
+      },
+      {
+        "name": "httpcore",
+        "version": "1.0.9"
+      },
+      {
+        "name": "httpx",
+        "version": "0.28.1"
+      },
+      {
+        "name": "idna",
+        "version": "3.20"
+      },
+      {
+        "name": "imageio",
+        "version": "2.34.2"
+      },
+      {
+        "name": "importlib_resources",
+        "version": "7.1.0"
+      },
+      {
+        "name": "Jinja2",
+        "version": "3.1.6"
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0"
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1"
+      },
+      {
+        "name": "kiwisolver",
+        "version": "1.5.1"
+      },
+      {
+        "name": "lazy-loader",
+        "version": "0.6"
+      },
+      {
+        "name": "lxml",
+        "version": "6.1.3"
+      },
+      {
+        "name": "manifold3d",
+        "version": "3.5.4"
+      },
+      {
+        "name": "markdown-it-py",
+        "version": "4.2.0"
+      },
+      {
+        "name": "MarkupSafe",
+        "version": "3.0.4"
+      },
+      {
+        "name": "matplotlib",
+        "version": "3.11.2"
+      },
+      {
+        "name": "mdurl",
+        "version": "0.1.2"
+      },
+      {
+        "name": "mplib",
+        "version": "0.2.0"
+      },
+      {
+        "name": "mpmath",
+        "version": "1.3.0"
+      },
+      {
+        "name": "msgpack",
+        "version": "1.1.1"
+      },
+      {
+        "name": "msgpack-numpy",
+        "version": "0.4.8"
+      },
+      {
+        "name": "networkx",
+        "version": "3.7"
+      },
+      {
+        "name": "ninja",
+        "version": "1.13.2"
+      },
+      {
+        "name": "numpy",
+        "version": "1.26.4"
+      },
+      {
+        "name": "numpy-quaternion",
+        "version": "2024.0.13"
+      },
+      {
+        "name": "nvidia-cublas",
+        "version": "13.0.0.19"
+      },
+      {
+        "name": "nvidia-cuda-cupti",
+        "version": "13.0.48"
+      },
+      {
+        "name": "nvidia-cuda-nvrtc",
+        "version": "13.0.48"
+      },
+      {
+        "name": "nvidia-cuda-runtime",
+        "version": "13.0.48"
+      },
+      {
+        "name": "nvidia-cudnn-cu13",
+        "version": "9.13.0.50"
+      },
+      {
+        "name": "nvidia-cufft",
+        "version": "12.0.0.15"
+      },
+      {
+        "name": "nvidia-cufile",
+        "version": "1.15.0.42"
+      },
+      {
+        "name": "nvidia-curand",
+        "version": "10.4.0.35"
+      },
+      {
+        "name": "nvidia_curobo",
+        "version": "0.7.8"
+      },
+      {
+        "name": "nvidia-cusolver",
+        "version": "12.0.3.29"
+      },
+      {
+        "name": "nvidia-cusparse",
+        "version": "12.6.2.49"
+      },
+      {
+        "name": "nvidia-cusparselt-cu13",
+        "version": "0.8.0"
+      },
+      {
+        "name": "nvidia-nccl-cu13",
+        "version": "2.27.7"
+      },
+      {
+        "name": "nvidia-nvjitlink",
+        "version": "13.0.39"
+      },
+      {
+        "name": "nvidia-nvshmem-cu13",
+        "version": "3.3.24"
+      },
+      {
+        "name": "nvidia-nvtx",
+        "version": "13.0.39"
+      },
+      {
+        "name": "opencv-python",
+        "version": "4.11.0.86"
+      },
+      {
+        "name": "packaging",
+        "version": "26.3"
+      },
+      {
+        "name": "pillow",
+        "version": "12.3.0"
+      },
+      {
+        "name": "pip",
+        "version": "24.0"
+      },
+      {
+        "name": "pybind11",
+        "version": "3.1.0"
+      },
+      {
+        "name": "pycollada",
+        "version": "0.9.3"
+      },
+      {
+        "name": "pydantic",
+        "version": "2.14.1"
+      },
+      {
+        "name": "pydantic_core",
+        "version": "2.50.1"
+      },
+      {
+        "name": "pyglet",
+        "version": "1.5.31"
+      },
+      {
+        "name": "Pygments",
+        "version": "2.21.0"
+      },
+      {
+        "name": "pyparsing",
+        "version": "3.3.3"
+      },
+      {
+        "name": "pyperclip",
+        "version": "1.11.0"
+      },
+      {
+        "name": "python-dateutil",
+        "version": "2.9.0.post0"
+      },
+      {
+        "name": "PyYAML",
+        "version": "6.0.2"
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0"
+      },
+      {
+        "name": "requests",
+        "version": "2.34.2"
+      },
+      {
+        "name": "rich",
+        "version": "15.0.0"
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.9.1"
+      },
+      {
+        "name": "rtree",
+        "version": "1.4.1"
+      },
+      {
+        "name": "sapien",
+        "version": "3.0.3"
+      },
+      {
+        "name": "scikit-image",
+        "version": "0.26.0"
+      },
+      {
+        "name": "scipy",
+        "version": "1.12.0"
+      },
+      {
+        "name": "setuptools",
+        "version": "69.5.1"
+      },
+      {
+        "name": "setuptools-scm",
+        "version": "10.3.4"
+      },
+      {
+        "name": "shapely",
+        "version": "2.2.0"
+      },
+      {
+        "name": "six",
+        "version": "1.17.0"
+      },
+      {
+        "name": "svg.path",
+        "version": "7.1"
+      },
+      {
+        "name": "sympy",
+        "version": "1.13.3"
+      },
+      {
+        "name": "termcolor",
+        "version": "3.3.0"
+      },
+      {
+        "name": "tifffile",
+        "version": "2026.3.3"
+      },
+      {
+        "name": "toppra",
+        "version": "0.6.3"
+      },
+      {
+        "name": "torch",
+        "version": "2.9.1+cu130"
+      },
+      {
+        "name": "tqdm",
+        "version": "4.70.1"
+      },
+      {
+        "name": "transforms3d",
+        "version": "0.4.2"
+      },
+      {
+        "name": "trimesh",
+        "version": "4.4.3"
+      },
+      {
+        "name": "triton",
+        "version": "3.5.1"
+      },
+      {
+        "name": "typing_extensions",
+        "version": "4.16.0"
+      },
+      {
+        "name": "typing-inspection",
+        "version": "0.4.4"
+      },
+      {
+        "name": "urllib3",
+        "version": "2.8.0"
+      },
+      {
+        "name": "vcs-versioning",
+        "version": "2.6.0"
+      },
+      {
+        "name": "vhacdx",
+        "version": "0.1.0"
+      },
+      {
+        "name": "warp-lang",
+        "version": "1.12.0"
+      },
+      {
+        "name": "websockets",
+        "version": "15.0.1"
+      },
+      {
+        "name": "wheel",
+        "version": "0.48.0"
+      },
+      {
+        "name": "xatlas",
+        "version": "0.0.11"
+      },
+      {
+        "name": "xxhash",
+        "version": "4.0.1"
+      },
+      {
+        "name": "yourdfpy",
+        "version": "0.0.60"
+      }
+    ]
+  },
+  "files": {
+    "configs/training/clean-v3-gb10/pilot.yaml": {
+      "sha256": "ae421829a3dafc5711ef89e53e80847bbc25829d48636d0885ab2a05a9343c90",
+      "bytes": 5905
+    },
+    "configs/training/clean-v3-gb10/stage1.yaml": {
+      "sha256": "b4f1fcb345d0e764e3cf14f123ff48c47f27d880e86ffdf4106d7843deab002d",
+      "bytes": 5910
+    },
+    "configs/robots/clean-v3-gb10/robotwin.yaml": {
+      "sha256": "af23fd2e289af1edf5dc1671c79e0a2bb9172dc796af938db267760110d03cbf",
+      "bytes": 1914
+    },
+    "configs/normalization/robotwin_clean_v3.json": {
+      "sha256": "0b5ed854065e9c64e1b8934c274c38d0efa062d743bfad071f1a089983125611",
+      "bytes": 7130
+    },
+    "repos/lingbot-vla-v2/tasks/vla/train_lingbotvla.py": {
+      "sha256": "7896927842eea89793da4550cc7096e3c5f315e749f0bf8812cc51e1bae711d7",
+      "bytes": 58741
+    },
+    "repos/lingbot-vla-v2/configs/vla/robotwin/robotwin.yaml": {
+      "sha256": "ee915e4ad34589a6def35c9e3c12bb8ff7d9f768dfc7ad44ce789fa7aaea57e2",
+      "bytes": 3991
+    },
+    "repos/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/modeling_lingbot_vla_v2.py": {
+      "sha256": "b009a4a20fb4d345ecbbf4b9727e80f20884e6f468a1dcfefe7b3293d804fc80",
+      "bytes": 58782
+    },
+    "repos/lingbot-vla-v2/lingbotvla/models/vla/lingbot_vla/qwen2_action_expert.py": {
+      "sha256": "67c1de355b3bac4d7ff940b9c43135e7897cfeaf1ef88224e1766bc1d1f28db9",
+      "bytes": 23294
+    },
+    "repos/RoboTwin/script/eval_policy_client_lingbotvla.py": {
+      "sha256": "4212720b01ce9ee7ac0b846996e10ccfb99808e1cda1929e8089429870f4269e",
+      "bytes": 16673
+    },
+    "repos/RoboTwin/envs/camera/camera.py": {
+      "sha256": "cc71bb922d63379840f3f33e62ecd0946dac74b3b49e11a4d60bd6b95abe8920",
+      "bytes": 25199
+    },
+    "repos/RoboTwin/envs/utils/save_file.py": {
+      "sha256": "d615723e6b00949ee8d8fc2150f4566b57b4fa73539610054771029d7f725ce9",
+      "bytes": 1042
+    }
+  },
+  "normalization_evidence": {
+    "status": "computed_from_downloaded_demo_clean_v3_state_action_only",
+    "dataset": "/home/zzj/competitions/lingbot/data/RoboTwin_lerobot_v30",
+    "source_statement": "https://huggingface.co/datasets/TianxingChen/RoboTwin2.0/discussions/95",
+    "total_episodes": 2500,
+    "total_frames": 548893,
+    "task_episode_counts": {
+      "adjust_bottle": 50,
+      "click_bell": 50,
+      "hanging_mug": 50,
+      "move_stapler_pad": 50,
+      "place_a2b_left": 50,
+      "place_can_basket": 50,
+      "place_fan": 50,
+      "place_phone_stand": 50,
+      "rotate_qrcode": 50,
+      "stack_blocks_two": 50,
+      "beat_block_hammer": 50,
+      "dump_bin_bigbin": 50,
+      "lift_pot": 50,
+      "open_laptop": 50,
+      "place_a2b_right": 50,
+      "place_cans_plasticbox": 50,
+      "place_mouse_pad": 50,
+      "place_shoe": 50,
+      "scan_object": 50,
+      "stack_bowls_three": 50,
+      "blocks_ranking_rgb": 50,
+      "grab_roller": 50,
+      "move_can_pot": 50,
+      "open_microwave": 50,
+      "place_bread_basket": 50,
+      "place_container_plate": 50,
+      "place_object_basket": 50,
+      "press_stapler": 50,
+      "shake_bottle": 50,
+      "stack_bowls_two": 50,
+      "blocks_ranking_size": 50,
+      "handover_block": 50,
+      "move_pillbottle_pad": 50,
+      "pick_diverse_bottles": 50,
+      "place_bread_skillet": 50,
+      "place_dual_shoes": 50,
+      "place_object_scale": 50,
+      "put_bottles_dustbin": 50,
+      "shake_bottle_horizontally": 50,
+      "stamp_seal": 50,
+      "click_alarmclock": 50,
+      "handover_mic": 50,
+      "move_playingcard_away": 50,
+      "pick_dual_bottles": 50,
+      "place_burger_fries": 50,
+      "place_empty_cup": 50,
+      "place_object_stand": 50,
+      "put_object_cabinet": 50,
+      "stack_blocks_three": 50,
+      "turn_switch": 50
+    },
+    "mapping_validation": "50-episode blocks independently identified by >=40/50 official seen-template matches, uniquely covering all 50 tasks; punctuation normalized only for mapping validation; frame ranges, IDs and lengths checked against raw parquet.",
+    "task_block_checks": [
+      {
+        "first_episode": 0,
+        "task": "adjust_bottle",
+        "matched": 48,
+        "total": 50,
+        "runner_up": 6
+      },
+      {
+        "first_episode": 50,
+        "task": "click_bell",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 6
+      },
+      {
+        "first_episode": 100,
+        "task": "hanging_mug",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 11
+      },
+      {
+        "first_episode": 150,
+        "task": "move_stapler_pad",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 10
+      },
+      {
+        "first_episode": 200,
+        "task": "place_a2b_left",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 6
+      },
+      {
+        "first_episode": 250,
+        "task": "place_can_basket",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 8
+      },
+      {
+        "first_episode": 300,
+        "task": "place_fan",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 11
+      },
+      {
+        "first_episode": 350,
+        "task": "place_phone_stand",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 7
+      },
+      {
+        "first_episode": 400,
+        "task": "rotate_qrcode",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 7
+      },
+      {
+        "first_episode": 450,
+        "task": "stack_blocks_two",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 4
+      },
+      {
+        "first_episode": 500,
+        "task": "beat_block_hammer",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 7
+      },
+      {
+        "first_episode": 550,
+        "task": "dump_bin_bigbin",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 7
+      },
+      {
+        "first_episode": 600,
+        "task": "lift_pot",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 6
+      },
+      {
+        "first_episode": 650,
+        "task": "open_laptop",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 0
+      },
+      {
+        "first_episode": 700,
+        "task": "place_a2b_right",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 11
+      },
+      {
+        "first_episode": 750,
+        "task": "place_cans_plasticbox",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 7
+      },
+      {
+        "first_episode": 800,
+        "task": "place_mouse_pad",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 7
+      },
+      {
+        "first_episode": 850,
+        "task": "place_shoe",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 9
+      },
+      {
+        "first_episode": 900,
+        "task": "scan_object",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 6
+      },
+      {
+        "first_episode": 950,
+        "task": "stack_bowls_three",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 9
+      },
+      {
+        "first_episode": 1000,
+        "task": "blocks_ranking_rgb",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 7
+      },
+      {
+        "first_episode": 1050,
+        "task": "grab_roller",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 1
+      },
+      {
+        "first_episode": 1100,
+        "task": "move_can_pot",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 5
+      },
+      {
+        "first_episode": 1150,
+        "task": "open_microwave",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 7
+      },
+      {
+        "first_episode": 1200,
+        "task": "place_bread_basket",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 7
+      },
+      {
+        "first_episode": 1250,
+        "task": "place_container_plate",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 17
+      },
+      {
+        "first_episode": 1300,
+        "task": "place_object_basket",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 9
+      },
+      {
+        "first_episode": 1350,
+        "task": "press_stapler",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 9
+      },
+      {
+        "first_episode": 1400,
+        "task": "shake_bottle",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 3
+      },
+      {
+        "first_episode": 1450,
+        "task": "stack_bowls_two",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 4
+      },
+      {
+        "first_episode": 1500,
+        "task": "blocks_ranking_size",
+        "matched": 49,
+        "total": 50,
+        "runner_up": 8
+      },
+      {
+        "first_episode": 1550,
+        "task": "handover_block",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 13
+      },
+      {
+        "first_episode": 1600,
+        "task": "move_pillbottle_pad",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 7
+      },
+      {
+        "first_episode": 1650,
+        "task": "pick_diverse_bottles",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 2
+      },
+      {
+        "first_episode": 1700,
+        "task": "place_bread_skillet",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 3
+      },
+      {
+        "first_episode": 1750,
+        "task": "place_dual_shoes",
+        "matched": 47,
+        "total": 50,
+        "runner_up": 4
+      },
+      {
+        "first_episode": 1800,
+        "task": "place_object_scale",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 8
+      },
+      {
+        "first_episode": 1850,
+        "task": "put_bottles_dustbin",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 8
+      },
+      {
+        "first_episode": 1900,
+        "task": "shake_bottle_horizontally",
+        "matched": 48,
+        "total": 50,
+        "runner_up": 3
+      },
+      {
+        "first_episode": 1950,
+        "task": "stamp_seal",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 1
+      },
+      {
+        "first_episode": 2000,
+        "task": "click_alarmclock",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 1
+      },
+      {
+        "first_episode": 2050,
+        "task": "handover_mic",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 5
+      },
+      {
+        "first_episode": 2100,
+        "task": "move_playingcard_away",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 12
+      },
+      {
+        "first_episode": 2150,
+        "task": "pick_dual_bottles",
+        "matched": 46,
+        "total": 50,
+        "runner_up": 8
+      },
+      {
+        "first_episode": 2200,
+        "task": "place_burger_fries",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 11
+      },
+      {
+        "first_episode": 2250,
+        "task": "place_empty_cup",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 13
+      },
+      {
+        "first_episode": 2300,
+        "task": "place_object_stand",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 7
+      },
+      {
+        "first_episode": 2350,
+        "task": "put_object_cabinet",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 12
+      },
+      {
+        "first_episode": 2400,
+        "task": "stack_blocks_three",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 11
+      },
+      {
+        "first_episode": 2450,
+        "task": "turn_switch",
+        "matched": 50,
+        "total": 50,
+        "runner_up": 0
+      }
+    ],
+    "unmatched_instruction_variations": [
+      {
+        "episode": 9,
+        "expected_sorted_block_task": "adjust_bottle",
+        "instruction": [
+          "Lift the smooth bottle with red lid from the table."
+        ]
+      },
+      {
+        "episode": 39,
+        "expected_sorted_block_task": "adjust_bottle",
+        "instruction": [
+          "Lift the dark drink bottle with logo up from the table"
+        ]
+      },
+      {
+        "episode": 1528,
+        "expected_sorted_block_task": "blocks_ranking_size",
+        "instruction": [
+          "Move small block, then medium block, then large block to their center positions."
+        ]
+      },
+      {
+        "episode": 1753,
+        "expected_sorted_block_task": "place_dual_shoes",
+        "instruction": [
+          "Place both items matching the white and black combination shoe in the orange Nike shoe-box with logo, tip left when set."
+        ]
+      },
+      {
+        "episode": 1761,
+        "expected_sorted_block_task": "place_dual_shoes",
+        "instruction": [
+          "Place the two black and white shoe inside the Nike-branded orange shoe-box, make tips face left."
+        ]
+      },
+      {
+        "episode": 1774,
+        "expected_sorted_block_task": "place_dual_shoes",
+        "instruction": [
+          "Place both items matching the red shoe rounded at front into the orange cardboard shoe-box, ensure shoe tips face left."
+        ]
+      },
+      {
+        "episode": 1920,
+        "expected_sorted_block_task": "shake_bottle_horizontally",
+        "instruction": [
+          "Shake the bottle with white neck and red top horizontally."
+        ]
+      },
+      {
+        "episode": 1935,
+        "expected_sorted_block_task": "shake_bottle_horizontally",
+        "instruction": [
+          "Grab and shake the dark drink bottle with logo horizontally. the right arm."
+        ]
+      },
+      {
+        "episode": 2151,
+        "expected_sorted_block_task": "pick_dual_bottles",
+        "instruction": [
+          "Catch the red-capped bottle, then catch the plastic bottle."
+        ]
+      },
+      {
+        "episode": 2164,
+        "expected_sorted_block_task": "pick_dual_bottles",
+        "instruction": [
+          "Catch the narrow-necked bottle, then catch the bottle with ridges near base."
+        ]
+      },
+      {
+        "episode": 2171,
+        "expected_sorted_block_task": "pick_dual_bottles",
+        "instruction": [
+          "Catch the red-capped bottle, then catch the medium green bottle with capped neck."
+        ]
+      },
+      {
+        "episode": 2174,
+        "expected_sorted_block_task": "pick_dual_bottles",
+        "instruction": [
+          "Catch the red-capped bottle, then catch the bottle with white printed label."
+        ]
+      }
+    ],
+    "method": "Official RunningStats/5000 histogram bins; deterministic batches of 64 episodes; current state; absolute future actions at offsets 0..49, clamped within each episode; raw feature slices before padding; no state subtraction.",
+    "normalization_scope": "clean-derived preprocessing for local pretrained baseline; no claim that official rules have separately approved this exact statistics procedure",
+    "count_by_feature": {
+      "observation.state.arm.position": 548893,
+      "observation.state.effector.position": 548893,
+      "action.arm.position": 27444650,
+      "action.effector.position": 27444650
+    },
+    "input_sha256": {
+      "meta/episodes/chunk-000/file-000.parquet": "8ff04cb8f0b3614f805d91c075b10de3ec7421046b1d691933b5401d5a06a58f",
+      "meta/episodes/chunk-001/file-000.parquet": "13c4077fc6aff2355e06e39f2f713ce9cd1cd4ee458a19c03cb03cef01b0df0e",
+      "meta/episodes/chunk-002/file-000.parquet": "b9ae750050a325f0b18c28b95d7b5d7dfcd4f1042327599540a7f34588f197bb",
+      "data/chunk-000/file-000.parquet": "6dd17bf3f19976b5c529bdacd5ff56a47a55be47f0c00a07776e9f1c41f63028",
+      "data/chunk-000/file-001.parquet": "9a34aa74cf687cf45e3d2d355528323f0ef7532248e06dca2c626f4f938efb73",
+      "data/chunk-000/file-002.parquet": "caddec58502602a7dc9c87e361626874e4b2ccf7d07996e2aacd16cb0a58f447",
+      "data/chunk-000/file-003.parquet": "f054b9f3e074339bbcfa3e721e3a4205b39a3d8c0ce68bfeb2c410e063352afd",
+      "data/chunk-000/file-004.parquet": "1578a909d6ba4d606b983cb088b5c55df87f9a63806325056a17498b3191d089",
+      "data/chunk-000/file-005.parquet": "19940b2c9036631db91f911461cebad11c2db33f04ad596ee0a97ea0b9215bb6",
+      "data/chunk-000/file-006.parquet": "52257221fc50f85a91430de792849616a6cf4a7dc80cfe148112605a67d09bc7",
+      "data/chunk-000/file-007.parquet": "7194efed9a8f7c2991e2bfc2d0585ae99c5fdffe456fe7dd736d183d7ad958e3",
+      "data/chunk-000/file-008.parquet": "12f166888cdfa706613a124a4f8668164f56dd1302ab98ed8cf0bd9bbc7bf3d5",
+      "data/chunk-000/file-009.parquet": "e8d52eef9239ffa1d33c563cd5934913b074543b8ffda02158a2a4ab799a70df",
+      "data/chunk-001/file-000.parquet": "703c71ab47e6424b09b3b32dbdd011ce2010067f2765e1da82d23c2067fd8d5b",
+      "data/chunk-001/file-001.parquet": "09bbd660b3c6e30c5cc2859153e50ff353980f63e443fd48851a770cbd2d275c",
+      "data/chunk-001/file-002.parquet": "ac890a64b8986187fd91799e65d5570579c07e030e38c1d7daacf2eeb156c320",
+      "data/chunk-001/file-003.parquet": "c940c3f55f0facda3d76d3abca053b03066a2788e3dbbd3f80afbabec93f8ca4",
+      "data/chunk-001/file-004.parquet": "473c95a35049973729007504449dc917b26122cbd982341732ab422e3739bdb9",
+      "data/chunk-001/file-005.parquet": "c026a5d47167cc65e3b57d0562fc1c7610294699ccd4eea2b2a915a65fde4169",
+      "data/chunk-001/file-006.parquet": "f9d5f4e4a42c0182928bbff0d906eab18d5d7cf42fe3535fbf080b1fe3845495",
+      "data/chunk-001/file-007.parquet": "d891513a3697cb274d595af0c7af15297f2c9ffc8d6b52864dde77b3f38cfb98",
+      "data/chunk-001/file-008.parquet": "1f5b4602ea4c1f800ff710aab70f92d5fe18b288ff8d8bd6a34e010bb5b6e54a",
+      "data/chunk-001/file-009.parquet": "dca840eae4c6aecda24cfe78b32aded91c8e6fef8861abd20298dbc49356372c",
+      "data/chunk-002/file-000.parquet": "1ab703cf32e421cdaede519d6af09dc95d0f8a12455f5bd70b3c60e110e1e486",
+      "data/chunk-002/file-001.parquet": "3080c9b1edfac5ab08136c242f10f169e037f41d340fae23f41d219b7ff7d3e9",
+      "data/chunk-002/file-002.parquet": "7285c51fa7e07d69720c070ff940de35c775b0422d86492f8ac7288447965a96",
+      "data/chunk-002/file-003.parquet": "7be085bbc3585128a737c708f929b0eb46bab382f5edb57a6c758bd89207b3a9",
+      "data/chunk-002/file-004.parquet": "93e2579408bdf7c04f48f505740ef9f74dc791e8e3318489e9dc2857d8d57301"
+    },
+    "official_algorithm_sha256": "64020713950bcb27b3589c12219292ed1859a090c986c69fdc5b62e053fd5737",
+    "robot_feature_map_sha256": "2c2a26509fc9662a8ada64adaa7fa959627dd6dadc6b48b680c4285da2d8ffd8",
+    "script_sha256": "444a6de68e6867466126d33466a984d054eb380a61e23d5a5ea8ecc57e0d0c2b",
+    "output": "/home/zzj/competitions/lingbot/configs/normalization/robotwin_clean_v3.json",
+    "output_sha256": "0b5ed854065e9c64e1b8934c274c38d0efa062d743bfad071f1a089983125611",
+    "images_decoded": 0,
+    "model_loaded": false,
+    "weight_updates": false,
+    "elapsed_seconds": 23.508238820824772
+  },
+  "active_training_processes": "",
+  "pilot_measurements": {
+    "utc": "2026-10-16T04:05:07.611382+00:00",
+    "result": "20_update_training_export_and_reload_passed",
+    "optimizer_steps": 20,
+    "micro_batches": 80,
+    "checkpoint_count": 1,
+    "setting": "joint 50-task V3 clean, designated raw pretraining initialization, FP32, frozen Qwen backbone, eager attention",
+    "configuration_signature": "b690db030b596bb5a38933765b0dea7d52f5879f633f6f3ab376d6a9f2ac658e",
+    "stable_seconds_per_update_median": 4.871111208572984,
+    "stable_seconds_per_update_min": 4.784975691698492,
+    "stable_seconds_per_update_max": 5.383795025758445,
+    "first_update_seconds_including_initialization": 163.54653741931543,
+    "training_loop_elapsed_seconds_approx": 106.33439959479496,
+    "pipeline_elapsed_seconds_approx": 411.49693298339844,
+    "checkpoint_save_seconds_approx": 38.162689208984375,
+    "first_loss": 0.3420928530395031,
+    "last_loss": 0.29512373730540276,
+    "loss_range": [
+      0.24183263257145882,
+      0.46289996802806854
+    ],
+    "cuda_peak_allocated_gib": 54.59385395050049,
+    "cuda_peak_reserved_gib": 54.8046875,
+    "unified_available_min_at_update_gib": 48.99895095825195,
+    "unified_available_observed_during_checkpoint_gib": 25.952960968017578,
+    "whole_system_peak_measured": false,
+    "checkpoint_bytes": 41017739148,
+    "hf_weights_bytes": 25503889812,
+    "export_total_bytes": 25519988108,
+    "export_dtype_elements": {
+      "F32": 6375907511
+    },
+    "export_parameter_elements": 6375907511,
+    "pilot_allocated_bytes": 66554724352,
+    "project_allocated_bytes": 156555857920,
+    "disk": "文件系统              1B的块          已用          可用 已用% 挂载点\n/dev/nvme0n1p2 4031871553536 1022762405888 2804268298240   27% /\n",
+    "current_mem_available": "MemAvailable:   113496020 kB",
+    "trainable_parameters": 1938090551,
+    "strict_reload": {
+      "passed": true,
+      "checkpoint": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/pilot/exports/global_step_20/hf_ckpt",
+      "strict_deployment_load": true,
+      "launch_attempt": "1792122996885779477",
+      "configuration_signature": "b690db030b596bb5a38933765b0dea7d52f5879f633f6f3ab376d6a9f2ac658e",
+      "action_projection_exact_match": true,
+      "max_abs_change_from_pretrained": 0.00025343894958496094,
+      "training_loss_finite": true,
+      "simulation_or_action_inference_executed": false
+    },
+    "actual_optimizer_resume_exercised": false,
+    "simulation_evaluated": false,
+    "stage1_started": false,
+    "active_training_processes": "",
+    "estimates_not_measurements": {
+      "stage1_accumulation": 8,
+      "seconds_per_update_linear_estimate": 9.742222417145967,
+      "2000_update_training_hours": 5.412345787303315,
+      "72h_theoretical_updates": 26605,
+      "excludes": "checkpoint overhead, initialization/export, evaluation, downtime, and unmeasured long-run or batch-profile differences"
+    },
+    "startup_failure_fixed": {
+      "reason": "ModelArguments.vit_attn_implementation default flash_attention_2 despite train.attention_implementation=eager",
+      "fix": "Explicit model.vit_attn_implementation=eager in derived pilot/stage1 configs; validator checks both",
+      "prior_updates": 0,
+      "archived_at": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/pilot/startup-failures/flash-attention-default"
+    },
+    "code_sha256_current": {
+      "safe_video.py": "4ee9b3894c34c974d4e3bc9c7eeab66a2de866333a1ef8f010d12c966f4e8ee1",
+      "storage_policy.py": "112bd826e0b6266847c4cd0b8314bc776861b858e9343158d9d7107f755d7f6f",
+      "validate_data.py": "e14d7af9887c5f2c74dcaca69421aa8e4f7c2771c1d144ea39ae0a400314e134",
+      "validate_native_loader.py": "5922da3a0b4473b4cec421c23e282992a00fb59f45f877afe836fd706644098c",
+      "verify_reload.py": "97ab106331379f4b7905f3b0f32e465995bcaf85137dce3bcb18890ca2333f2d",
+      "gb10_runtime.py": "d68f5fdcc069a8e42aa1673039a4c432e49bc119946bfc5321b42335f2ba8948",
+      "launch.py": "7e0a1bea7a0a8d39494251236187c68e143f8951b0567af894b8cf9dd0ef8f12",
+      "train_entry.py": "a3a9f85f98ca3d488b9264dbcae8ebadb6cf6cea772cc6c72aa946c4d2dd1ac4",
+      "export_cpu.py": "97319921aa60be0add0effd66420f49cb9b6246f89598b1f0bb6d45690966c2b",
+      "test_policies.py": "753a14b07603c8ce22e629196eb1e00ad9c2548fb14444c9336270c2b0ae8c19"
+    }
+  },
+  "baseline_result_files": [
+    "runs/pretrained-clean-quick-50x10-20261016/summary.json"
+  ]
+}

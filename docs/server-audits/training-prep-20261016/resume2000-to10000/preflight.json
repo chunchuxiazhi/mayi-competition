@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "source_checkpoint_validated": 2000,
+  "training_root_allocated_bytes": 148630986752,
+  "disk_free_bytes": 2722180313088,
+  "keep_formal_checkpoints": 2,
+  "max_formal_checkpoint_bytes_during_next_write_estimate": 123053234397,
+  "final_formal_checkpoint_steps": [
+    9000,
+    10000
+  ],
+  "new_HF_export_enabled": false
+}

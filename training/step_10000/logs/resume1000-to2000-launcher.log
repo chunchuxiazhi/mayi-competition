@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "tasks": 50,
+  "episodes": 2500,
+  "frames": 548893,
+  "world_size": 1,
+  "micro_batch": 1,
+  "gradient_accumulation": 8,
+  "optimizer_updates": 10000,
+  "save_every_updates": 1000,
+  "checkpoint_keep": 2,
+  "save_schedule_mode": "fixed",
+  "configured_save_steps": [
+    1000,
+    2000,
+    3000,
+    4000,
+    5000,
+    6000,
+    7000,
+    8000,
+    9000,
+    10000
+  ],
+  "training_started": false
+}
+{"segment": {"expected_resume_step": 1000, "stop_after_committed_step": 2000, "original_max_steps": 10000, "original_save_steps": 1000, "original_lr_schedule_preserved": true, "automatic_export": false}}
+{"checkpoint_schedule": {"mode": "fixed", "save_every_updates": 1000, "planned_saves": [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000]}}

@@ -1,0 +1,6 @@
+{
+  "state": "prepared_and_released",
+  "minimum_available_unified_memory_gib_sampled": null,
+  "note": "Export and strict reload passed; final metadata gate corrected without reloading model again.",
+  "export_bytes": 25503889812
+}

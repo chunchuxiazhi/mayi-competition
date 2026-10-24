@@ -1,0 +1,11 @@
+test_complete_resume_precedes_training_boundary (__main__.ResumeGuardTests.test_complete_resume_precedes_training_boundary) ... ok
+test_error_after_model_load_cannot_fall_back_or_train (__main__.ResumeGuardTests.test_error_after_model_load_cannot_fall_back_or_train) ... ok
+test_nonzero_lr_step_is_not_silently_ignored_during_restore (__main__.ResumeGuardTests.test_nonzero_lr_step_is_not_silently_ignored_during_restore) ... ok
+test_pytorch_zero_lr_initialization_does_not_update_weights_or_training_count (__main__.ResumeGuardTests.test_pytorch_zero_lr_initialization_does_not_update_weights_or_training_count) ... ok
+test_training_statement_is_preserved (__main__.ResumeGuardTests.test_training_statement_is_preserved) ... ok
+test_unrecognized_upstream_source_refused (__main__.ResumeGuardTests.test_unrecognized_upstream_source_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.115s
+
+OK

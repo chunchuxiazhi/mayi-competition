@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checkpoint": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-20000-from10000-20261018/exports/global_step_20000/hf_ckpt",
+  "strict_deployment_load": true,
+  "launch_attempt": "eval-step20000-prepare-only",
+  "configuration_signature": "d842211ddcb459ac3e8f1264377c29af30066f6574710c8d3826bffc46c388dc",
+  "action_projection_exact_match": true,
+  "max_abs_change_from_pretrained": 0.007318325340747833,
+  "training_loss_finite": true,
+  "simulation_or_action_inference_executed": false
+}

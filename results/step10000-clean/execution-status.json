@@ -1,0 +1,8 @@
+{
+  "state": "stopped_incomplete",
+  "summary": "/home/zzj/competitions/lingbot/runs/finetuned-clean-step10000-50x10-20261017/summary.json",
+  "automatic_restart": false,
+  "stop_reason": null,
+  "minimum_available_unified_memory_gib_sampled": 60.548362731933594,
+  "owned_children_exited": true
+}

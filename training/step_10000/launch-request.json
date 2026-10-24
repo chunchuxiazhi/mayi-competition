@@ -1,0 +1,7 @@
+{
+  "authorized_optimizer_updates": 10000,
+  "save_steps": 1000,
+  "keep_checkpoints": 2,
+  "source": "explicit --start invocation",
+  "automatic_evaluation": false
+}

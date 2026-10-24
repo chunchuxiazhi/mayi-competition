@@ -1,0 +1,66 @@
+{
+  "training_step": 20000,
+  "model_repo": "robbyant/lingbot-vla-v2-6b",
+  "hf_path": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-20000-from10000-20261018/exports/global_step_20000/hf_ckpt",
+  "configuration_signature": "d842211ddcb459ac3e8f1264377c29af30066f6574710c8d3826bffc46c388dc",
+  "shards": {
+    "model-00006-of-00006.safetensors": {
+      "bytes": 711820876,
+      "sha256": "2bcd79193f10f47b4d2bd6d647e33d5039fc8172afa989e2cc72c53e15d05f9e",
+      "mtime_ns": 1792769990438764432
+    },
+    "model-00005-of-00006.safetensors": {
+      "bytes": 4963069016,
+      "sha256": "afecbbd8a9d37680da9f12174ff9413e4d2580670ed9b5776390c1e60011b326",
+      "mtime_ns": 1792769989936760266
+    },
+    "model-00002-of-00006.safetensors": {
+      "bytes": 4944315304,
+      "sha256": "d606ead2c55d6e8812f710786172fb39a47ebfdc470820d8789b1ba2263ea587",
+      "mtime_ns": 1792769979068671471
+    },
+    "model-00004-of-00006.safetensors": {
+      "bytes": 4992862008,
+      "sha256": "74b0a91addcf07453bcbf49c980865caa3ad381b509786b775ca2cdbd46edc84",
+      "mtime_ns": 1792769986284730140
+    },
+    "model-00003-of-00006.safetensors": {
+      "bytes": 4944315360,
+      "sha256": "28b4487902accef2cfbd72c997c6b5aca63a55e7abe74163117bf5529c5dbef9",
+      "mtime_ns": 1792769982729701093
+    },
+    "model-00001-of-00006.safetensors": {
+      "bytes": 4947507248,
+      "sha256": "40caf01c5bde254cf8acef65fb189a1883094cf8c240d21caf4bc8612f71a2ab",
+      "mtime_ns": 1792769975448642478
+    }
+  },
+  "small_files": [
+    {
+      "path": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-20000-from10000-20261018/exports/global_step_20000/hf_ckpt/export-manifest.json",
+      "sha256": "c755bb374cd486f340a803579213ce0da24faf3517f0908860872eb0a1a30a94"
+    },
+    {
+      "path": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-20000-from10000-20261018/exports/global_step_20000/hf_ckpt/config.json",
+      "sha256": "57b0ac7c410bdf0e74b8ce59879417e825df27167a0f92ed2330a12d1b723740"
+    },
+    {
+      "path": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-20000-from10000-20261018/lingbotvla_cli.yaml",
+      "sha256": "a69ace1987900623f8df302d001ea0808b6683b2d7a787aa933262166e717221"
+    },
+    {
+      "path": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-20000-from10000-20261018/reload-verification.json",
+      "sha256": "829317878684dde75a4fcd9b386f3a84776de7358a6bc23e0c310ee07c8ce464"
+    },
+    {
+      "path": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-20000-from10000-20261018/checkpoints/global_step_20000/complete.json",
+      "sha256": "6fb0c156979612255ff338c41e38e5d95b1df90dad6492370465a5c5bc7233ea"
+    },
+    {
+      "path": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-20000-from10000-20261018/frozen-config.yaml",
+      "sha256": "06da9d1fbed019f2cc9a663f075bd2ae2f99ba96e52b3153548f1fdeb7bbdb73"
+    }
+  ],
+  "parameters_updated_during_evaluation": false,
+  "one_export_shared_by_settings_and_workers": true
+}

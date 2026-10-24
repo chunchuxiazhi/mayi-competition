@@ -1,0 +1,10 @@
+{
+  "state": "segment_complete",
+  "stopped_at_optimizer_step": 20000,
+  "new_optimizer_updates": 10000,
+  "checkpoint": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-20000-from10000-20261018/checkpoints/global_step_20000",
+  "checkpoint_bytes": 41017741925,
+  "automatic_export": false,
+  "evaluation_started": false,
+  "automatic_restart": false
+}

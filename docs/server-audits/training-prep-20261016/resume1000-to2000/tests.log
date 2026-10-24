@@ -1,0 +1,12 @@
+Overwriting feature type 'VideoFrame' (VideoFrame -> VideoFrame)
+/home/zzj/competitions/lingbot/envs/vla/lib/python3.12/site-packages/torch/distributed/checkpoint/state_dict_saver.py:184: UserWarning: torch.distributed is disabled, unavailable or uninitialized, assuming the intent is to save in a single process.
+  warnings.warn(
+/home/zzj/competitions/lingbot/envs/vla/lib/python3.12/site-packages/torch/distributed/checkpoint/filesystem.py:133: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  if tensor.storage().size() != tensor.numel():
+/home/zzj/competitions/lingbot/envs/vla/lib/python3.12/site-packages/torch/distributed/checkpoint/state_dict_loader.py:160: UserWarning: torch.distributed is disabled, unavailable or uninitialized, assuming the intent is to load in a single process.
+  warnings.warn(
+..............................
+----------------------------------------------------------------------
+Ran 30 tests in 0.295s
+
+OK

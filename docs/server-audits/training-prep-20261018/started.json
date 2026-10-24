@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-18T03:18:27.949835+00:00",
+  "source_checkpoint": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-10000-fixed1000/checkpoints/global_step_10000",
+  "source_step": 10000,
+  "target_step": 20000,
+  "additional_optimizer_updates": 10000,
+  "save_every_updates": 1000,
+  "keep_complete_checkpoints_across_both_formal_runs": 2,
+  "preserve_step10000_inference_export": true,
+  "source_checkpoint_copied": false,
+  "learning_rate": "1e-5 to 5e-6 cosine over absolute steps 10000..20000; no warmup restart",
+  "automatic_evaluation": false,
+  "automatic_export": false,
+  "automatic_restart": false,
+  "authorization": "User explicitly approved continuing prior training for another 10000 updates and starting in background after preparation, with memory and storage safeguards.",
+  "supervisor_pid": 567866,
+  "argv": [
+    "/home/zzj/competitions/lingbot/envs/vla/bin/python",
+    "-B",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10-continue20000-20261018/launch.py",
+    "--phase",
+    "formal20000",
+    "--start"
+  ],
+  "detached_session": true
+}

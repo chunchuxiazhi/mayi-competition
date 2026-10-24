@@ -1,0 +1,7 @@
+{"passed": true, "checks": ["private wrapper/shared VLA", "reset does not reset other session", "Python NumPy Torch CPU/CUDA RNG match isolated sequence", "FeatureTransform restored", "checkpoint change refused"], "real_model_loaded": false, "simulation_episodes": 0, "scope": "wrapper behavioral check; actual model checked by real first-action session assertions"}
+/home/zzj/competitions/lingbot/envs/sim/lib/python3.12/site-packages/torch/cuda/__init__.py:283: UserWarning: 
+    Found GPU0 NVIDIA GB10 which is of cuda capability 12.1.
+    Minimum and Maximum cuda capability supported by this version of PyTorch is
+    (8.0) - (12.0)
+    
+  warnings.warn(

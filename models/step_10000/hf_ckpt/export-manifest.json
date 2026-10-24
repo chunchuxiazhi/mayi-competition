@@ -1,0 +1,34 @@
+{
+  "configuration_signature": "5314fb99ee602e1a9e7ffdc8e407d1f3bc5762e8e0fce0ff78a2d9b35620b481",
+  "checkpoint": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-10000-fixed1000/checkpoints/global_step_10000",
+  "weights": {
+    "model-00006-of-00006.safetensors": {
+      "bytes": 711820876,
+      "sha256": "4a2128c523588dd6e28934f158da2d6cad81a7aef5a9739a518e6d22edcad4a5"
+    },
+    "model-00005-of-00006.safetensors": {
+      "bytes": 4963069016,
+      "sha256": "f6a7a9c67a6b40ae45fe193c34a003033a4fdae319fc3b0470a57dac94729d46"
+    },
+    "model-00002-of-00006.safetensors": {
+      "bytes": 4944315304,
+      "sha256": "d606ead2c55d6e8812f710786172fb39a47ebfdc470820d8789b1ba2263ea587"
+    },
+    "model-00004-of-00006.safetensors": {
+      "bytes": 4992862008,
+      "sha256": "f0724747746be431ee82570c72c91c052d96af38f7d2ca0bd3b913c5567198d7"
+    },
+    "model-00003-of-00006.safetensors": {
+      "bytes": 4944315360,
+      "sha256": "28b4487902accef2cfbd72c997c6b5aca63a55e7abe74163117bf5529c5dbef9"
+    },
+    "model-00001-of-00006.safetensors": {
+      "bytes": 4947507248,
+      "sha256": "5af675391ae8011f12d9549e2de6309b76455865acdea502ec70b69b75dd6731"
+    }
+  },
+  "changed_weight_sentinel": "model.action_out_proj.weight",
+  "max_abs_change_from_pretrained": 0.005642145872116089,
+  "static_export_integrity_checked": true,
+  "actual_model_reload_verified": false
+}

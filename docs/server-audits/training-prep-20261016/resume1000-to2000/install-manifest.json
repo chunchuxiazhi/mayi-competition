@@ -1,0 +1,29 @@
+{
+  "installed": true,
+  "tests_passed": true,
+  "actual_upstream_composed_AST_compiles": true,
+  "dry_run_passed": true,
+  "frozen_configuration_unchanged": {
+    "frozen-config.yaml": "ffcebfebe757c20c1ac64015eadeb7142f0398b34e6276ab0d953081cd625f33",
+    "frozen-config.json": "ffcebfebe757c20c1ac64015eadeb7142f0398b34e6276ab0d953081cd625f33"
+  },
+  "original_tool_hashes": {
+    "gb10_runtime.py": "508206f72cda377dc6bb1fa73a3e344cbb614ae8ce33cb5a39dc779c96f227ed",
+    "train_entry.py": "8a39027754916449dcc212f7271dc016599df7bdce5846206f6f50304e86b84e",
+    "launch.py": "ae6797814b2efcd0f2c3065dce406e6e172a2c67b0cf1ad10c3cd8424515308b"
+  },
+  "new_tool_hashes": {
+    "gb10_runtime.py": "a3326f523a75acb88ae1d698a49a5478d3e0b9b5c15eab05018c6e869e2d6169",
+    "dcp_stream_writer.py": "fbf378d2e8905d5814d7135ae7aa86d3aeb4eb088fdc64e716698ed53979f76d",
+    "segment_stop.py": "8705953b40aa60315d9abd5de7e4dad23faa4ac08c90f599704253371ec8b47d",
+    "train_entry.py": "da73d04323b7bf98fc08599b5c028a284d1f4efaf3ab16358415014b984bea1a",
+    "launch.py": "43a917da016ff521619179ead24fa7527c6529de688ba9648afd739332705a12",
+    "test_dcp_stream_writer.py": "b55a5a0a8de83e50ad938f03c4e8ca35bdd27a47af1abd5318383923395f8ed2",
+    "test_segment_stop.py": "98162e16ea164491f41d60f5ea96eacae2fd3b352d42a2cc48a59623b9da3158"
+  },
+  "stop_at_step": 2000,
+  "expected_resume_step": 1000,
+  "original_max_steps": 10000,
+  "automatic_export": false,
+  "training_started": false
+}

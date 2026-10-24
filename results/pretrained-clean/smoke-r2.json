@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "invocation_id": "1792088254652359161",
+  "cases": [
+    {
+      "task": "lift_pot",
+      "episode_index": 1,
+      "seed": 100001,
+      "success": false,
+      "execution_steps": 400,
+      "elapsed_seconds": 77.44378245668486,
+      "attempt_id": "ca90149aeade42369703227218687fed",
+      "session_id": "21027c04e8b04a7f8d242d04850d2a32",
+      "first_action_utc": "2026-10-15T18:18:35.672457+00:00",
+      "completed_utc": "2026-10-15T18:19:34.200190+00:00",
+      "verified_action_chunks": 8,
+      "counted_in_baseline": true,
+      "expert_repeated": false
+    },
+    {
+      "task": "hanging_mug",
+      "episode_index": 0,
+      "seed": 100000,
+      "success": false,
+      "execution_steps": 900,
+      "elapsed_seconds": 128.3862742651254,
+      "attempt_id": "f2e0e1394dea400393595af896790836",
+      "session_id": "24a6e1c512f04a6c818213cab0c65077",
+      "first_action_utc": "2026-10-15T18:18:34.921849+00:00",
+      "completed_utc": "2026-10-15T18:20:25.145727+00:00",
+      "verified_action_chunks": 18,
+      "counted_in_baseline": true,
+      "expert_repeated": false
+    }
+  ],
+  "interpretation": "Technical completion and isolation; a policy failure remains a valid failed baseline round",
+  "same_persistent_model_used_for_full_run": true
+}

@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-18T03:16:53.766251+00:00",
+  "source_signature": "5314fb99ee602e1a9e7ffdc8e407d1f3bc5762e8e0fce0ff78a2d9b35620b481",
+  "source_tools_unmodified": true,
+  "tensor_files_copied": false,
+  "new_tool_hashes": {
+    "verify_training_resume.py": "ad16f9145cee2fde417d2ad839474f20e40db87672873ba8410937ce5b44af0c",
+    "save_probe_entry.py": "51e20e4a7276db47a4127993840b91edde97eb7237250987b5cdc3295c0a6ad4",
+    "save_probe_supervisor.py": "051e61f7aa45773eba55d8d9c3351971288267b76885d708738761c2b0d1d082",
+    "safe_video.py": "4ee9b3894c34c974d4e3bc9c7eeab66a2de866333a1ef8f010d12c966f4e8ee1",
+    "storage_policy.py": "947534d5ca889c115f836a9e7b91af7e9e9e33e74b5690ac2ae8b260164b113f",
+    "validate_data.py": "e14d7af9887c5f2c74dcaca69421aa8e4f7c2771c1d144ea39ae0a400314e134",
+    "continuation.py": "88358cf1f9fcb147aa865c2a809edbce7b0641c8cff76cc005f421e9bb42884d",
+    "validate_native_loader.py": "40b22a11644cb575f83ac17d3e1a7e439fe907f4baba69616d49735450b2c7f2",
+    "segment_stop.py": "8705953b40aa60315d9abd5de7e4dad23faa4ac08c90f599704253371ec8b47d",
+    "verify_reload.py": "97ab106331379f4b7905f3b0f32e465995bcaf85137dce3bcb18890ca2333f2d",
+    "resume_guard.py": "d99a3a9888622473a0ec0b1de1449a510817075dfa90588a54bf9add1d71c97d",
+    "test_continuation.py": "99b2a59e305b2e5e40301d862427e1d13270fdc33e515ff6fe0569d9f576d56f",
+    "gb10_runtime.py": "24415fb23894c02caa2333a802efe2662388b05bea7fbfd0028d26e3380ecffb",
+    "launch.py": "3fa8403e6db0a091d0fb64f124c04181d86e1874664028e2cb7f47f65a39830e",
+    "train_entry.py": "7991190862d09ddb37bc7a379224ac554862a5a417fa54aa05ecaedd3d54a1f4",
+    "export_cpu.py": "97319921aa60be0add0effd66420f49cb9b6246f89598b1f0bb6d45690966c2b",
+    "start_detached.py": "48d050728d2b3b7f8d987fb9c9a05d3d31123172288f5bdc2a3285a85a7e7c6a",
+    "dcp_stream_writer.py": "fbf378d2e8905d5814d7135ae7aa86d3aeb4eb088fdc64e716698ed53979f76d"
+  },
+  "source_tool_hashes": {
+    "dcp_stream_writer.py": "fbf378d2e8905d5814d7135ae7aa86d3aeb4eb088fdc64e716698ed53979f76d",
+    "gb10_runtime.py": "a3326f523a75acb88ae1d698a49a5478d3e0b9b5c15eab05018c6e869e2d6169",
+    "launch.py": "43a917da016ff521619179ead24fa7527c6529de688ba9648afd739332705a12",
+    "resume_guard.py": "d99a3a9888622473a0ec0b1de1449a510817075dfa90588a54bf9add1d71c97d",
+    "safe_video.py": "4ee9b3894c34c974d4e3bc9c7eeab66a2de866333a1ef8f010d12c966f4e8ee1",
+    "segment_stop.py": "8705953b40aa60315d9abd5de7e4dad23faa4ac08c90f599704253371ec8b47d",
+    "storage_policy.py": "947534d5ca889c115f836a9e7b91af7e9e9e33e74b5690ac2ae8b260164b113f",
+    "train_entry.py": "da73d04323b7bf98fc08599b5c028a284d1f4efaf3ab16358415014b984bea1a"
+  },
+  "configuration_sha256": "06da9d1fbed019f2cc9a663f075bd2ae2f99ba96e52b3153548f1fdeb7bbdb73",
+  "authorization": "User approved continuing the prior method for another 10000 optimizer updates, with memory/storage safeguards and background launch after preparation.",
+  "source_checkpoint": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-10000-fixed1000/checkpoints/global_step_10000",
+  "target_step": 20000,
+  "keep_checkpoints_across_formal_runs": 2,
+  "automatic_evaluation": false,
+  "automatic_restart": false
+}

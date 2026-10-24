@@ -1,0 +1,4 @@
+{"episode_index": 1900, "camera": "observation.images.cam_high", "policy": "repeat_last_valid_frame_for_missing_1_or_2_tail_frames", "original_indices": [246, 280], "selected_indices": [246, 278], "missing_frames": 2}
+{"episode_index": 480, "camera": "observation.images.cam_high", "policy": "repeat_last_valid_frame_for_missing_1_or_2_tail_frames", "original_indices": [314, 320], "selected_indices": [314, 319], "missing_frames": 1}
+{"episode_index": 2037, "camera": "observation.images.cam_high", "policy": "repeat_last_valid_frame_for_missing_1_or_2_tail_frames", "original_indices": [29, 75], "selected_indices": [29, 73], "missing_frames": 2}
+{"episode_index": 892, "camera": "observation.images.cam_high", "policy": "repeat_last_valid_frame_for_missing_1_or_2_tail_frames", "original_indices": [173, 202], "selected_indices": [173, 201], "missing_frames": 1}

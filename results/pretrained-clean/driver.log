@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/home/zzj/competitions/lingbot/tools/clean-quick-baseline-20261016/driver.py", line 145, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/zzj/competitions/lingbot/tools/clean-quick-baseline-20261016/driver.py", line 116, in main
+    for future in futures:future.result()
+                          ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zzj/competitions/lingbot/tools/clean-quick-baseline-20261016/driver.py", line 112, in worker
+    request_stop();raise RuntimeError(f'{task} exited {p.returncode}; no retry or seed substitution')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: lift_pot exited 1; no retry or seed substitution

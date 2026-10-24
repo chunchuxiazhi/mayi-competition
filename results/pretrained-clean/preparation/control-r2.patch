@@ -1,0 +1,562 @@
+--- before/recovery.py
++++ after/recovery.py
+@@ -0,0 +1,76 @@
++"""Reviewed recovery decisions; no simulator or model imports."""
++import re
++from pathlib import Path
++from common import fingerprint
++
++class TaskIncomplete(RuntimeError):
++    """Known scene/metadata failure: retain slot and continue other tasks."""
++
++class TaskSliceCompleted(Exception):
++    """Intentional smoke slice; prevent the legacy full-task score export."""
++
++def global_resource_fault(exc):
++    text=str(exc).lower()
++    return isinstance(exc,(MemoryError,ImportError,SystemExit)) or any(s in text for s in
++        ('out of memory','cuda error','cuda runtime','device lost','device-side assert','no space left on device'))
++
++def validate_revision(original, current):
++    if current == original:
++        return
++    allowed={'expert_failure_policy','execution_approval','control_revision'}
++    if {k:v for k,v in original.items() if k not in allowed} != {k:v for k,v in current.items() if k not in allowed}:
++        raise RuntimeError('Revision changed protected experimental configuration')
++    revision=current.get('control_revision',{})
++    if (revision.get('parent_config_sha256')!=fingerprint(original)
++        or revision.get('version')!=2
++        or current.get('expert_failure_policy')!='validate_metadata_then_policy_same_seed'):
++        raise RuntimeError('Unrecognized control revision')
++
++def recorded_expert(events, base):
++    rows=[e for e in events if e['event'] in ('expert_passed','expert_failed')]
++    if not rows:return None
++    if len(rows)!=1:raise RuntimeError('Ambiguous completed expert prechecks; review ledger')
++    row=rows[0]
++    for k in ('task','episode_index','seed','setting','instruction_type'):
++        if row.get(k)!=base[k]:raise RuntimeError('Expert provenance mismatch: '+k)
++    if type(row.get('expert_success')) is not bool:raise RuntimeError('Expert outcome missing')
++    return row
++
++def validate_metadata(info, repo):
++    if not isinstance(info,dict):raise TaskIncomplete('Expert returned no parameter dictionary')
++    objects=(Path(repo)/'description/objects_description').resolve()
++    for key,value in info.items():
++        if not isinstance(key,str) or not re.fullmatch(r'\{[^{}]+\}',key):
++            raise TaskIncomplete('Invalid parameter key: '+repr(key))
++        if not isinstance(value,str) or not value.strip():raise TaskIncomplete('Missing parameter: '+key)
++        name=key[1:-1]
++        if len(name)==1 and name.islower() and value not in ('left','right','both','dual'):
++            raise TaskIncomplete('Invalid arm parameter: '+key)
++        if '/' in value or '\\' in value:
++            target=(objects/(value+'.json')).resolve()
++            if not target.is_relative_to(objects) or not target.is_file():
++                raise TaskIncomplete('Missing object description: '+value)
++            import json
++            descriptions=json.loads(target.read_text())
++            if not descriptions.get('seen') or not all(isinstance(s,str) and s.strip() for s in descriptions['seen']):
++                raise TaskIncomplete('Invalid seen object descriptions: '+value)
++
++def generate_seen(task,info,seed,candidates,repo):
++    # The official generator and ordering are preserved. No fallback text is invented.
++    import random
++    import numpy as np
++    from generate_episode_instructions import generate_episode_descriptions
++    validate_metadata(info,repo)
++    py_state=random.getstate();np_state=np.random.get_state()
++    try:
++        random.seed(seed);np.random.seed(seed)
++        try:descriptions=generate_episode_descriptions(task,[info],candidates)
++        except (Exception,SystemExit) as exc:raise TaskIncomplete('Official instruction generation failed: '+str(exc)) from exc
++        if len(descriptions)!=1 or not descriptions[0].get('seen'):
++            raise TaskIncomplete('No official seen instructions for returned parameters')
++        choices=descriptions[0]['seen']
++        if any(not isinstance(s,str) or not s.strip() or re.search(r'\{[^{}]+\}',s) for s in choices):
++            raise TaskIncomplete('Official seen instructions contain missing parameters')
++        return str(np.random.choice(choices))
++    finally:
++        random.setstate(py_state);np.random.set_state(np_state)
+--- before/test_recovery.py
++++ after/test_recovery.py
+@@ -0,0 +1,108 @@
++"""Control-flow regression tests with fake environment/model, not simulation."""
++import copy
++import json
++from pathlib import Path
++import tempfile
++import types
++import unittest
++import sys
++import numpy as np
++import evaluate_task as client
++from common import load_config,read_events,append_event,summarize,seeds,fingerprint
++from recovery import TaskIncomplete,TaskSliceCompleted,validate_revision,recorded_expert,validate_metadata,global_resource_fault
++
++class FakeEnvironment:
++    def __init__(self,info=None,setup_error=False):
++        self.info={'{A}':'060_kitchenpot/base1'} if info is None else info
++        self.plan_success=False;self.calls=[];self.setup_error=setup_error
++        self.step_lim=2;self.take_action_cnt=0;self.eval_success=False
++    def setup_demo(self,now_ep_num,seed,**args):
++        self.calls.append(('setup',now_ep_num,seed));self.take_action_cnt=0
++        if self.setup_error:raise ValueError('invalid scene')
++    def play_once(self):self.calls.append(('expert',));return {'info':self.info}
++    def close_env(self,**kw):pass
++    def check_success(self):return False
++    def set_instruction(self,instruction):self.instruction=instruction
++    def get_instruction(self):return self.instruction
++    def get_obs(self):return {'observation':{k:{'rgb':np.zeros((2,2,3),dtype=np.uint8)} for k in ('head_camera','left_camera','right_camera')},'joint_action':{'vector':np.zeros(14)}}
++    def take_action(self,act):self.take_action_cnt+=1
++
++class FakeModel:
++    def __init__(self,mismatch=False):
++        self._ws=types.SimpleNamespace(close=lambda:None);self.calls=[];self.mismatch=mismatch
++    def get_server_metadata(self):return {'session_id':'fake-session'}
++    def infer(self,obs):
++        self.calls.append(obs)
++        if obs.get('reset'):self.step=0;self.seed=obs['episode_seed']
++        else:self.step+=1
++        return {'session_id':'wrong' if self.mismatch else 'fake-session',
++            '_session_state':{'global_step':self.step,'episode_seed':self.seed},'action':np.zeros((1,14))}
++
++class RecoveryTests(unittest.TestCase):
++    def setUp(self):
++        self.temp=tempfile.TemporaryDirectory();self.config=load_config()
++        sys.path.insert(0,str(Path(self.config['project_root'])/'repos/RoboTwin/description/utils'))
++        self.config['run_relative']=self.temp.name;self.config['tasks']=['lift_pot'];self.config['test_num']=2
++        client.CONFIG=self.config;client.WORKER_ID=0;client.RETRY_INTERRUPTED=True;client.EPISODE_INDICES=None
++        self.ledger=Path(self.temp.name)/'tasks/lift_pot/episodes.jsonl'
++        self.expert=self.ledger.with_name('expert.jsonl')
++    def tearDown(self):self.temp.cleanup()
++    def run_client(self,env=None,model=None):
++        return client.eval_policy('lift_pot',env or FakeEnvironment(),{'render_freq':0,'clear_cache_freq':10},
++            model or FakeModel(),100000,test_num=2,instruction_type='seen')
++    def test_expert_failure_runs_same_seeds_and_preserves_failed_policy_on_resume(self):
++        env=FakeEnvironment();self.run_client(env)
++        self.assertEqual([c for c in env.calls if c[0]=='setup'],[('setup',0,100000),('setup',0,100000),('setup',1,100001),('setup',1,100001)])
++        before=self.ledger.read_bytes();second=FakeEnvironment();self.run_client(second)
++        self.assertEqual(second.calls,[]);self.assertEqual(self.ledger.read_bytes(),before)
++        row=summarize(self.config,'lift_pot');self.assertEqual(row['completed_valid_policy_episodes'],2)
++        self.assertEqual(row['success_rate'],0);self.assertEqual(row['expert_failed_or_exception'],2)
++    def test_existing_failed_expert_and_historical_block_are_reused(self):
++        base={'task':'lift_pot','episode_index':1,'setting':'demo_clean','instruction_type':'seen',**seeds(self.config,0,1),'attempt_id':'old-expert'}
++        append_event(self.expert,{**base,'event':'expert_started'})
++        append_event(self.expert,{**base,'event':'expert_failed','expert_success':False,'episode_info':{'{A}':'060_kitchenpot/base1'}})
++        append_event(self.ledger,{**base,'event':'episode_blocked'})
++        client.EPISODE_INDICES=[1];env=FakeEnvironment()
++        with self.assertRaises(TaskSliceCompleted):self.run_client(env)
++        self.assertFalse(any(c[0]=='expert' for c in env.calls))
++        self.assertEqual(len(read_events(self.expert)),2)
++        self.assertEqual(summarize(self.config,'lift_pot')['expert_blocked_episode_slots'],0)
++    def test_invalid_metadata_leaves_slots_incomplete_without_policy(self):
++        model=FakeModel()
++        with self.assertRaises(TaskIncomplete):self.run_client(FakeEnvironment({'{A}':'missing/object'}),model)
++        self.assertEqual(model.calls,[])
++        self.assertEqual(summarize(self.config,'lift_pot')['completed_valid_policy_episodes'],0)
++        self.assertEqual(len([e for e in read_events(self.expert) if e['event']=='expert_started']),2)
++    def test_session_mismatch_is_global(self):
++        with self.assertRaisesRegex(RuntimeError,'session mismatch'):self.run_client(model=FakeModel(mismatch=True))
++        self.assertEqual(read_events(self.ledger)[-1]['failure_scope'],'global')
++    def test_interrupted_slot_resume_same_instruction_and_count_once(self):
++        self.run_client();events=read_events(self.ledger)
++        # Separate fixture preserving one interrupted attempt, rather than editing a real ledger.
++        second=Path(self.temp.name)/'interrupted';self.config['run_relative']=str(second)
++        directory=second/'tasks/lift_pot'
++        for e in read_events(self.expert):append_event(directory/'expert.jsonl',e)
++        for e in events:
++            if e['episode_index']!=0:continue
++            if e['event']=='policy_completed':e={**e,'event':'policy_interrupted','success':None}
++            append_event(directory/'episodes.jsonl',e)
++        self.run_client()
++        row=summarize(self.config,'lift_pot')
++        self.assertEqual(row['interrupted_attempts'],1);self.assertEqual(row['completed_valid_policy_episodes'],2)
++    def test_provenance_mismatch_and_protected_revision_rejected(self):
++        base={'task':'lift_pot','episode_index':1,'setting':'demo_clean','instruction_type':'seen','seed':100001}
++        with self.assertRaisesRegex(RuntimeError,'provenance'):recorded_expert([{**base,'task':'other','event':'expert_failed','expert_success':False}],base)
++        original=load_config();current=copy.deepcopy(original)
++        current['control_revision']={'version':2,'parent_config_sha256':fingerprint(original)}
++        current['expert_failure_policy']='validate_metadata_then_policy_same_seed';validate_revision(original,current)
++        current['test_num']=100
++        with self.assertRaisesRegex(RuntimeError,'protected'):validate_revision(original,current)
++    def test_bad_arm_parameter_rejected(self):
++        with self.assertRaises(TaskIncomplete):validate_metadata({'{a}':None},Path(self.config['project_root'])/'repos/RoboTwin')
++    def test_global_resource_failure_not_classified_as_scene_problem(self):
++        self.assertTrue(global_resource_fault(RuntimeError('CUDA out of memory')))
++        self.assertTrue(global_resource_fault(MemoryError()))
++        self.assertTrue(global_resource_fault(ImportError('missing native module')))
++        self.assertFalse(global_resource_fault(ValueError('invalid scene')))
++
++if __name__=='__main__':unittest.main(verbosity=2)
+--- before/evaluate_task.py
++++ after/evaluate_task.py
+@@ -10,12 +10,18 @@
+ import traceback
+ import uuid
+ from common import load_config,require_ready,run_path,seeds,append_event,read_events,summarize
++from recovery import TaskIncomplete,TaskSliceCompleted,recorded_expert,generate_seen,global_resource_fault
+ 
+ CONFIG=None
+ WORKER_ID=None
+ RETRY_INTERRUPTED=False
++EPISODE_INDICES=None
++STOPPING=False
+ 
+ def stop_requested(signum,frame):
++    global STOPPING
++    if STOPPING:return
++    STOPPING=True
+     raise KeyboardInterrupt(f'Stop requested by signal {signum}')
+ 
+ def eval_policy(task_name,TASK_ENV,args,model,st_seed,test_num=None,video_size=None,
+@@ -45,7 +51,8 @@
+                 ready=[e for e in events if e.get('attempt_id')==attempt and e['event']=='policy_instruction_ready']
+                 append_event(policy_file,{**(ready[-1] if ready else event),'event':'policy_interrupted','success':None,
+                     'exception':'Prior process ended without terminal event; steps unknown','execution_steps':None})
+-        for index in range(test_num):
++        incomplete=[]
++        for index in (EPISODE_INDICES if EPISODE_INDICES is not None else range(test_num)):
+             scene_seeds=seeds(config,task_index,index)
+             base={'task':task_name,'setting':'demo_clean','instruction_type':'seen','instruction':None,
+                   'episode_index':index,'worker_id':WORKER_ID,**scene_seeds,
+@@ -55,17 +62,21 @@
+             terminals=[e for e in prior if e['event'] in ('policy_completed','policy_exception')]
+             if len(terminals)>1:raise RuntimeError('Duplicate episode terminal')
+             if terminals:
+-                if terminals[0]['event']=='policy_exception':raise RuntimeError(f'Prior exception at {task_name}/{index}; no silent replacement')
++                if terminals[0]['event']=='policy_exception':
++                    if terminals[0].get('failure_scope')!='task':raise RuntimeError('Prior global policy fault requires review')
++                    incomplete.append(index)
+                 continue
+-            if any(e['event']=='episode_blocked' for e in prior):raise RuntimeError('Expert-blocked episode requires review; not substituting seed')
+             if any(e['event']=='policy_interrupted' for e in prior) and not RETRY_INTERRUPTED:
+                 raise RuntimeError('Interrupted episode preserved; use explicit --retry-interrupted for same seed only')
+             expert_events=[e for e in read_events(expert_file) if e['seed']==scene_seeds['seed']]
+-            expert_pass=[e for e in expert_events if e['event']=='expert_passed']
+-            if expert_pass:
+-                info=expert_pass[-1]['episode_info']
++            expert=recorded_expert(expert_events,base)
++            if expert:
++                info=expert.get('episode_info')
+             else:
+                 attempts=sum(e['event']=='expert_started' for e in expert_events)
++                if any(e['event']=='expert_exception' for e in expert_events):
++                    if any(e.get('failure_scope')=='global' for e in expert_events):raise RuntimeError('Prior global expert fault requires review')
++                    incomplete.append(index);continue
+                 if attempts and not RETRY_INTERRUPTED:raise RuntimeError('Unfinished expert attempt requires explicit review/retry')
+                 if attempts>=config['expert_attempt_limit_per_scene']:raise RuntimeError('Expert local attempt guard reached; review global quota scope')
+                 expert_id=uuid.uuid4().hex;start=time.monotonic();expert_ok=False;info=None
+@@ -85,33 +96,41 @@
+                         'expert_success':expert_ok})
+                 except BaseException as exc:
+                     append_event(expert_file,{**expert_base,'event':'expert_interrupted' if isinstance(exc,KeyboardInterrupt) else 'expert_exception',
++                        'failure_scope':'global' if global_resource_fault(exc) else 'task',
+                         'elapsed_seconds':time.monotonic()-start,'exception':traceback.format_exc()[-16000:]})
+                     if not isinstance(exc,KeyboardInterrupt):
+                         append_event(policy_file,{**base,'event':'episode_blocked','attempt_id':expert_id,
+                             'exception':'Expert precheck raised; policy round not executed and seed not substituted: '+str(exc)[:4000]})
+                     try:TASK_ENV.close_env()
+                     except Exception:pass
+-                    raise
++                    if isinstance(exc,KeyboardInterrupt):raise
++                    if global_resource_fault(exc):raise
++                    incomplete.append(index)
++                    continue
+                 finally:args['render_freq']=render_freq
+-                if not expert_ok:
+-                    append_event(policy_file,{**base,'event':'episode_blocked','attempt_id':expert_id,
+-                        'exception':'Official expert precheck failed; no strategy round executed, no seed substitution'})
+-                    raise RuntimeError('Expert precheck failed; retained blocked seed and stopped task')
+-            attempt=uuid.uuid4().hex;episode={**base,'attempt_id':attempt};started=time.monotonic()
++                expert={'attempt_id':expert_id,'expert_success':expert_ok}
++            try:
++                instruction=generate_seen(task_name,info,scene_seeds['instruction_seed'],config['instruction_candidates'],
++                    Path(config['project_root'])/'repos/RoboTwin')
++            except TaskIncomplete as exc:
++                append_event(policy_file,{**base,'event':'episode_blocked','attempt_id':uuid.uuid4().hex,
++                    'block_reason':'metadata_invalid','exception':str(exc)})
++                incomplete.append(index);continue
++            prior_instructions=[e['instruction'] for e in prior if e.get('instruction')]
++            if prior_instructions and any(s!=instruction for s in prior_instructions):raise RuntimeError('Resume instruction drift; do not run')
++            append_event(policy_file,{**base,'event':'expert_metadata_validated','attempt_id':uuid.uuid4().hex,
++                'expert_attempt_id':expert['attempt_id'],'expert_success':expert['expert_success'],
++                'instruction':instruction,'historical_block_released':any(e['event']=='episode_blocked' for e in prior)})
++            attempt=uuid.uuid4().hex;episode={**base,'attempt_id':attempt,'instruction':instruction};started=time.monotonic()
+             append_event(policy_file,{**episode,'event':'policy_started'})
+             outcome=None
+             try:
+                 random.seed(scene_seeds['seed'])
+-                TASK_ENV.setup_demo(now_ep_num=index,seed=scene_seeds['seed'],is_test=True,**args)
+-                # Independent, reproducible instruction RNG; preserve simulator RNG state.
+-                py_state=random.getstate();np_state=np.random.get_state()
+                 try:
+-                    random.seed(scene_seeds['instruction_seed']);np.random.seed(scene_seeds['instruction_seed'])
+-                    descriptions=generate_episode_descriptions(task_name,[info],config['instruction_candidates'])
+-                    instruction=str(np.random.choice(descriptions[0]['seen']))
+-                finally:random.setstate(py_state);np.random.set_state(np_state)
+-                prior_instructions=[e['instruction'] for e in prior if e.get('instruction')]
+-                if prior_instructions and any(s!=instruction for s in prior_instructions):raise RuntimeError('Resume instruction drift; do not run')
++                    TASK_ENV.setup_demo(now_ep_num=index,seed=scene_seeds['seed'],is_test=True,**args)
++                except Exception as exc:
++                    if global_resource_fault(exc):raise
++                    raise TaskIncomplete('Scene setup failed: '+str(exc)) from exc
+                 episode['instruction']=instruction
+                 append_event(policy_file,{**episode,'event':'policy_instruction_ready'})
+                 TASK_ENV.set_instruction(instruction=instruction)
+@@ -143,15 +162,18 @@
+                         TASK_ENV.take_action(act)
+                         if TASK_ENV.eval_success:success=True;break
+                 outcome={**episode,'event':'policy_completed','success':bool(success),
++                         'session_id':session_id,'verified_action_chunks':expected_chunk,
+                          'execution_steps':TASK_ENV.take_action_cnt,'step_limit':TASK_ENV.step_lim,
+                          'elapsed_seconds':time.monotonic()-started,'exception':None}
+             except BaseException as exc:
+                 outcome={**episode,'event':'policy_interrupted' if isinstance(exc,KeyboardInterrupt) else 'policy_exception',
++                    'failure_scope':'task' if isinstance(exc,TaskIncomplete) else 'global',
+                     'success':None,'execution_steps':getattr(TASK_ENV,'take_action_cnt',None),
+                     'step_limit':getattr(TASK_ENV,'step_lim',None),'elapsed_seconds':time.monotonic()-started,
+                     'exception':traceback.format_exc()[-16000:]}
+                 append_event(policy_file,outcome);summarize(config,task_name)
+-                raise
++                if isinstance(exc,TaskIncomplete):incomplete.append(index)
++                else:raise
+             else:
+                 # Durably record the outcome before environment cleanup or starting another round.
+                 append_event(policy_file,outcome)
+@@ -164,6 +186,8 @@
+             TASK_ENV.suc=row['successes'];TASK_ENV.test_num=row['completed_valid_policy_episodes']
+             print(f"{task_name} completed {TASK_ENV.test_num}/{test_num}; successes {TASK_ENV.suc}/{TASK_ENV.test_num}",flush=True)
+         row=summarize(config,task_name)
++        if incomplete:raise TaskIncomplete(f'{task_name}: unresolved slots {incomplete}; no seed substitution')
++        if EPISODE_INDICES is not None:raise TaskSliceCompleted()
+         return st_seed+test_num,row['successes']
+     finally:
+         summarize(config,task_name)
+@@ -171,13 +195,17 @@
+         fcntl.flock(lock_file.fileno(),fcntl.LOCK_UN);lock_file.close()
+ 
+ def main():
+-    global CONFIG,WORKER_ID,RETRY_INTERRUPTED
++    global CONFIG,WORKER_ID,RETRY_INTERRUPTED,EPISODE_INDICES
+     parser=argparse.ArgumentParser();parser.add_argument('--config',required=True);parser.add_argument('--task',required=True)
+     parser.add_argument('--worker-id',type=int,required=True);parser.add_argument('--start-approved',action='store_true')
+     parser.add_argument('--retry-interrupted',action='store_true')
++    parser.add_argument('--episode-indices',type=int,nargs='+')
+     cli=parser.parse_args();CONFIG=load_config(cli.config);require_ready(CONFIG,cli.start_approved)
+     if cli.task not in CONFIG['tasks'] or cli.worker_id not in (0,1):raise ValueError('Unexpected task or worker')
+     WORKER_ID=cli.worker_id;RETRY_INTERRUPTED=cli.retry_interrupted
++    EPISODE_INDICES=cli.episode_indices
++    if EPISODE_INDICES is not None and (len(set(EPISODE_INDICES))!=len(EPISODE_INDICES) or any(i not in range(CONFIG['test_num']) for i in EPISODE_INDICES)):
++        raise ValueError('Invalid smoke slice')
+     root=Path(CONFIG['project_root']);repo=root/'repos/RoboTwin'
+     os.chdir(repo);sys.path[:0]=[str(repo),str(repo/'script'),str(repo/'description/utils')]
+     signal.signal(signal.SIGTERM,stop_requested);signal.signal(signal.SIGINT,stop_requested)
+@@ -189,6 +217,10 @@
+          'ckpt_setting':'pretrained-clean-quick-10','seed':0,'instruction_type':'seen','test_num':CONFIG['test_num'],
+          'train_config_name':'0','port':CONFIG['port'],'host':'127.0.0.1','robo_name':'robotwin',
+          'eval_video_log':False,'output_dir':str(run_path(CONFIG)/'tasks')}
+-    official.main(usr)
++    try:official.main(usr)
++    except TaskSliceCompleted:raise SystemExit(11)
++    except TaskIncomplete as exc:
++        print('TASK_INCOMPLETE: '+str(exc),flush=True)
++        raise SystemExit(10)
+ 
+ if __name__=='__main__':main()
+--- before/driver.py
++++ after/driver.py
+@@ -13,20 +13,26 @@
+ import time
+ import urllib.request
+ from common import HERE,load_config,require_ready,run_path,atomic_json,fingerprint,overall
++from recovery import validate_revision
+ 
+ def main():
+     parser=argparse.ArgumentParser();parser.add_argument('--config',default=str(HERE/'config.json'))
+     parser.add_argument('--workers',type=int,choices=[1,2],default=2)
+     parser.add_argument('--start-approved',action='store_true');parser.add_argument('--retry-interrupted',action='store_true')
++    parser.add_argument('--smoke-then-run',action='store_true')
+     cli=parser.parse_args();config=load_config(cli.config)
+     require_ready(config,cli.start_approved)
+     # The authoritative config records the chosen concurrency, which may be reduced to one.
+     if cli.workers>config['workers']:raise RuntimeError('Requested more workers than reviewed configuration')
+     root=Path(config['project_root']);run=run_path(config);run.mkdir(parents=True,exist_ok=True)
+     lock=(run/'run.lock').open('a');fcntl.flock(lock.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)
+-    config_hash=fingerprint(config);frozen=run/'approved-config.json'
+-    if frozen.exists() and fingerprint(load_config(frozen))!=config_hash:raise RuntimeError('Configuration differs from existing run; use a new directory')
+-    atomic_json(frozen,config)
++    config_hash=fingerprint(config);original=run/'approved-config.json'
++    if original.exists():validate_revision(load_config(original),config)
++    else:atomic_json(original,config)
++    frozen=run/'approved-config-r2.json' if config.get('control_revision') else original
++    if frozen.exists() and fingerprint(load_config(frozen))!=config_hash:raise RuntimeError('Frozen revision differs')
++    if not frozen.exists():atomic_json(frozen,config)
++    if cli.smoke_then_run and cli.workers!=2:raise ValueError('Reviewed smoke requires exactly two workers')
+     manifest=run/'launch-manifest.json'
+     if not manifest.exists():
+         atomic_json(manifest,{'label':config['label'],'config_sha256':config_hash,'actual_workers':cli.workers,
+@@ -35,7 +41,11 @@
+             'preparation_manifest':str(run/'preparation-manifest.json'),'automatic_batching':False})
+     previous_invocations=run/'invocations.jsonl'
+     from common import append_event
+-    append_event(previous_invocations,{'event':'approved_launch','actual_workers':cli.workers,'retry_interrupted':cli.retry_interrupted,'config_sha256':config_hash})
++    invocation_id=str(time.time_ns())
++    append_event(previous_invocations,{'event':'approved_launch','invocation_id':invocation_id,
++        'actual_workers':cli.workers,'retry_interrupted':cli.retry_interrupted,'config_sha256':config_hash,
++        'smoke_then_run':cli.smoke_then_run,
++        'code_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in HERE.glob('*.py')}})
+     stop=threading.Event();children={};children_lock=threading.RLock();drainers=[];summary_lock=threading.Lock();stop_reason={'reason':None}
+ 
+     def spawn(argv,name,cwd,env,limit):
+@@ -46,7 +56,7 @@
+             kept=path.stat().st_size if path.exists() else 0;truncated=kept>=limit
+             with path.open('ab') as out:
+                 while True:
+-                    chunk=p.stdout.read(8192)
++                    chunk=p.stdout.read1(8192)
+                     if not chunk:break
+                     room=max(0,limit-kept)
+                     if room:out.write(chunk[:room]);out.flush();kept+=min(room,len(chunk))
+@@ -62,6 +72,7 @@
+             except ProcessLookupError:pass
+ 
+     def request_stop(signum=None,frame=None):
++        if stop.is_set():return
+         if signum is not None:stop_reason['reason']=f'Received signal {signum}'
+         stop.set()
+         with children_lock:
+@@ -78,6 +89,8 @@
+         'CUDA_CACHE_PATH':'cache/cuda','MPLCONFIGDIR':'cache/matplotlib','TMPDIR':'cache/tmp'}.items():
+         path=root/relative;path.mkdir(parents=True,exist_ok=True);env[key]=str(path)
+     try:
++        atomic_json(run/'execution-status.json',{'state':'starting','invocation_id':invocation_id,
++            'summary':str(run/'summary.json'),'automatic_restart':False})
+         # Do not contact or reuse a potentially unrelated resident service.
+         with socket.socket() as s:s.bind(('127.0.0.1',config['port']))
+         service=spawn([str(root/'envs/vla/bin/python'),'-B','-u',str(HERE/'serve.py'),'--config',str(frozen),'--start-approved'],
+@@ -92,28 +105,83 @@
+             if time.monotonic()>deadline:raise TimeoutError('Inference service startup timed out')
+             stop.wait(1)
+         simenv=env.copy();simenv['LD_LIBRARY_PATH']=str(root/'envs/mplib-build/lib')
++        def run_task(worker_id,task,indices=None):
++            if stop.is_set():return
++            argv=[str(root/'envs/sim/bin/python'),'-B','-u',str(HERE/'evaluate_task.py'),
++                  '--config',str(frozen),'--task',task,'--worker-id',str(worker_id),'--start-approved']
++            if cli.retry_interrupted:argv.append('--retry-interrupted')
++            if indices is not None:argv+=['--episode-indices',*[str(i) for i in indices]]
++            p=spawn(argv,f'eval-{task}',root/'repos/RoboTwin',simenv,2*1024*1024)
++            while p.poll() is None:
++                if stop.wait(1):break
++                if service.poll() is not None:
++                    stop_reason['reason']='Inference service exited; no restart'
++                    request_stop();raise RuntimeError(stop_reason['reason'])
++            if stop.is_set():return
++            expected=(11,) if indices is not None else (0,10)
++            if p.returncode not in expected:
++                stop_reason['reason']=f'{task} exited {p.returncode}; global fault or smoke failure'
++                request_stop();raise RuntimeError(stop_reason['reason'])
++            with summary_lock:overall(config)
++            if p.returncode==10:
++                append_event(previous_invocations,{'event':'task_incomplete_continue_others','task':task,
++                    'invocation_id':invocation_id,'exception':'See per-task structured ledgers; no replacement seed'})
++
++        if cli.smoke_then_run:
++            from common import read_events
++            atomic_json(run/'execution-status.json',{'state':'smoke_running','invocation_id':invocation_id,
++                'summary':str(run/'summary.json'),'automatic_restart':False})
++            cases=[('lift_pot',1),('hanging_mug',0)]
++            before={t:{e['attempt_id'] for e in read_events(run/'tasks'/t/'episodes.jsonl')
++                       if e['event']=='policy_started'} for t,i in cases}
++            expert_before={t:len(read_events(run/'tasks'/t/'expert.jsonl')) for t,i in cases}
++            # These are real planned baseline rounds, with unchanged official step limits.
++            with ThreadPoolExecutor(max_workers=2) as pool:
++                futures=[pool.submit(run_task,w,t,[i]) for w,(t,i) in enumerate(cases)]
++                for future in futures:future.result()
++            evidence=[]
++            for t,i in cases:
++                events=read_events(run/'tasks'/t/'episodes.jsonl')
++                completed=[e for e in events if e['event']=='policy_completed' and e['episode_index']==i
++                           and e['attempt_id'] not in before[t]]
++                if len(completed)!=1:raise RuntimeError('Smoke did not complete exact planned round: '+t)
++                outcome=completed[0]
++                first=[e for e in events if e['event']=='policy_first_action_verified' and e['attempt_id']==outcome['attempt_id']]
++                if len(first)!=1:raise RuntimeError('Missing smoke session evidence')
++                if len(read_events(run/'tasks'/t/'expert.jsonl'))!=expert_before[t]:
++                    raise RuntimeError('Smoke unexpectedly repeated existing expert precheck')
++                if t=='lift_pot' and not any(e['event']=='expert_metadata_validated' and e['episode_index']==i
++                    and e['expert_success'] is False for e in events):raise RuntimeError('Failed-expert recovery not exercised')
++                evidence.append({'task':t,'episode_index':i,'seed':outcome['seed'],'success':outcome['success'],
++                    'execution_steps':outcome['execution_steps'],'elapsed_seconds':outcome['elapsed_seconds'],
++                    'attempt_id':outcome['attempt_id'],'session_id':first[0]['session_id'],
++                    'first_action_utc':first[0]['utc'],'completed_utc':outcome['utc'],
++                    'verified_action_chunks':outcome['verified_action_chunks'],
++                    'counted_in_baseline':True,'expert_repeated':False})
++            if len({e['session_id'] for e in evidence})!=2:raise RuntimeError('Smoke sessions were not distinct')
++            if max(e['first_action_utc'] for e in evidence)>=min(e['completed_utc'] for e in evidence):
++                raise RuntimeError('Smoke policy execution did not overlap; isolation evidence insufficient')
++            atomic_json(run/'smoke-r2.json',{'passed':True,'invocation_id':invocation_id,'cases':evidence,
++                'interpretation':'Technical completion and isolation; a policy failure remains a valid failed baseline round',
++                'same_persistent_model_used_for_full_run':True})
++        atomic_json(run/'execution-status.json',{'state':'running','stage':'full_50_tasks',
++            'invocation_id':invocation_id,'summary':str(run/'summary.json'),'automatic_restart':False})
+         queues=[config['tasks'][i::cli.workers] for i in range(cli.workers)]
+         def worker(worker_id):
+-            for task in queues[worker_id]:
+-                if stop.is_set():return
+-                argv=[str(root/'envs/sim/bin/python'),'-B','-u',str(HERE/'evaluate_task.py'),
+-                      '--config',str(frozen),'--task',task,'--worker-id',str(worker_id),'--start-approved']
+-                if cli.retry_interrupted:argv.append('--retry-interrupted')
+-                p=spawn(argv,f'eval-{task}',root/'repos/RoboTwin',simenv,2*1024*1024)
+-                while p.poll() is None:
+-                    if stop.wait(1):
+-                        request_stop();break
+-                    if service.poll() is not None:
+-                        stop_reason['reason']='Inference service exited; no restart'
+-                        request_stop();raise RuntimeError(stop_reason['reason'])
+-                if stop.is_set():return
+-                if p.returncode!=0:
+-                    stop_reason['reason']=f'{task} exited {p.returncode}; no retry or seed substitution'
+-                    request_stop();raise RuntimeError(f'{task} exited {p.returncode}; no retry or seed substitution')
+-                with summary_lock:overall(config)
++            try:
++                for task in queues[worker_id]:
++                    if stop.is_set():return
++                    run_task(worker_id,task)
++            except BaseException as exc:
++                if not stop_reason['reason']:stop_reason['reason']=type(exc).__name__+': '+str(exc)
++                request_stop()
++                raise
+         with ThreadPoolExecutor(max_workers=cli.workers) as pool:
+             futures=[pool.submit(worker,i) for i in range(cli.workers)]
+             for future in futures:future.result()
++    except BaseException as exc:
++        if not stop_reason['reason']:stop_reason['reason']=type(exc).__name__+': '+str(exc)
++        raise
+     finally:
+         request_stop()
+         with children_lock:owned=list(children.values())
+--- before/common.py
++++ after/common.py
+@@ -73,7 +73,10 @@
+             'successes':successes,'success_rate':successes/len(valid) if valid else None,
+             'policy_exceptions':len(exceptions),'interrupted_attempts':len(interruptions),
+             'cleanup_exceptions':sum(e['event']=='cleanup_exception' for e in events),
+-            'expert_blocked_episode_slots':len({e['episode_index'] for e in events if e['event']=='episode_blocked'}),
++            'historically_blocked_episode_slots':len({e['episode_index'] for e in events if e['event']=='episode_blocked'}),
++            'expert_blocked_episode_slots':len({e['episode_index'] for e in events if e['event']=='episode_blocked'}-{e['episode_index'] for e in valid}),
++            'policy_attempts_initiated':sum(e['event']=='policy_started' for e in events),
++            'not_started_policy_slots':config['test_num']-len({e['episode_index'] for e in events if e['event']=='policy_started'}),
+             'open_policy_attempts':len(started),'terminal_episode_slots':len(terminals),
+             'not_validly_completed_slots':config['test_num']-len(valid),
+             'expert_attempts_initiated':sum(e['event']=='expert_started' for e in experts),
+--- before/static_check.py
++++ after/static_check.py
+@@ -55,7 +55,7 @@
+     construction=yaml.safe_load((run_path(config)/'lingbotvla_cli.yaml').read_text())
+     check('wrapper_has_no_unverified_normalization_fallback',construction['data']['norm_stats_file']==str(root/'configs/normalization/robotwin_clean_v3.json'))
+     check('model_construction_preserved_fp32_fused',construction['model']['post_training'] is False and construction['model']['moe_implementation']=='fused')
+-    check('official_expert_check_not_disabled',config['expert_check'] is True and config['expert_failure_policy']=='stop_without_substituting_seed')
++    check('official_expert_check_not_disabled',config['expert_check'] is True and config['expert_failure_policy']=='validate_metadata_then_policy_same_seed')
+     client=sim/'script/eval_policy_client_lingbotvla.py'
+     text=client.read_text();tree=ast.parse(text)
+     main_node=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='main')

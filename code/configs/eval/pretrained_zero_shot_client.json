@@ -1,0 +1,14 @@
+{
+  "task_name": "lift_pot",
+  "policy_name": "LingbotVLA_v2_6b_pretrained_zero_shot",
+  "task_config": "demo_clean",
+  "ckpt_setting": "pretrained-zero-shot",
+  "seed": 0,
+  "instruction_type": "unseen",
+  "train_config_name": "0",
+  "port": 19330,
+  "robo_name": "robotwin",
+  "video_fps": 10,
+  "eval_video_log": false,
+  "output_dir": "/home/zzj/competitions/lingbot/runs/pretrained-zero-shot-20261015/pilot-results"
+}

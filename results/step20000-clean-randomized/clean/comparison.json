@@ -1,0 +1,20 @@
+{
+  "setting": "demo_clean",
+  "matched_valid_episodes": 453,
+  "baseline_successes_on_matched": 40,
+  "trained_successes_on_matched": 63,
+  "valid_slots_without_baseline": [
+    [
+      "open_microwave",
+      0
+    ],
+    [
+      "place_object_basket",
+      9
+    ]
+  ],
+  "input_mismatches": [],
+  "missing_valid_policy_slots": 45,
+  "baseline_valid_episodes": 458,
+  "note": "Only clean has a paired step10000 baseline; randomized is a separate scene distribution, not paired clean."
+}

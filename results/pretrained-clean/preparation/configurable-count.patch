@@ -1,0 +1,38 @@
+--- before/eval_policy_client_lingbotvla.py
++++ after/eval_policy_client_lingbotvla.py
+@@ -168,13 +168,15 @@
+ 
+     st_seed = 100000 * (1 + seed)
+     suc_nums = []
+-    test_num = 100
++    test_num = int(usr_args.get("test_num", 100))
++    if test_num <= 0:
++        raise ValueError("test_num must be positive")
+     topk = 1
+ 
+     # model = get_model(usr_args)
+     # from IPython import embed;embed()
+     from script.deploy.websocket_client_policy import WebsocketClientPolicy
+-    model = WebsocketClientPolicy(port=usr_args['port'])
++    model = WebsocketClientPolicy(host=usr_args.get('host', '127.0.0.1'), port=usr_args['port'])
+ 
+     st_seed, suc_num = eval_policy(task_name,
+                                    TASK_ENV,
+@@ -206,7 +208,7 @@
+                 args,
+                 model,
+                 st_seed,
+-                test_num=100,
++                test_num=None,
+                 video_size=None,
+                 video_fps="10",
+                 instruction_type=None,
+@@ -214,6 +216,8 @@
+     print(f"\033[34mTask Name: {args['task_name']}\033[0m")
+     print(f"\033[34mPolicy Name: {args['policy_name']}\033[0m")
+ 
++    if test_num is None:
++        test_num = int(usr_args["test_num"])
+     expert_check = True
+     TASK_ENV.suc = 0
+     TASK_ENV.test_num = 0

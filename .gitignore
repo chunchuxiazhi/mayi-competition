@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+*.safetensors
+*.distcp
+*.pt
+*.pth
+*.bin
+*.part[0-9]*
+*.download
+*.incomplete
+/cache/
+/datasets/
+/model-downloads/
+!models/**/model.safetensors.index.json

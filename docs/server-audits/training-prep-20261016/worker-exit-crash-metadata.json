@@ -1,0 +1,15 @@
+{
+  "source": "/var/crash/_usr_bin_python3.12.1015.crash",
+  "bytes": 642714929,
+  "mtime_utc": "2026-10-16T03:08:08.338761+00:00",
+  "safe_metadata": {
+    "Date": "Fri Oct 16 12:07:36 2026",
+    "ExecutablePath": "/usr/bin/python3.12",
+    "ProcCmdline": "/home/zzj/competitions/lingbot/envs/vla/bin/python -B -s -c from\\ multiprocessing.spawn\\ import\\ spawn_main;\\ spawn_main(tracker_fd=25,\\ pipe_handle=31) --multiprocessing-fork",
+    "ProcCwd": "/home/zzj/competitions/lingbot/repos/lingbot-vla-v2",
+    "Signal": "6"
+  },
+  "reason": "Native spawned data-worker diagnostic abort during this preparation. Default switched to synchronous reading.",
+  "core_payload_preserved": false,
+  "only_this_verified_new_diagnostic_report_removed": true
+}

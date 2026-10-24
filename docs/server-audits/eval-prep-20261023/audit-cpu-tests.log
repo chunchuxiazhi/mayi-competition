@@ -1,0 +1,55 @@
+{"static_checks_passed": true}
+{"static_checks_passed": true}
+lift_pot completed 1/2; successes 1/1
+lift_pot completed 1/2; successes 0/1
+lift_pot completed 2/2; successes 1/2
+lift_pot completed 1/2; successes 0/1
+lift_pot completed 2/2; successes 1/2
+lift_pot completed 1/2; successes 0/1
+lift_pot completed 2/2; successes 1/2
+test_actual_denominator_keeps_failure_and_blocked_separate (test_preparation.Accounting.test_actual_denominator_keeps_failure_and_blocked_separate) ... ok
+test_cross_setting_ledger_is_rejected (test_preparation.Accounting.test_cross_setting_ledger_is_rejected) ... ok
+test_damaged_partial_line_is_not_silently_ignored (test_preparation.Accounting.test_damaged_partial_line_is_not_silently_ignored) ... ok
+test_duplicate_terminal_is_rejected_instead_of_counted_twice (test_preparation.Accounting.test_duplicate_terminal_is_rejected_instead_of_counted_twice) ... ok
+test_interruption_is_not_a_completed_or_successful_episode (test_preparation.Accounting.test_interruption_is_not_a_completed_or_successful_episode) ... ok
+test_ledger_cap_preserves_existing_bytes (test_preparation.Accounting.test_ledger_cap_preserves_existing_bytes) ... ok
+test_zero_valid_does_not_become_zero_or_success_score (test_preparation.Accounting.test_zero_valid_does_not_become_zero_or_success_score) ... ok
+test_default_mode_only_calls_static_checks (test_preparation.Gates.test_default_mode_only_calls_static_checks) ... ok
+test_driver_requires_explicit_smoke_or_full_mode (test_preparation.Gates.test_driver_requires_explicit_smoke_or_full_mode) ... usage: driver.py [-h] [--config CONFIG] [--workers {1,2}] [--start-approved]
+                 [--retry-interrupted] (--smoke-only | --full-suite)
+driver.py: error: one of the arguments --smoke-only --full-suite is required
+usage: driver.py [-h] [--config CONFIG] [--workers {1,2}] [--start-approved]
+                 [--retry-interrupted] (--smoke-only | --full-suite)
+driver.py: error: one of the arguments --smoke-only --full-suite is required
+usage: driver.py [-h] [--config CONFIG] [--workers {1,2}] [--start-approved]
+                 [--retry-interrupted] (--smoke-only | --full-suite)
+driver.py: error: argument --full-suite: not allowed with argument --smoke-only
+ok
+test_native_arguments_and_legacy_score_export_are_controlled (test_preparation.Gates.test_native_arguments_and_legacy_score_export_are_controlled) ... ok
+test_no_runtime_stage_without_explicit_flag (test_preparation.Gates.test_no_runtime_stage_without_explicit_flag) ... ok
+test_session_wrapper_hash_is_unchanged_from_verified_implementation (test_preparation.Gates.test_session_wrapper_hash_is_unchanged_from_verified_implementation) ... ok
+test_both_configs_have_exactly_1000_combined_slots_and_separate_outputs (test_preparation.Inputs.test_both_configs_have_exactly_1000_combined_slots_and_separate_outputs) ... ok
+test_fixed_plan_rejects_setting_seed_and_instruction_drift (test_preparation.Inputs.test_fixed_plan_rejects_setting_seed_and_instruction_drift) ... ok
+test_wrong_model_step_is_rejected_without_loading_weights (test_preparation.Inputs.test_wrong_model_step_is_rejected_without_loading_weights) ... ok
+test_atomic_rename_is_directory_synced (test_audit_guards.Persistence.test_atomic_rename_is_directory_synced) ... ok
+test_capped_subprocess_log_continues_draining (test_audit_guards.Persistence.test_capped_subprocess_log_continues_draining) ... ok
+test_failed_replace_preserves_previous_summary (test_audit_guards.Persistence.test_failed_replace_preserves_previous_summary) ... ok
+test_final_rebuild_recovers_a_committed_round_missing_from_stale_summary (test_audit_guards.Persistence.test_final_rebuild_recovers_a_committed_round_missing_from_stale_summary) ... ok
+test_log_write_error_is_reported (test_audit_guards.Persistence.test_log_write_error_is_reported) ... ok
+test_cache_growth_limit_covers_the_shared_baseline (test_audit_guards.Resources.test_cache_growth_limit_covers_the_shared_baseline) ... ok
+test_cpu_and_cache_environment_is_bounded (test_audit_guards.Resources.test_cpu_and_cache_environment_is_bounded) ... ok
+test_low_disk_and_inodes_stop (test_audit_guards.Resources.test_low_disk_and_inodes_stop) ... ok
+test_low_memory_stops_before_more_work (test_audit_guards.Resources.test_low_memory_stops_before_more_work) ... ok
+test_scoped_cpu_quota_is_observed (test_audit_guards.Resources.test_scoped_cpu_quota_is_observed) ... ok
+test_suite_baseline_is_not_reset_between_settings (test_audit_guards.Resources.test_suite_baseline_is_not_reset_between_settings) ... ok
+test_export_keeps_actual_denominator_and_unrun_slots (test_audit_guards.ResultExport.test_export_keeps_actual_denominator_and_unrun_slots) ... ok
+test_portable_archive_checksums_roundtrip_and_corruption_detection (test_audit_guards.ResultExport.test_portable_archive_checksums_roundtrip_and_corruption_detection) ... ok
+test_expert_exception_preserves_slot_and_does_not_substitute_a_new_seed (test_client_flow.ClientFlow.test_expert_exception_preserves_slot_and_does_not_substitute_a_new_seed) ... ok
+test_interrupted_round_requires_explicit_same_seed_retry (test_client_flow.ClientFlow.test_interrupted_round_requires_explicit_same_seed_retry) ... ok
+test_real_control_flow_records_failures_and_success_and_honors_step_cap (test_client_flow.ClientFlow.test_real_control_flow_records_failures_and_success_and_honors_step_cap) ... ok
+test_resume_skips_completed_failures_and_does_not_duplicate_records (test_client_flow.ClientFlow.test_resume_skips_completed_failures_and_does_not_duplicate_records) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.998s
+
+OK

@@ -1,0 +1,48 @@
+{
+  "groups": [
+    {
+      "group": "pretrained_clean",
+      "planned": 500,
+      "valid": 459,
+      "success": 43,
+      "success_rate_on_valid": 0.09368191721132897,
+      "expert_blocked": 41,
+      "policy_exceptions": 0,
+      "historical_interruptions": 1
+    },
+    {
+      "group": "step10000_clean",
+      "planned": 500,
+      "valid": 458,
+      "success": 43,
+      "success_rate_on_valid": 0.09388646288209607,
+      "expert_blocked": 42,
+      "policy_exceptions": 0,
+      "historical_interruptions": 0
+    },
+    {
+      "group": "step20000_clean",
+      "planned": 500,
+      "valid": 455,
+      "success": 65,
+      "success_rate_on_valid": 0.14285714285714285,
+      "expert_blocked": 45,
+      "policy_exceptions": 0,
+      "historical_interruptions": 0
+    },
+    {
+      "group": "step20000_randomized",
+      "planned": 500,
+      "valid": 423,
+      "success": 42,
+      "success_rate_on_valid": 0.09929078014184398,
+      "expert_blocked": 76,
+      "policy_exceptions": 1,
+      "historical_interruptions": 0
+    }
+  ],
+  "tasks_compared": 50,
+  "ordinary_git_files_over_50mib": [],
+  "tensor_bytes_in_git": 0,
+  "upload_optimizer_state": false
+}

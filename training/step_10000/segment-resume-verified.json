@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "expected_resume_step": 2000,
+  "stop_after_committed_step": 10000,
+  "original_max_steps": 10000,
+  "original_save_steps": 1000,
+  "original_lr_schedule_preserved": true,
+  "automatic_export": false,
+  "restored_global_step": 2000,
+  "adam_state_groups": 959,
+  "scheduler_and_rng_restored": true,
+  "native_dataloader_restore_enabled": true,
+  "next_learning_rates": [
+    1.926108411827985e-05,
+    1.926108411827985e-05
+  ],
+  "launch_attempt": "1792157285805555299"
+}

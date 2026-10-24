@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-16T02:49:36.329835+00:00",
+  "prepared_only": true,
+  "training_started": false,
+  "upstream_and_simulation_files_modified": false,
+  "files": {
+    "/home/zzj/competitions/lingbot/configs/robots/clean-v3-gb10/robotwin.yaml": "af23fd2e289af1edf5dc1671c79e0a2bb9172dc796af938db267760110d03cbf",
+    "/home/zzj/competitions/lingbot/configs/training/clean-v3-gb10/pilot.yaml": "ae421829a3dafc5711ef89e53e80847bbc25829d48636d0885ab2a05a9343c90",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/pilot-control.json": "bf0247d2f2d2bbd5e713474b5460c8382f2f055a779c2c7fa08f78ab53c25e21",
+    "/home/zzj/competitions/lingbot/configs/training/clean-v3-gb10/stage1.yaml": "b4f1fcb345d0e764e3cf14f123ff48c47f27d880e86ffdf4106d7843deab002d",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/stage1-control.json": "3e9fff9894dae0e4e2de833dd1657943ffabac3bea9145564944c8a78ebdbced",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/export_cpu.py": "97319921aa60be0add0effd66420f49cb9b6246f89598b1f0bb6d45690966c2b",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/gb10_runtime.py": "508206f72cda377dc6bb1fa73a3e344cbb614ae8ce33cb5a39dc779c96f227ed",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/launch.py": "ae6797814b2efcd0f2c3065dce406e6e172a2c67b0cf1ad10c3cd8424515308b",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/safe_video.py": "4ee9b3894c34c974d4e3bc9c7eeab66a2de866333a1ef8f010d12c966f4e8ee1",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/storage_policy.py": "947534d5ca889c115f836a9e7b91af7e9e9e33e74b5690ac2ae8b260164b113f",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/test_policies.py": "2d5b9bd6a9cc4ce533ee430c4d8b0dfa219e3b9191061dcbde20a630e70be826",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/train_entry.py": "8a39027754916449dcc212f7271dc016599df7bdce5846206f6f50304e86b84e",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/validate_data.py": "e14d7af9887c5f2c74dcaca69421aa8e4f7c2771c1d144ea39ae0a400314e134",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/verify_reload.py": "97ab106331379f4b7905f3b0f32e465995bcaf85137dce3bcb18890ca2333f2d",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/validate_native_loader.py": "40b22a11644cb575f83ac17d3e1a7e439fe907f4baba69616d49735450b2c7f2",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/resume_guard.py": "d99a3a9888622473a0ec0b1de1449a510817075dfa90588a54bf9add1d71c97d",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/test_resume_guard.py": "7c44e62bf415df7c3dfc844fb5dfe05dd0a0262e6f4ea4c73418da49b5c1988c",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/verify_training_resume.py": "ad16f9145cee2fde417d2ad839474f20e40db87672873ba8410937ce5b44af0c",
+    "/home/zzj/competitions/lingbot/configs/training/clean-v3-gb10/formal10000.yaml": "377cd610f4c7f16a5ab46041302574c6bb8024bcf61c1932da34a6811c5e1c28",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/formal10000-control.json": "1727cd2c22f25a9f6553b205d923601f77a362550ecc5af674adcca305b837e2",
+    "/home/zzj/competitions/lingbot/tools/finetune-clean-v3-gb10/start_detached.py": "48d050728d2b3b7f8d987fb9c9a05d3d31123172288f5bdc2a3285a85a7e7c6a"
+  },
+  "model_or_dataset_copies": false
+}

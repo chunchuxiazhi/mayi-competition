@@ -1,0 +1,37 @@
+{
+  "confirmed": true,
+  "unix_time": 1792144873.087685,
+  "pid": 96865,
+  "launch_attempt": "1792144618626622249",
+  "source_step": 1000,
+  "stop_at_step": 2000,
+  "completed_new_updates": 6,
+  "last_optimizer_step": 1006,
+  "latest_loss": 0.11300934292376041,
+  "stable_seconds_per_update_median": 9.00391195481643,
+  "unified_mem_available_at_last_update_gib": 49.108673095703125,
+  "original_max_steps": 10000,
+  "frozen_configuration_unchanged": true,
+  "full_resume_verification": {
+    "passed": true,
+    "expected_resume_step": 1000,
+    "stop_after_committed_step": 2000,
+    "original_max_steps": 10000,
+    "original_save_steps": 1000,
+    "original_lr_schedule_preserved": true,
+    "automatic_export": false,
+    "restored_global_step": 1000,
+    "adam_state_groups": 959,
+    "scheduler_and_rng_restored": true,
+    "native_dataloader_restore_enabled": true,
+    "next_learning_rates": [
+      1.9872052623234633e-05,
+      1.9872052623234633e-05
+    ],
+    "launch_attempt": "1792144618626622249"
+  },
+  "save_layer_patch_deployed": true,
+  "automatic_hf_export": false,
+  "automatic_evaluation": false,
+  "automatic_restart": false
+}

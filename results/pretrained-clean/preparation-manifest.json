@@ -1,0 +1,153 @@
+{
+  "utc": "2026-10-15T17:27:52.486580+00:00",
+  "state": "prepared_paused",
+  "executed_episodes": 0,
+  "model_repo": "robbyant/lingbot-vla-v2-6b",
+  "model_source_manifest": "/home/zzj/competitions/lingbot/runs/pretrained-zero-shot-20261015/baseline-manifest.json",
+  "model_source": {
+    "repo": "robbyant/lingbot-vla-v2-6b",
+    "revision": "11c703bf6a5c1f45b3b69168482da11fdbba53d7",
+    "files": [
+      {
+        "path": "model-00001-of-00006.safetensors",
+        "bytes": 4987151072,
+        "sha256": "4afb52b06a13df8b738a156ae5c8196d3bfe6b3ca931cecbd701e44cb9674e45",
+        "url": "https://huggingface.co/robbyant/lingbot-vla-v2-6b/resolve/11c703bf6a5c1f45b3b69168482da11fdbba53d7/model-00001-of-00006.safetensors"
+      },
+      {
+        "path": "model-00002-of-00006.safetensors",
+        "bytes": 4985113408,
+        "sha256": "ec131afa26a340db94c0dba8ec00e990be5f3d842ce6532070f0c8e26a067501",
+        "url": "https://huggingface.co/robbyant/lingbot-vla-v2-6b/resolve/11c703bf6a5c1f45b3b69168482da11fdbba53d7/model-00002-of-00006.safetensors"
+      },
+      {
+        "path": "model-00003-of-00006.safetensors",
+        "bytes": 4928593216,
+        "sha256": "7dccb068ca66c11fa514476d64661eeead56e2e80e1c0572c9ea82aa0d9ecf27",
+        "url": "https://huggingface.co/robbyant/lingbot-vla-v2-6b/resolve/11c703bf6a5c1f45b3b69168482da11fdbba53d7/model-00003-of-00006.safetensors"
+      },
+      {
+        "path": "model-00004-of-00006.safetensors",
+        "bytes": 4990740540,
+        "sha256": "1c2cb78066b69ae11255db851df95071e2cd69a3a4bc5020b3fd3b13b17819fb",
+        "url": "https://huggingface.co/robbyant/lingbot-vla-v2-6b/resolve/11c703bf6a5c1f45b3b69168482da11fdbba53d7/model-00004-of-00006.safetensors"
+      },
+      {
+        "path": "model-00005-of-00006.safetensors",
+        "bytes": 4990095864,
+        "sha256": "8fe36bf1f4f617869954bdfa1ad12e16abd8b0235a5fa99c88d571d4cddf4a17",
+        "url": "https://huggingface.co/robbyant/lingbot-vla-v2-6b/resolve/11c703bf6a5c1f45b3b69168482da11fdbba53d7/model-00005-of-00006.safetensors"
+      },
+      {
+        "path": "model-00006-of-00006.safetensors",
+        "bytes": 622195024,
+        "sha256": "3cf613d592dad64b1e2a1b1bb34a6f556a7fa05eacdb9972d73e0ea4882555a0",
+        "url": "https://huggingface.co/robbyant/lingbot-vla-v2-6b/resolve/11c703bf6a5c1f45b3b69168482da11fdbba53d7/model-00006-of-00006.safetensors"
+      }
+    ],
+    "verification": "These resource hashes were verified during the previous download; this preparation does not reread all weight tensors."
+  },
+  "weights_shared_symlink": "/home/zzj/competitions/lingbot/runs/pretrained-clean-quick-50x10-20261016/checkpoints/global_step_0/hf_ckpt",
+  "weight_file_sizes": {
+    "model-00006-of-00006.safetensors": 622195024,
+    "model-00005-of-00006.safetensors": 4990095864,
+    "model-00002-of-00006.safetensors": 4985113408,
+    "model-00004-of-00006.safetensors": 4990740540,
+    "model-00003-of-00006.safetensors": 4928593216,
+    "model-00001-of-00006.safetensors": 4987151072
+  },
+  "lingbot_source_revision": "be969b8fd117fb70550c5d4bf4bc328211b5b1b6",
+  "robotwin_revision": "13c3c47ff4312dd62484bcd51be034af55c062d1",
+  "bundle_sha256": {
+    "README.md": "48e79a0624f079a2bb34af30d61eee37a22d05171f461624a5ebcf9a2e70d393",
+    "config.json": "9b9e5c3ef5825529da498e0d6d84a131280531d7048817deb4093470b4e8b063",
+    "evaluate_task.py": "58d73e2152e1f1626ad90fb4a4b437f58e47066e0fc30a06b671ddc77838bae1",
+    "common.py": "56ac67609eb79bfff949505edc450e100fcfd39702738cc0f4c916a5e79c00f8",
+    "model-source.json": "31d0f5552879a40e52147c57a004c00140554811f45b31453beb620b906ed357",
+    "normalization-plan.json": "00f5b29e63ade3933d81e12d99054a2a01faf995783655a7e307e3f5d34a9376",
+    "serve.py": "992f9e2a99f1975158c9aabc8fc063c2bf542e3d9bd9810636ea7d2bc0ff9219",
+    "static_check.py": "add67ed97ac3dde00b89a088a03290ee9614618de26d5eb09cb7e2df6492fa9b",
+    "driver.py": "a507360065009eeb600af60e68c26077e20f10d0e79654b5d4740b6787935725",
+    "session_policy.py": "b8a56d24f378b5f92e0ea108025f5d8d80dec25acac08732b5d45a189ae3605a",
+    "tasks50.json": "d75d1b0634fe432846d6b63fd0fe223c843f92e2e10f3194893b6f97749b5f5d"
+  },
+  "active_eval_client_sha256": "4212720b01ce9ee7ac0b846996e10ccfb99808e1cda1929e8089429870f4269e",
+  "construction_config_sha256": "cac3db8f31b5605f70dc3cbc9e7d9031ae20320da6d3a75e41fc247befb386d4",
+  "robot_feature_map_sha256": "2c2a26509fc9662a8ada64adaa7fa959627dd6dadc6b48b680c4285da2d8ffd8",
+  "protected_official_files_sha256": {
+    "repos/RoboTwin/task_config/demo_clean.yml": "8ee5d0d07daecf7599b8d89b44776b700c7c60da24cd6317e176e6798d8cb11e",
+    "repos/RoboTwin/task_config/_eval_step_limit.yml": "41c62bd26184977bae45aee555edd0cc21de5cddf560c2595921fc23a1e3b551",
+    "repos/RoboTwin/envs/_base_task.py": "448f7152b65cb9102217cf5463aa821d72810ca56f63d5a797ec7bd43e23e101",
+    "repos/RoboTwin/envs/lift_pot.py": "347e06f3f9f82b1bc35882671bbbdea50b6e3c77fff0f7fb4449b024875402eb",
+    "repos/RoboTwin/envs/hanging_mug.py": "8793ed6be6a80b18a10690767a1910c3c49a7a9e4887ecbdd48a191ca3e03034",
+    "repos/RoboTwin/envs/stack_bowls_three.py": "95848e9c2987e64fef2cfd928128d7a19967ba600c57dc7a6b7f1c9ea5b358e6",
+    "repos/RoboTwin/envs/scan_object.py": "860dfe2cc86d180096089bc87502c7904f7ce2efb64fb32620c1720ca0178c2b",
+    "repos/RoboTwin/envs/handover_block.py": "5439712296d7e143d41f8e78b4ab86cd4fad7fb98f40f5f5abb067a462d17650",
+    "repos/RoboTwin/envs/click_bell.py": "a0b7673e6ef842738999acbccaaa3d01f86d62a147bb8387cb92163218db48ac",
+    "repos/RoboTwin/envs/put_object_cabinet.py": "1de25dd513b4ad29e158440eefb28fb050be95d557c7df1b87578168ff35a7b2",
+    "repos/RoboTwin/envs/open_microwave.py": "ad679b7753fc50487ba8034570e3b94aa7bfc84756048b94580fa3d2516a1bd0",
+    "repos/RoboTwin/envs/stack_blocks_three.py": "b19f1f1c5a3a2c7c7312a4e1b2e577ccd269ebb0c444c287fecbc16ff5b47fb9",
+    "repos/RoboTwin/envs/place_shoe.py": "9e9b29eaca488f41617127070add87f33900c37db0d286a4c4b08e2138cbfc6f",
+    "repos/RoboTwin/envs/adjust_bottle.py": "4f76b35e718a4c5a364dae564d35d68268755818d9062e3ed4ff393d158d0548",
+    "repos/RoboTwin/envs/beat_block_hammer.py": "90269f15f9ce274fb5bcad703c47b0b552ff5a2f0a3ff62d12dbe9a553018014",
+    "repos/RoboTwin/envs/blocks_ranking_rgb.py": "0e632df38d9024e7952c0df7a1f59e3d011b537724e6e6588455dee4d4e6074b",
+    "repos/RoboTwin/envs/blocks_ranking_size.py": "18ddb8ca5465f450ef03db292bcfc22e8e795fcb397f104fc24213a5fa063696",
+    "repos/RoboTwin/envs/click_alarmclock.py": "f69a1ad4f1b483ab0dd82d8bad872e12047ed8d898f1fa4058de9e382ddeef49",
+    "repos/RoboTwin/envs/dump_bin_bigbin.py": "3bd57fe9172d59731db1ccf1bc9605dfe3ef08a0f7224edc720ea4812c214611",
+    "repos/RoboTwin/envs/grab_roller.py": "f0e1864199605acf59cf8982dded05129d873bb3934f200e47abafd918d41c89",
+    "repos/RoboTwin/envs/handover_mic.py": "41ed0f2561cc8f1ae2449ba405decd4f5d7e3b80243b60921598657551891b17",
+    "repos/RoboTwin/envs/move_can_pot.py": "ea838bb2502199610eea6cc058a4ba5fc7abb01c3d8ee0705c44854ddca20186",
+    "repos/RoboTwin/envs/move_pillbottle_pad.py": "a5db7c65db15c2273d1f9e99fab8fc00533a27b740a45161c9402d43b8aa6824",
+    "repos/RoboTwin/envs/move_playingcard_away.py": "edf557d5a29ab724860651e24398e03c400a71e4c82bdbf2cedd3958fbfb6cc2",
+    "repos/RoboTwin/envs/place_cans_plasticbox.py": "5d004110de53d95c7a6fc7721f9136d96b9792a61b97686f7b5489ff7ec48a5f",
+    "repos/RoboTwin/envs/place_container_plate.py": "7a288f27f61e96fe905d5cfb80eb0a4fd8e490c829f2f02149951266012a3aee",
+    "repos/RoboTwin/envs/place_dual_shoes.py": "f35c4a133e1de567b274cbd15f158f585eb05e32aeb05be88839d249d0d7ab9e",
+    "repos/RoboTwin/envs/place_empty_cup.py": "424bbd61f990ebfffb283eb152d17103c2a990edd20f68229203a96a2fd4d581",
+    "repos/RoboTwin/envs/place_fan.py": "7e8be55f1f26ce6128c254b50464edc438a96f272581ccb19827521bc679c237",
+    "repos/RoboTwin/envs/place_mouse_pad.py": "369bf399d0fd6a2687abb7d80b8feb6101c8b5405d33f9de63bbbdaaea7b73d0",
+    "repos/RoboTwin/envs/place_object_basket.py": "e809bd3eabac48cb34589f164291b04b9e2fbf6cc1ebd8c4024c0af8e265ed48",
+    "repos/RoboTwin/envs/place_object_scale.py": "555f04a2a2fa0a41ad8dfccd771579d1cc2686fc65ad6c7ef297c98f4c9ba310",
+    "repos/RoboTwin/envs/place_object_stand.py": "0b4db3a679230ff3732b9bfdfcfaba3437bd5f942043de9921240118849e3fe8",
+    "repos/RoboTwin/envs/place_phone_stand.py": "719cf84ebf997b8d15d0ef9f997d439da62d64067a292b6008433da3536a0216",
+    "repos/RoboTwin/envs/move_stapler_pad.py": "c2b7aa7bf4e896afc392a8cf1ac107b6982088a459c716de005a3412fcdedd6d",
+    "repos/RoboTwin/envs/open_laptop.py": "b826d4f36513dba6df3c17b65f1251bf3dbe2994857ba672f4d06c5900c0cac0",
+    "repos/RoboTwin/envs/pick_diverse_bottles.py": "95ebb80fa96eafd0b7ff5518251c2a7aa42f22ef9b7cfdda4e80eac511f06151",
+    "repos/RoboTwin/envs/pick_dual_bottles.py": "422f23510f3662405dcb5518d1ebe8a0270935849a4b02a2585615ff7bffc4ef",
+    "repos/RoboTwin/envs/place_a2b_left.py": "8603f48febcb5b5b534dc7d973ac4651264ebb9c6fb60f199d4d2adc9e14d7cd",
+    "repos/RoboTwin/envs/place_a2b_right.py": "1225e32207912e15855deff8aa9d4fd2cf425b4c5eeaeaf1eb795daaba4ac6ae",
+    "repos/RoboTwin/envs/place_bread_basket.py": "50c433166301a7f0ac8615d041cc51aa673746b5b7d6fcc0b6f29790c560c053",
+    "repos/RoboTwin/envs/place_bread_skillet.py": "b1fa08d7f23d8bcd933ea7d64904fea17f67dbe58101c66e42c6addbfdbbcd73",
+    "repos/RoboTwin/envs/place_burger_fries.py": "19e8a3428e677839e7e51ae6488752acc940a7d2bc8ee54587c354b422ba6d2c",
+    "repos/RoboTwin/envs/place_can_basket.py": "9f24e5ac98146babe93c68cb46baaf1d7bf21e38dbfc7c0b29e7020ae764e7f0",
+    "repos/RoboTwin/envs/press_stapler.py": "69274cf09aa1d4ba51469621461683b5225b8f98cf7837f821e848196ce51f9c",
+    "repos/RoboTwin/envs/rotate_qrcode.py": "382165e22a2a52a73958ff69c662e57a4d1f0bc8cb7cecf3e9dd1f5ba11defa9",
+    "repos/RoboTwin/envs/shake_bottle_horizontally.py": "def5f373a3a289c946bb32c6d01145672432dbe1d2b71a10992e5280d5f8dead",
+    "repos/RoboTwin/envs/shake_bottle.py": "2e37395b302eb37ecac39b2a676ea119c4bf7a1dcc9e6df75cd683a5cf37b026",
+    "repos/RoboTwin/envs/stack_blocks_two.py": "4e92a679cb5be4ef87a1b842432c930560a2c9b539a4cbcee0161e2b2112f526",
+    "repos/RoboTwin/envs/stack_bowls_two.py": "3e3217c277d84a0838739d55a0061a9acb3315240b5a99c6607d9637ea719637",
+    "repos/RoboTwin/envs/stamp_seal.py": "28a159e27aa76459355fa1f81e962815c62ee6435727039d73664b7eb6731b82",
+    "repos/RoboTwin/envs/turn_switch.py": "035e108a861f94f61369ba2221431e123b7ac231e8de683d8bf38090bf021f9a",
+    "repos/RoboTwin/envs/put_bottles_dustbin.py": "1c03a4b227daa7d285fa366944f1f75773e32dc6a7b73ab693217a13fcd42795"
+  },
+  "existing_runtime_patches": {
+    "docs/setup-baseline-20261015/eval-client-unused-act-import.patch": "ec452787c80ac8acbfe43e93e13463f430fe5e9d72a54b542ae646e5168e4b70",
+    "docs/setup-baseline-20261015/sapien-oidn-upgrade.patch": "a85380242f49678ea96e38560e086d96067c0c839e87c586fed7db1eb63ccae0",
+    "docs/setup-baseline-20261015/configured-attention.patch": "3100beee6624bcce93922439774bda05f9cb812375b9ed802cfbd2a00cb31b4a",
+    "docs/setup-baseline-20261015/rgb-optional-open3d.patch": "2a4335a0573079d8377dbbc3a2178d00914fa2c2f38a26da811bd859340f7a96",
+    "docs/setup-baseline-20261015/sim-native-import-order.patch": "eab3ddb35cadb9f8939fe05c112171161f56ff5c18f441d4a66bbf868c4e8a99",
+    "docs/setup-baseline-20261015/moe-fallback-logger.patch": "e9eefd5ca3eee5396398bafbe84b4aff0f9b02e88cfc733bf0c88a46617927b4"
+  },
+  "environment_differences": {
+    "platform": "ARM64 GB10 unified memory",
+    "torch": "2.9.1+cu130",
+    "sapien": "3.0.3",
+    "oidn": "2.5.1",
+    "precision": "FP32",
+    "attention": "eager",
+    "moe": "fused",
+    "compile": false
+  },
+  "prior_unseen_run_excluded": "runs/pretrained-zero-shot-20261015",
+  "normalization_status": "pending_clean_only_provenance",
+  "expert_rule_status": "pending"
+}

@@ -1,0 +1,8 @@
+{
+  "official_dependency_file": "lingbot-vla-v2/lingbotvla/models/vla/vision_models/MoGe/pyproject.toml",
+  "revision": "3fab839f0be9931dac7c8488eb0e1600c236e183",
+  "url": "https://github.com/EasternJournalist/utils3d",
+  "archive_sha256": "f1f167b1f68809bea391a66dd0d2ad0e14f7382cbddf087b655181c31a285abb",
+  "bytes": 156102,
+  "installed_without_changing_other_dependencies": true
+}

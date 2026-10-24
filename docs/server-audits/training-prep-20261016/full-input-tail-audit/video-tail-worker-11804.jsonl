@@ -1,0 +1,1 @@
+{"episode_index": 2499, "camera": "observation.images.cam_high", "policy": "repeat_last_valid_frame_for_missing_1_or_2_tail_frames", "original_indices": [93, 93], "selected_indices": [92, 92], "missing_frames": 1}

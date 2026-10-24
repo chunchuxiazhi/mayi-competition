@@ -1,0 +1,132 @@
+[INFO][lingbotvla.utils.arguments:114] 10/16/2026 11:53:21 >> gradient_accumulation_steps=4, global_batch_size=4
+[WARNING][lingbotvla.models.config_registry:66] 10/16/2026 11:53:21 >> Ignore import error when loading config from lingbotvla.models.vla.pi0.modeling_pi0. No module named 'lerobot.common'
+{
+  "passed": true,
+  "scope": "Config and processor plus actual normalized training input only; no model weights, forward/backward or training",
+  "samples": [
+    {
+      "index": 0,
+      "tensor_shapes": {
+        "images": [
+          3,
+          256,
+          1536
+        ],
+        "img_masks": [
+          3
+        ],
+        "state": [
+          55
+        ],
+        "lang_tokens": [
+          72
+        ],
+        "lang_masks": [
+          72
+        ],
+        "actions": [
+          50,
+          55
+        ],
+        "action_is_pad": [
+          50
+        ],
+        "joint_mask": [
+          50,
+          55
+        ],
+        "state_joint_mask": [
+          55
+        ],
+        "action_joint_mask": [
+          55
+        ],
+        "image_grid_thw": [
+          3,
+          3
+        ],
+        "pil_images": [
+          3,
+          3,
+          224,
+          224
+        ],
+        "future_pil_images": [
+          3,
+          3,
+          224,
+          224
+        ]
+      },
+      "non_tensor_keys": []
+    },
+    {
+      "index": 548892,
+      "tensor_shapes": {
+        "images": [
+          3,
+          256,
+          1536
+        ],
+        "img_masks": [
+          3
+        ],
+        "state": [
+          55
+        ],
+        "lang_tokens": [
+          72
+        ],
+        "lang_masks": [
+          72
+        ],
+        "actions": [
+          50,
+          55
+        ],
+        "action_is_pad": [
+          50
+        ],
+        "joint_mask": [
+          50,
+          55
+        ],
+        "state_joint_mask": [
+          55
+        ],
+        "action_joint_mask": [
+          55
+        ],
+        "image_grid_thw": [
+          3,
+          3
+        ],
+        "pil_images": [
+          3,
+          3,
+          224,
+          224
+        ],
+        "future_pil_images": [
+          3,
+          3,
+          224,
+          224
+        ]
+      },
+      "non_tensor_keys": []
+    }
+  ]
+}
+Overwriting feature type 'VideoFrame' (VideoFrame -> VideoFrame)
+/home/zzj/competitions/lingbot/envs/vla/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2346: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/zzj/competitions/lingbot/envs/vla/lib/python3.12/site-packages/pydantic/_internal/_generate_schema.py:2346: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/home/zzj/competitions/lingbot/envs/vla/lib/python3.12/site-packages/torch/cuda/__init__.py:283: UserWarning: 
+    Found GPU0 NVIDIA GB10 which is of cuda capability 12.1.
+    Minimum and Maximum cuda capability supported by this version of PyTorch is
+    (8.0) - (12.0)
+    
+  warnings.warn(
+WARNING:root:'torchcodec' is not available in your platform, falling back to 'pyav' as a default decoder

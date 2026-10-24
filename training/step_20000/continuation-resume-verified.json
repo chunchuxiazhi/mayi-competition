@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "source_checkpoint": "/home/zzj/competitions/lingbot/runs/finetune-clean-v3-gb10/clean50-10000-fixed1000/checkpoints/global_step_10000",
+  "restored_global_step": 10000,
+  "target_step": 20000,
+  "adam_state_groups": 959,
+  "rng_restored": true,
+  "native_dataloader_restored": true,
+  "scheduler_migrated": true,
+  "next_learning_rates": [
+    1e-05,
+    1e-05
+  ],
+  "launch_attempt": "1792293508047582678"
+}
